@@ -1,0 +1,33 @@
+{
+  "name": "mlm-landing-pages",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Compact static landing pages built from plain HTML, CSS, and JavaScript.",
+  "engines": {
+    "node": ">=24 <26",
+    "npm": ">=11"
+  },
+  "packageManager": "npm@11.9.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node tools/minify-html.mjs && node tools/build-manifest.mjs && node tools/check-output.mjs",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "security": "node tools/security-review.mjs",
+    "audit": "npm audit --audit-level=moderate",
+    "smoke": "node tools/smoke-test.mjs",
+    "validate": "npm run lint && npm run format && npm run build && npm run security && npm run smoke && npm run audit",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "html-minifier-terser": "^7.2.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "vite": "^7.2.6"
+  }
+}

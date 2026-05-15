@@ -1,0 +1,12 @@
+{
+  "repository": "MACHINES-LIKE-ME/mlm-landing-pages",
+  "publishedUrl": "https://machines-like-me.github.io/mlm-landing-pages/",
+  "pages": [
+    {
+      "slug": "starter",
+      "title": "Compact Landing Page Starter",
+      "description": "A production-ready plain HTML, CSS, and JavaScript starter page for fast public campaigns.",
+      "href": "./pages/starter/"
+    }
+  ]
+}
