@@ -90,7 +90,8 @@ for (const filePath of files) {
     );
   }
 
-    if (extension === '.html' && (!relativePath.includes('/') || relativePath.startsWith('pages/'))) {
+    const isVitePage = !relativePath.includes('/') || relativePath.startsWith('pages/');
+        if (extension === '.html' && isVitePage) {
     const html = await readFile(filePath, 'utf8');
 
     if (!html.includes('http-equiv="Content-Security-Policy"')) {
