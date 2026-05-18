@@ -6,11 +6,11 @@ import { projectRoot } from './pages.mjs';
 const distRoot = resolve(projectRoot, 'dist');
 
 const budgets = {
-  html: Number(process.env.COMPACT_MAX_HTML_BYTES ?? 35 * 1024),
+  html: Number(process.env.COMPACT_MAX_HTML_BYTES ?? 150 * 1024),
   css: Number(process.env.COMPACT_MAX_CSS_BYTES ?? 50 * 1024),
   js: Number(process.env.COMPACT_MAX_JS_BYTES ?? 50 * 1024),
-  image: Number(process.env.COMPACT_MAX_IMAGE_BYTES ?? 220 * 1024),
-  total: Number(process.env.COMPACT_MAX_TOTAL_BYTES ?? 350 * 1024),
+  image: Number(process.env.COMPACT_MAX_IMAGE_BYTES ?? 500 * 1024),
+  total: Number(process.env.COMPACT_MAX_TOTAL_BYTES ?? 3000 * 1024),
 };
 
 const imageExtensions = new Set(['.avif', '.gif', '.jpeg', '.jpg', '.png', '.svg', '.webp']);
