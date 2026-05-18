@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="A compact static landing page starter built with plain HTML, CSS, and JavaScript."
+    />
+    <meta name="theme-color" content="#08111f" />
+    <title>Compact Landing Page Starter</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/styles/site.css" />
+    <script type="module" src="/assets/scripts/main.js"></script>
+  </head>
+  <body data-page="starter">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="shell site-header starter-header" aria-label="Site header">
+      <a class="brand" href="../../" aria-label="Back to MLM Landing Pages home">
+        <span class="brand-mark" aria-hidden="true">MLM</span>
+        <span class="brand-copy">
+          <span>Compact Starter</span>
+          <small>Plain static page</small>
+        </span>
+      </a>
+      <nav class="header-actions" aria-label="Page navigation">
+        <a href="#proof">Proof</a>
+        <a href="#process">Process</a>
+        <a href="../../">All pages</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="shell starter-hero" aria-labelledby="starter-title">
+        <div class="starter-hero-copy">
+          <p class="eyebrow">Fast campaign launch</p>
+          <h1 id="starter-title">A landing page that stays small, readable, and public.</h1>
+          <p>
+            Use this starter when a campaign needs a polished page without a framework, a CMS, a
+            tracker, or a backend. The build pipeline publishes only static files and blocks common
+            security and size regressions.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#process">See the workflow</a>
+            <a class="button button-secondary" href="../../">Back to index</a>
+          </div>
+        </div>
+        <div class="metric-panel" aria-label="Starter page constraints">
+          <div>
+            <strong>0</strong>
+            <span>runtime dependencies</span>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span>static output</span>
+          </div>
+          <div>
+            <strong>CI</strong>
+            <span>audit and smoke checks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell feature-strip" id="proof" aria-labelledby="proof-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Why this structure</p>
+          <h2 id="proof-title">The page is intentionally boring where it should be.</h2>
+        </div>
+        <article>
+          <span aria-hidden="true">01</span>
+          <h3>Local assets only</h3>
+          <p>CSS, JavaScript, favicons, and manifests are committed locally and bundled by Vite.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">02</span>
+          <h3>Compact by default</h3>
+          <p>
+            HTML is minified after build, JS and CSS are minified by Vite, and size budgets fail CI.
+          </p>
+        </article>
+        <article>
+          <span aria-hidden="true">03</span>
+          <h3>Security reviewed</h3>
+          <p>
+            CSP metadata, referrer policy, unsafe DOM patterns, HTTP URLs, and secrets are checked.
+          </p>
+        </article>
+      </section>
+
+      <section class="shell process-panel" id="process" aria-labelledby="process-title">
+        <div>
+          <p class="eyebrow">Agent-safe process</p>
+          <h2 id="process-title">Create, validate, commit, deploy.</h2>
+          <p>
+            The agent instructions in <code>AGENTS.md</code> make the expected workflow explicit for
+            future contributors and coding agents. Every commit should pass the same command that CI
+            runs.
+          </p>
+        </div>
+        <ol class="process-list">
+          <li>
+            <strong>Add a page</strong>
+            <span
+              >Create <code>src/pages/&lt;slug&gt;/index.html</code> and keep assets local.</span
+            >
+          </li>
+          <li>
+            <strong>Register it</strong>
+            <span>Update <code>src/landing-pages.json</code> and the public index.</span>
+          </li>
+          <li>
+            <strong>Validate it</strong>
+            <span>Run <code>npm run validate</code>; the hook runs it before commits.</span>
+          </li>
+          <li>
+            <strong>Publish it</strong>
+            <span>Push to <code>main</code>; GitHub Actions deploys to Pages.</span>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="shell site-footer">
+      <span>Compact Landing Page Starter</span>
+      <span>&copy; <span data-current-year>2026</span></span>
+    </footer>
+  </body>
+</html>
