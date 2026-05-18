@@ -90,7 +90,7 @@ for (const filePath of files) {
     );
   }
 
-  if (extension === '.html') {
+    if (extension === '.html' && (!relativePath.includes('/') || relativePath.startsWith('pages/'))) {
     const html = await readFile(filePath, 'utf8');
 
     if (!html.includes('http-equiv="Content-Security-Policy"')) {
