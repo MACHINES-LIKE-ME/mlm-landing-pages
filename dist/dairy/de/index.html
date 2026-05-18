@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machines Like Me — Gebaut für die Milchindustrie</title>
+<style>
+/* ──────────────────────────────────────────────────────
+   FONT FACES
+────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Suisseintl';
+  src: url('https://cdn.prod.website-files.com/686ce151be97e21fe2785a7e/6937f095ca75121d8087849d_SuisseIntl-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Suisseintl Book';
+  src: url('https://cdn.prod.website-files.com/686ce151be97e21fe2785a7e/6937f095f94b0ecaff03bdb8_SuisseIntl-Book.woff2') format('woff2');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Tobias';
+  src: url('https://cdn.prod.website-files.com/686ce151be97e21fe2785a7e/6937f06bc55b1e39f54a0128_Tobias-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+/* ──────────────────────────────────────────────────────
+   RESET
+────────────────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Suisseintl','Suisseintl Book',Arial,sans-serif;color:#111;background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+.container{max-width:1240px;margin:0 auto;padding:0 60px}
+.badge{display:inline-block;font-family:'Suisseintl',Arial,sans-serif;font-size:10.5px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:#3A5BFF;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#3A5BFF;color:#fff;padding:13px 28px;border-radius:6px;font-family:'Suisseintl',Arial,sans-serif;font-weight:400;font-size:14px;border:none;cursor:pointer;transition:all .2s}
+.btn:hover{background:#2845d9;transform:translateY(-1px)}
+.btn-sm{padding:10px 22px;font-size:13px}
+.btn-outline{background:transparent;border:1.5px solid #3A5BFF;color:#3A5BFF}
+.btn-outline:hover{background:#3A5BFF;color:#fff}
+.btn-white{background:#fff;color:#3A5BFF}
+.btn-white:hover{background:#f0f2ff}
+.btn-ghost-white{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.btn-ghost-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-dark{background:#111;color:#fff}
+.btn-dark:hover{background:#1d1d1d;transform:translateY(-1px)}
+.btn-outline-dark{background:transparent;border:1.5px solid #111;color:#111}
+.btn-outline-dark:hover{background:#111;color:#fff}
+
+/* ──────────────────────────────────────────────────────
+   HEADER
+────────────────────────────────────────────────────── */
+header{
+  background:#fff;padding:22px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:999;
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.logo{display:inline-flex;align-items:center;text-decoration:none}
+.logo img{display:block;height:38px;width:auto;max-width:110px}
+header nav{display:flex;gap:30px;align-items:center}
+header nav a{font-family:'Suisseintl',Arial,sans-serif;font-size:14px;font-weight:400;color:#111;transition:color .15s}
+header nav a:hover{color:#3A5BFF}
+
+/* ──────────────────────────────────────────────────────
+   HERO
+────────────────────────────────────────────────────── */
+.hero{
+  position:relative;min-height:560px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:url('./assets/hero-poster.jpg');
+  background-size:cover;background-position:center 55%;
+}
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:1;pointer-events:none;
+  animation:heroVideoFade 1.4s ease forwards;
+}
+@keyframes heroVideoFade{
+  0%{opacity:0}100%{opacity:1}
+}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,40,.55) 0%,rgba(8,12,40,.65) 60%,rgba(8,12,40,.78) 100%);z-index:2}
+.hero-content{position:relative;z-index:3;padding:0 60px;max-width:920px}
+.hero .pill{
+  display:inline-block;
+  background:rgba(58,91,255,.2);color:rgba(255,255,255,.9);
+  font-family:'Suisseintl',Arial,sans-serif;
+  font-size:12px;font-weight:400;padding:7px 16px;border-radius:20px;
+  margin-bottom:28px;letter-spacing:.3px;
+  border:1px solid rgba(58,91,255,.3);
+}
+.hero h1{
+  font-family:'Tobias',Georgia,serif;
+  font-size:68px;font-weight:400;color:#fff;
+  line-height:1.05;margin-bottom:24px;letter-spacing:-1.5px;
+}
+.hero .sub{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;
+  font-size:18px;color:rgba(255,255,255,.78);
+  line-height:1.6;margin-bottom:38px;max-width:640px;margin-left:auto;margin-right:auto;
+}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ──────────────────────────────────────────────────────
+   KPI BAR — compact lavender chips, Fixed Price glows softly
+────────────────────────────────────────────────────── */
+.sec-logobar{padding:34px 60px 30px;background:#fff;border-bottom:1px solid #eef0f7}
+.logobar-inner{max-width:1120px;margin:0 auto;text-align:center}
+.logobar-label{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#8b90a3;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+
+.kpibar-row{
+  display:grid;grid-template-columns:repeat(6,1fr);
+  align-items:stretch;gap:10px;
+  max-width:1120px;margin:0 auto;
+}
+.kpi-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:18px 10px;gap:6px;
+  background:linear-gradient(180deg,#f3f5ff 0%,#ebeeff 100%);
+  border:1px solid #e2e6ff;border-radius:10px;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.kpi-item:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(58,91,255,.08)}
+.kpi-num{
+  font-family:'Tobias',Georgia,serif;font-size:20px;font-weight:400;
+  color:#111;letter-spacing:-.3px;line-height:1;
+}
+.kpi-label{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:9.5px;color:#666;
+  text-transform:uppercase;letter-spacing:1.4px;
+}
+
+/* Fixed Price — same card, just a luminous resplandor */
+.kpi-item.kpi-featured{
+  position:relative;overflow:visible;
+  border-color:#c9d2ff;
+  box-shadow:0 0 0 1px rgba(123,155,255,.28),
+             0 8px 20px rgba(58,91,255,.14),
+             0 0 36px rgba(123,155,255,.18);
+  animation:kpiGlow 4s ease-in-out infinite;
+}
+.kpi-item.kpi-featured::before{
+  content:'';position:absolute;inset:-1px;border-radius:11px;
+  background:linear-gradient(135deg,rgba(123,155,255,.32),rgba(58,91,255,.1) 40%,transparent 70%);
+  z-index:-1;filter:blur(8px);opacity:.9;
+  animation:kpiGlow 4s ease-in-out infinite reverse;
+}
+.kpi-item.kpi-featured .kpi-num{
+  color:#111;
+  text-shadow:0 0 14px rgba(123,155,255,.32);
+}
+.kpi-item.kpi-featured .kpi-label{color:#555}
+@keyframes kpiGlow{
+  0%,100%{box-shadow:0 0 0 1px rgba(123,155,255,.28),0 8px 20px rgba(58,91,255,.14),0 0 36px rgba(123,155,255,.18)}
+  50%    {box-shadow:0 0 0 1px rgba(123,155,255,.45),0 12px 28px rgba(58,91,255,.22),0 0 56px rgba(123,155,255,.34)}
+}
+
+@media(max-width:1100px){
+  .kpibar-row{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+  .kpibar-row{grid-template-columns:repeat(2,1fr);gap:8px}
+  .kpi-num{font-size:17px}
+}
+@media(max-width:900px){.sec-logobar{padding:48px 28px}}
+
+/* ──────────────────────────────────────────────────────
+   PROBLEM — Apple-style scroll reveal (subtle, secondary)
+────────────────────────────────────────────────────── */
+.sec-problem{padding:64px 60px 110px;background:#fff;position:relative;overflow:hidden}
+.prob-header{max-width:1140px;margin:0 auto 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
+.prob-header h2{font-family:'Tobias',Georgia,serif;font-size:44px;font-weight:400;color:#111;line-height:1.06;letter-spacing:-1px}
+.prob-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:15px;color:#555;line-height:1.65}
+
+.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1140px;margin:0 auto}
+.prob-card{
+  position:relative;
+  background:#fafbfd;border:1px solid #eceef5;border-radius:14px;
+  padding:28px 24px 26px;overflow:hidden;
+  transition:transform .6s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .3s;
+  opacity:0;transform:translateY(32px);
+}
+.prob-card.in-view{opacity:1;transform:translateY(0)}
+.prob-card:nth-child(1){transition-delay:0s}
+.prob-card:nth-child(2){transition-delay:.08s}
+.prob-card:nth-child(3){transition-delay:.16s}
+.prob-card:nth-child(4){transition-delay:.24s}
+.prob-card:hover{border-color:#d7dcf5;box-shadow:0 12px 32px rgba(12,20,60,.06);transform:translateY(-4px) scale(1.01)}
+.prob-card .p-num{
+  font-family:'Tobias',Georgia,serif;font-size:34px;color:#3A5BFF;line-height:1;letter-spacing:-0.5px;
+  display:inline-block;margin-bottom:14px;
+}
+.prob-card h4{font-family:'Suisseintl',Arial,sans-serif;font-size:14.5px;font-weight:400;color:#111;line-height:1.4;margin-bottom:10px}
+.prob-card p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:12.5px;color:#6a6f7f;line-height:1.6}
+.prob-card::after{
+  content:'';position:absolute;inset:auto 0 0 0;height:2px;
+  background:linear-gradient(90deg,transparent,#3A5BFF,transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.4,0,.2,1);
+}
+.prob-card:hover::after{transform:scaleX(1)}
+
+/* ──────────────────────────────────────────────────────
+   MLM APPROACH — THE HEART — 12 departments, with dairy backdrop
+────────────────────────────────────────────────────── */
+.sec-approach{
+  padding:130px 60px 120px;
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(238,241,255,.62) 0%,rgba(245,246,255,.66) 40%,rgba(233,237,255,.76) 100%),
+    url('./assets/mlm-approach-bg.jpg') center/cover no-repeat;
+  background-blend-mode:normal;
+}
+.sec-approach::before{
+  /* Top soft glow — lifts the header copy off the photo */
+  content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:90%;height:60%;
+  background:radial-gradient(ellipse,rgba(255,255,255,.82) 0%,rgba(255,255,255,.35) 45%,transparent 75%);
+  pointer-events:none;
+}
+.sec-approach::after{
+  /* Light wash — keeps photo color peeking but restores text legibility */
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(238,241,255,.32) 0%,rgba(255,255,255,.18) 40%,rgba(233,237,255,.42) 100%);
+  pointer-events:none;
+}
+.app-header{max-width:1140px;margin:0 auto 56px;text-align:center;position:relative;z-index:2}
+.app-header h2{font-family:'Tobias',Georgia,serif;font-size:58px;font-weight:400;color:#111;line-height:1.02;letter-spacing:-1.8px;margin-bottom:18px}
+.app-header h2 em{font-style:italic;color:#3A5BFF}
+.app-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:17px;color:#555;line-height:1.6;max-width:680px;margin:0 auto}
+
+.app-wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+
+/* DETAIL PANEL — shown BELOW buttons, morphs on swap */
+.app-panel{
+  background:rgba(255,255,255,.82);backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.9);border-radius:22px;
+  padding:48px 54px;min-height:280px;
+  display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center;
+  box-shadow:0 20px 60px rgba(58,91,255,.12), 0 6px 18px rgba(12,20,60,.04);
+  position:relative;overflow:hidden;
+  margin-top:24px;
+  transition:box-shadow .4s, transform .4s;
+  animation:panelMorph .55s cubic-bezier(.16,1,.3,1);
+}
+@keyframes panelMorph{
+  0%{opacity:0;transform:translateY(-8px) scale(.985)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+/* Arrow pointing from tiles down to panel */
+.app-panel::after{
+  content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:18px;height:18px;
+  background:rgba(255,255,255,.82);
+  border-left:1px solid rgba(255,255,255,.9);
+  border-top:1px solid rgba(255,255,255,.9);
+  backdrop-filter:blur(24px);
+  transition:left .4s cubic-bezier(.4,0,.2,1);
+}
+.app-panel::before{
+  content:'';position:absolute;top:-20%;right:-10%;width:320px;height:320px;
+  background:radial-gradient(circle,rgba(123,155,255,.22) 0%,transparent 70%);
+  pointer-events:none;
+}
+.app-panel-left{position:relative;z-index:1}
+.app-panel-left .ap-tag{
+  display:inline-block;font-family:'Suisseintl',Arial,sans-serif;
+  font-size:10.5px;color:#3A5BFF;text-transform:uppercase;letter-spacing:2.2px;
+  border:1px solid rgba(58,91,255,.25);padding:5px 13px;border-radius:20px;
+  margin-bottom:16px;
+  background:rgba(255,255,255,.5);
+}
+.app-panel-left h3{font-family:'Tobias',Georgia,serif;font-size:34px;font-weight:400;color:#111;line-height:1.12;margin-bottom:16px;letter-spacing:-0.6px}
+.app-panel-left p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:15px;color:#555;line-height:1.7;margin-bottom:24px}
+.ap-automation{display:inline-flex;align-items:baseline;gap:12px;background:rgba(58,91,255,.07);padding:10px 18px;border-radius:12px;border:1px solid rgba(58,91,255,.15)}
+.ap-automation .ap-num{font-family:'Tobias',Georgia,serif;font-size:38px;color:#3A5BFF;line-height:1;letter-spacing:-1px}
+.ap-automation .ap-lab{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#3A5BFF;text-transform:uppercase;letter-spacing:1.5px}
+
+.app-panel-right{position:relative;z-index:1}
+.ap-list{list-style:none;padding:0;margin:0}
+.ap-list li{
+  display:flex;align-items:flex-start;gap:14px;padding:13px 0;
+  border-bottom:1px solid rgba(0,0,0,.055);
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#333;line-height:1.55;
+  opacity:0;transform:translateX(14px);
+  animation:apFadeIn .55s cubic-bezier(.16,1,.3,1) forwards;
+}
+.ap-list li:last-child{border-bottom:none}
+.ap-list li:nth-child(1){animation-delay:.05s}
+.ap-list li:nth-child(2){animation-delay:.12s}
+.ap-list li:nth-child(3){animation-delay:.19s}
+.ap-list li:nth-child(4){animation-delay:.26s}
+.ap-list li:nth-child(5){animation-delay:.33s}
+@keyframes apFadeIn{to{opacity:1;transform:translateX(0)}}
+.ap-list li::before{
+  content:'';width:7px;height:7px;border-radius:50%;background:#3A5BFF;
+  margin-top:7px;flex-shrink:0;box-shadow:0 0 0 4px rgba(58,91,255,.12);
+}
+
+/* 12 DEPARTMENT TILES — 6×2 grid */
+.app-tabs{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:12px;
+}
+.app-tab{
+  background:rgba(255,255,255,.6);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.95);border-radius:16px;
+  padding:18px 10px 16px;text-align:center;cursor:pointer;
+  transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .3s, background .4s;
+  position:relative;overflow:hidden;
+}
+.app-tab::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,#3A5BFF 0%,#6b8aff 100%);
+  opacity:0;transition:opacity .45s;z-index:0;
+}
+.app-tab::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+  transition:left .7s cubic-bezier(.4,0,.2,1);z-index:2;pointer-events:none;
+}
+.app-tab:hover::after{left:100%}
+.app-tab:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 14px 32px rgba(58,91,255,.2)}
+.app-tab.active{border-color:transparent;box-shadow:0 14px 36px rgba(58,91,255,.32)}
+.app-tab.active::before{opacity:1}
+.app-tab > *{position:relative;z-index:1;transition:color .35s}
+.app-tab.active .app-tab-name{color:#fff}
+.app-tab.active .app-icon{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)}
+.app-tab.active .app-icon svg{stroke:#fff}
+
+.app-icon{
+  width:40px;height:40px;border-radius:11px;
+  background:rgba(58,91,255,.08);border:1px solid rgba(58,91,255,.12);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 10px;
+  transition:all .35s;
+}
+.app-icon svg{width:20px;height:20px;stroke:#3A5BFF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.app-tab-name{font-family:'Suisseintl',Arial,sans-serif;font-size:11.5px;font-weight:400;color:#111;line-height:1.28}
+
+/* MLM Approach CTA — two buttons */
+.app-cta{text-align:center;margin-top:52px;position:relative;z-index:2}
+.app-cta h3{font-family:'Tobias',Georgia,serif;font-size:30px;font-weight:400;color:#111;margin-bottom:22px;letter-spacing:-0.5px;line-height:1.2}
+.app-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Shared animations (used by other dark surfaces) */
+@keyframes gradientShift{to{background-position:-200% 0}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* Shared utility */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ──────────────────────────────────────────────────────
+   CASE STUDIES — Apple-style "Stage" pattern (one at a time)
+────────────────────────────────────────────────────── */
+.sec-cases{padding:110px 60px 90px;background:#fafbfd;position:relative;overflow:hidden}
+.cases-inner{max-width:1180px;margin:0 auto}
+/* Split header: title left, description right (justified apart) */
+.cases-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px}
+.cases-head h2{font-family:'Tobias',Georgia,serif;font-size:46px;font-weight:400;color:#111;line-height:1.05;letter-spacing:-1.3px;margin:0}
+.cases-head p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:15px;color:#555;line-height:1.65;margin:0;text-align:right;max-width:440px;justify-self:end}
+.cases-stage{display:grid;grid-template-columns:0.95fr 1fr;gap:56px;align-items:center}
+
+/* Photo-led case visual — real dairy imagery, rotates with case */
+.case-visual{
+  position:relative;border-radius:16px;overflow:hidden;
+  aspect-ratio:4/3;max-width:480px;width:100%;justify-self:end;
+  background:#0f1a3d center/cover no-repeat;
+  box-shadow:0 24px 60px rgba(12,20,60,.22), 0 4px 12px rgba(12,20,60,.08);
+  border:1px solid rgba(255,255,255,.06);
+  transition:opacity .45s ease, background-image .45s ease;
+}
+/* Gradient overlay to keep text legible over any photo */
+.case-visual::before{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(10,16,40,.25) 0%,rgba(10,16,40,.15) 35%,rgba(10,16,40,.78) 100%);
+  pointer-events:none;
+}
+/* Chrome bar */
+.case-visual::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:30px;
+  background:linear-gradient(180deg,rgba(10,16,40,.55),rgba(10,16,40,.35));
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+/* Traffic-light dots — all white by default, active turns green */
+.case-visual .cv-dots{position:absolute;top:11px;left:14px;display:flex;gap:7px;z-index:3}
+.case-visual .cv-dots span{
+  width:9px;height:9px;border-radius:50%;
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.2);
+  transition:background .35s ease, box-shadow .35s ease, transform .35s ease;
+}
+.case-visual .cv-dots span.is-live{
+  background:#4ade80;border-color:#4ade80;
+  box-shadow:0 0 0 3px rgba(74,222,128,.25), 0 0 10px rgba(74,222,128,.55);
+  transform:scale(1.05);
+}
+.case-visual .cv-tag{position:absolute;top:48px;left:26px;font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,.82);letter-spacing:2px;text-transform:uppercase;z-index:2;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.case-visual .cv-title{position:absolute;bottom:26px;left:26px;right:26px;font-family:'Tobias',Georgia,serif;font-size:22px;color:#fff;line-height:1.18;letter-spacing:-.4px;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.case-visual .cv-foot{position:absolute;bottom:74px;left:26px;right:26px;display:flex;gap:10px;align-items:center;z-index:2}
+.case-visual .cv-foot .cv-line{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.18);overflow:hidden}
+.case-visual .cv-foot .cv-line i{display:block;height:100%;background:linear-gradient(90deg,#6b8aff,#3A5BFF);width:72%;border-radius:2px;transition:width .55s cubic-bezier(.16,1,.3,1)}
+.case-visual .cv-foot .cv-pct{font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,.85);letter-spacing:1.2px;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+.case-content{opacity:1;transition:opacity .3s ease}
+.case-content .c-eyebrow{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#3A5BFF;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.case-content .c-big{font-family:'Tobias',Georgia,serif;font-size:76px;font-weight:400;color:#111;line-height:.95;letter-spacing:-2.4px;margin-bottom:8px}
+.case-content .c-big-sub{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#555;margin-bottom:30px;line-height:1.55}
+.case-kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:28px;padding:20px 0;border-top:1px solid #e5e7f0;border-bottom:1px solid #e5e7f0}
+.case-kpi .ck-n{display:block;font-family:'Tobias',Georgia,serif;font-size:22px;color:#3A5BFF;letter-spacing:-.4px;margin-bottom:4px}
+.case-kpi .ck-l{font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1.3px}
+.case-quote{font-family:'Tobias',Georgia,serif;font-size:20px;font-weight:400;color:#1a1f3a;line-height:1.45;font-style:italic;letter-spacing:-.2px;margin-bottom:12px}
+.case-byline{font-family:'Suisseintl',Arial,sans-serif;font-size:12px;color:#666;letter-spacing:.3px}
+.cases-nav{display:flex;align-items:center;justify-content:center;gap:36px;margin-top:44px;padding-top:28px;border-top:1px solid #e5e7f0}
+.case-dot{cursor:pointer;background:none;border:none;padding:0;display:flex;align-items:center;gap:14px;opacity:.4;transition:opacity .25s}
+.case-dot:hover{opacity:.7}
+.case-dot.active{opacity:1}
+.case-dot .cd-n{font-family:'Tobias',Georgia,serif;font-size:18px;color:#111;letter-spacing:-.3px}
+.case-dot .cd-l{font-family:'Suisseintl',Arial,sans-serif;font-size:12px;color:#444;letter-spacing:.2px}
+.case-dot.active .cd-n,.case-dot.active .cd-l{color:#3A5BFF}
+.case-is-leaving .case-visual,.case-is-leaving .case-content{opacity:0}
+@media(max-width:960px){
+  .cases-head{grid-template-columns:1fr;gap:14px;margin-bottom:32px}
+  .cases-head h2{font-size:32px}
+  .cases-head p{text-align:left;justify-self:start;max-width:none}
+  .cases-stage{grid-template-columns:1fr;gap:28px}
+  .case-visual{justify-self:center;max-width:380px}
+  .case-content .c-big{font-size:60px}
+  .cases-nav{gap:22px;flex-wrap:wrap;justify-content:center}
+}
+
+/* TESTIMONIAL section removed — replaced by case studies */
+
+/* ──────────────────────────────────────────────────────
+   BENEFITS — DARK "SYSTEM STATUS" SCREEN
+────────────────────────────────────────────────────── */
+.sec-benefits{
+  padding:120px 60px;
+  background:linear-gradient(180deg,#050815 0%,#0b1030 50%,#050815 100%);
+  position:relative;overflow:hidden;
+}
+.sec-benefits::before{
+  content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:70%;height:60%;
+  background:radial-gradient(ellipse,rgba(58,91,255,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.sec-benefits::after{
+  content:'';position:absolute;bottom:-10%;right:-10%;width:40%;height:50%;
+  background:radial-gradient(circle,rgba(74,222,128,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.ben-header{max-width:1140px;margin:0 auto 54px;text-align:center;position:relative;z-index:2}
+.ben-header .badge{color:#8aa5ff}
+.ben-header h2{font-family:'Tobias',Georgia,serif;font-size:52px;font-weight:400;color:#fff;line-height:1.04;letter-spacing:-1.4px;margin-bottom:16px}
+.ben-header h2 em{font-style:italic;color:#6b8aff}
+.ben-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.6);line-height:1.65;max-width:640px;margin:0 auto}
+
+/* SCREEN CONTAINER */
+.ben-screen{
+  max-width:900px;margin:0 auto;position:relative;z-index:2;
+  background:linear-gradient(160deg,#0b1030 0%,#141a44 50%,#0b1030 100%);
+  border-radius:22px;
+  border:1px solid rgba(123,155,255,.15);
+  box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04) inset;
+  overflow:hidden;
+  padding:0;
+}
+.ben-screen::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1.5px;
+  background:linear-gradient(90deg,transparent 0%,#3A5BFF 30%,#6b8aff 50%,#3A5BFF 70%,transparent 100%);
+  background-size:200% 100%;animation:gradientShift 5s linear infinite;
+  z-index:3;
+}
+/* Screen chrome / titlebar */
+.ben-screen-bar{
+  display:flex;align-items:center;gap:8px;padding:14px 18px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(0,0,0,.18);
+}
+.ben-screen-bar .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.ben-screen-bar .d1{background:#ff5f56}
+.ben-screen-bar .d2{background:#ffbd2e}
+.ben-screen-bar .d3{background:#27c93f;box-shadow:0 0 8px rgba(39,201,63,.6)}
+.ben-screen-bar .bar-title{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,.5);
+  margin-left:14px;letter-spacing:1.5px;text-transform:uppercase;
+}
+.ben-screen-bar .bar-status{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:#4ade80;
+  background:rgba(74,222,128,.12);padding:4px 10px;border-radius:12px;
+  letter-spacing:1.2px;border:1px solid rgba(74,222,128,.2);
+}
+.ben-screen-bar .bar-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:blink 1.8s ease-in-out infinite}
+
+/* Screen scan-line progress at top */
+.ben-screen-progress{
+  height:2px;background:rgba(255,255,255,.04);position:relative;overflow:hidden;
+}
+.ben-screen-progress::after{
+  content:'';position:absolute;top:0;left:0;bottom:0;
+  background:linear-gradient(90deg,transparent,#4ade80,transparent);
+  width:40%;animation:scanline 2.4s ease-in-out infinite;
+}
+@keyframes scanline{
+  0%{left:-40%}100%{left:100%}
+}
+
+.ben-screen-body{padding:30px 36px 36px}
+
+/* Task list */
+.ben-list{display:flex;flex-direction:column;gap:2px}
+.ben-row{
+  display:grid;
+  grid-template-columns:32px 1fr auto auto;
+  gap:18px;align-items:center;
+  padding:16px 4px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  opacity:.45;
+  transition:opacity .7s;
+}
+.ben-row:last-child{border-bottom:none}
+.ben-row.on{opacity:1}
+
+/* Checkbox circle indicator */
+.ben-check{
+  width:22px;height:22px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.03);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .65s cubic-bezier(.16,1,.3,1);
+  position:relative;
+}
+.ben-check svg{width:12px;height:12px;stroke:#4ade80;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .55s ease .25s}
+.ben-row.on .ben-check{
+  background:rgba(74,222,128,.15);
+  border-color:#4ade80;
+  box-shadow:0 0 18px rgba(74,222,128,.55), inset 0 0 8px rgba(74,222,128,.25);
+}
+.ben-row.on .ben-check svg{stroke-dashoffset:0}
+.ben-row.on .ben-check::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid rgba(74,222,128,.4);
+  animation:pulseCheck 1.6s ease-out;
+}
+@keyframes pulseCheck{
+  0%{transform:scale(1);opacity:.7}
+  100%{transform:scale(1.6);opacity:0}
+}
+
+/* Label + desc */
+.ben-label{display:flex;flex-direction:column;gap:3px}
+.ben-label .bl-title{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:14.5px;color:#fff;font-weight:400;
+  letter-spacing:.1px;
+}
+.ben-label .bl-desc{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:12px;
+  color:rgba(255,255,255,.5);line-height:1.5;
+}
+
+/* Value column */
+.ben-val{
+  font-family:'Tobias',Georgia,serif;font-size:22px;color:#fff;line-height:1;
+  letter-spacing:-0.4px;text-align:right;min-width:60px;
+  transition:color .65s, text-shadow .65s;
+}
+.ben-row.on .ben-val{color:#6b8aff;text-shadow:0 0 14px rgba(107,138,255,.5)}
+
+/* Status pill */
+.ben-stat{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:9.5px;letter-spacing:1.5px;
+  text-transform:uppercase;padding:5px 10px;border-radius:10px;
+  background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);
+  border:1px solid rgba(255,255,255,.08);
+  transition:all .65s;min-width:78px;text-align:center;
+}
+.ben-row.on .ben-stat{
+  background:rgba(74,222,128,.1);
+  color:#4ade80;
+  border-color:rgba(74,222,128,.3);
+}
+
+/* Footer summary */
+.ben-footer{
+  margin-top:22px;padding:16px 4px 4px;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11px;
+  color:rgba(255,255,255,.5);letter-spacing:1.2px;text-transform:uppercase;
+}
+.ben-footer .ben-foot-right{display:inline-flex;align-items:center;gap:8px;color:#4ade80}
+.ben-footer .ben-foot-right::before{content:'';width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80}
+
+/* ──────────────────────────────────────────────────────
+   FAQ — chat with the MLM agent
+────────────────────────────────────────────────────── */
+.sec-faq{
+  padding:90px 60px 48px;
+  background:
+    radial-gradient(80% 60% at 50% 0%,rgba(58,91,255,.18) 0%,transparent 70%),
+    linear-gradient(180deg,#0c1230 0%,#141a44 100%);
+  position:relative;
+}
+.sec-faq .badge{background:rgba(123,155,255,.18);color:#cfd9ff}
+.faq-header{max-width:780px;margin:0 auto 28px;text-align:center}
+.faq-header h2{font-family:'Tobias',Georgia,serif;font-size:36px;font-weight:400;color:#fff;letter-spacing:-.9px;margin-bottom:16px;line-height:1.1}
+.faq-header h2 em{font-style:italic;color:#8aa4ff}
+.faq-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:rgba(255,255,255,.65);line-height:1.55}
+
+/* Click-to-explore toggle that opens the full FAQ list */
+.faq-toggle{
+  display:inline-flex;align-items:center;gap:10px;
+  cursor:pointer;background:none;border:none;padding:10px 4px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13.5px;color:#8aa4ff;
+  letter-spacing:.2px;
+  transition:color .2s;
+}
+.faq-toggle:hover{color:#cfd9ff}
+.faq-toggle .ft-txt{border-bottom:1px dashed rgba(138,164,255,.55);padding-bottom:2px}
+.faq-toggle .ft-arrow{
+  display:inline-flex;width:22px;height:22px;border-radius:50%;
+  background:rgba(138,164,255,.18);align-items:center;justify-content:center;
+  font-size:12px;transition:transform .3s ease, background .2s;
+}
+.faq-toggle[aria-expanded="true"] .ft-arrow{transform:rotate(180deg);background:rgba(138,164,255,.32)}
+.faq-toggle[aria-expanded="true"] .ft-txt{border-bottom-color:transparent}
+
+/* Collapsed / expanded list states */
+.faq-list[hidden]{display:none}
+.faq-list{animation:faqReveal .45s cubic-bezier(.16,1,.3,1)}
+@keyframes faqReveal{
+  0%{opacity:0;transform:translateY(-6px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+
+/* Compact accordion — click to expand/collapse, multiple items can stay open */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.fq-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s,box-shadow .25s,background .25s}
+.fq-item:hover{border-color:rgba(138,164,255,.32);background:rgba(255,255,255,.08)}
+.fq-item.open{border-color:rgba(138,164,255,.5);background:rgba(255,255,255,.09);box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.fq-btn{
+  width:100%;cursor:pointer;background:transparent;border:none;
+  padding:14px 18px;display:flex;align-items:center;gap:12px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:14px;color:#e6ebff;text-align:left;
+  transition:color .2s;
+}
+.fq-btn:hover,
+.fq-item:hover .fq-btn,
+.fq-item.open .fq-btn{color:#fff}
+.fq-btn .fq-tw{
+  flex-shrink:0;width:22px;height:22px;border-radius:50%;
+  background:rgba(138,164,255,.18);color:#8aa4ff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;line-height:1;transition:transform .25s ease, background .2s;
+}
+.fq-item.open .fq-btn .fq-tw{transform:rotate(45deg);background:#3A5BFF;color:#fff}
+.fq-btn .fq-q{flex:1}
+.fq-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1);
+}
+.fq-item.open .fq-body{max-height:360px}
+
+.fq-body-inner{
+  padding:0 18px 16px 52px;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.75);
+}
+
+/* Footer hint (legacy — kept for safety, not rendered) */
+.fq-foot{
+  margin-top:24px;text-align:center;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:12px;color:#888;
+}
+.fq-foot a{color:#3A5BFF}
+
+/* Book-a-demo CTA — refined, compact, professional */
+.sec-book-demo{padding:40px 60px 90px;background:linear-gradient(180deg,#141a44 0%,#2a2f66 18%,#f7f8ff 100%)}
+.fq-cta{
+  position:relative;
+  max-width:640px;margin:0 auto;
+  display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;
+  padding:22px 26px;border-radius:16px;
+  background:#ffffff;
+  border:1px solid rgba(20,26,68,.06);
+  box-shadow:0 18px 44px rgba(12,20,60,.08), 0 2px 6px rgba(12,20,60,.04);
+}
+.fq-cta-copy{position:relative}
+.fq-cta-copy .badge{
+  display:inline-block;
+  background:rgba(58,91,255,.08);color:#3A5BFF;
+  padding:3px 10px;border-radius:999px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:1px;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.fq-cta-copy h3{
+  font-family:'Tobias',Georgia,serif;font-weight:400;font-size:22px;
+  color:#0c1230;margin:0 0 6px;letter-spacing:-.4px;line-height:1.2;
+}
+.fq-cta-copy h3 em{font-style:italic;color:#3A5BFF}
+.fq-cta-copy p{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:13px;
+  color:#55607a;line-height:1.5;margin:0 0 12px;max-width:440px;
+}
+.fq-cta-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.fq-cta-actions .btn{
+  display:inline-block;
+  padding:10px 20px;font-size:13px;border-radius:999px;
+}
+.fq-cta-person{display:flex;flex-direction:column;line-height:1.25}
+.fq-cta-person strong{font-family:'Suisseintl',Arial,sans-serif;font-size:12.5px;font-weight:500;color:#111}
+.fq-cta-person span{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11.5px;color:#7a8299}
+
+/* Portrait — small, round, clean */
+.fq-cta-portrait{
+  position:relative;
+  width:80px;height:80px;flex-shrink:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,#eef1ff,#e4e9ff);
+}
+.fq-cta-portrait img{
+  display:block;
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  border-radius:50%;
+  box-shadow:0 8px 20px rgba(12,20,60,.14), inset 0 0 0 2px #fff;
+}
+.fq-cta-portrait .portrait-halo,
+.fq-cta-portrait .portrait-badge{display:none}
+.fq-cta-portrait .portrait-fallback{
+  display:none;position:absolute;inset:0;
+  align-items:center;justify-content:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,#3A5BFF,#6b8aff);
+  color:#fff;font-family:'Tobias',Georgia,serif;font-size:34px;letter-spacing:-1px;
+  box-shadow:0 8px 20px rgba(12,20,60,.14);
+}
+@media(max-width:720px){
+  .fq-cta{grid-template-columns:1fr;gap:16px;padding:24px 22px;text-align:center}
+  .fq-cta-portrait{margin:0 auto}
+  .fq-cta-actions{justify-content:center}
+  .fq-cta-copy p{margin-left:auto;margin-right:auto}
+}
+
+/* ──────────────────────────────────────────────────────
+   REGISTER — gated asset modal
+────────────────────────────────────────────────────── */
+.reg-modal{
+  position:fixed;inset:0;z-index:10000;
+  display:none;align-items:center;justify-content:center;
+  padding:24px;
+  background:rgba(10,14,40,.55);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  opacity:0;
+  transition:opacity .3s cubic-bezier(.16,1,.3,1);
+}
+.reg-modal.show{display:flex;opacity:1}
+.reg-modal.show .register-wrap{animation:regModalIn .45s cubic-bezier(.16,1,.3,1)}
+@keyframes regModalIn{
+  0%{opacity:0;transform:translateY(16px) scale(.97)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+body.reg-open{overflow:hidden}
+.register-wrap{
+  position:relative;
+  width:100%;max-width:640px;max-height:calc(100vh - 48px);overflow-y:auto;
+  background:#fff;border:1px solid #e9ecf5;border-radius:22px;
+  padding:44px 46px;
+  box-shadow:0 40px 100px rgba(12,20,60,.35), 0 8px 24px rgba(12,20,60,.15);
+  transition:max-width .35s cubic-bezier(.16,1,.3,1), max-height .35s cubic-bezier(.16,1,.3,1), padding .3s ease, border-radius .3s ease;
+}
+/* Expanded: takes full available space */
+.reg-modal.is-expanded{align-items:stretch;justify-content:stretch;padding:10px}
+.reg-modal.is-expanded .register-wrap{max-width:100%;max-height:100%;min-height:calc(100vh - 20px);border-radius:14px;padding:48px 60px}
+/* Compact: collapse to a small bottom-right chip; content hidden */
+.reg-modal.is-compact{align-items:flex-end;justify-content:flex-end;padding:18px}
+.reg-modal.is-compact .register-wrap{max-width:320px;min-height:0;max-height:62px;padding:14px 54px 14px 20px;border-radius:14px;overflow:hidden;cursor:pointer}
+.reg-modal.is-compact .register-wrap > *:not(.reg-actions):not(.reg-asset){display:none}
+.reg-modal.is-compact .reg-asset{margin:0;font-size:11px}
+.reg-actions{
+  position:absolute;top:12px;right:12px;display:flex;gap:6px;align-items:center;z-index:2;
+}
+.reg-close,.reg-resize{
+  width:34px;height:34px;border-radius:50%;
+  background:#f7f8ff;border:1px solid #e9ecf5;
+  display:flex;align-items:center;justify-content:center;
+  color:#888;font-size:16px;line-height:1;cursor:pointer;
+  transition:all .2s;
+  font-family:'Suisseintl',Arial,sans-serif;
+}
+.reg-close{font-size:18px}
+.reg-resize svg{width:14px;height:14px;pointer-events:none}
+.reg-close:hover,.reg-resize:hover{background:#eaefff;color:#3A5BFF;border-color:#3A5BFF}
+.reg-close:hover{transform:rotate(90deg)}
+.reg-asset{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:999px;
+  background:#eaefff;border:1px solid #c7d3ff;color:#3A5BFF;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11.5px;letter-spacing:.5px;
+  margin-bottom:18px;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+}
+.reg-asset::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:#3A5BFF;
+  box-shadow:0 0 8px rgba(58,91,255,.6);
+}
+.reg-asset .reg-asset-name{font-weight:400;color:#3A5BFF}
+.register-wrap h2{
+  font-family:'Tobias',Georgia,serif;font-size:34px;font-weight:400;color:#111;
+  letter-spacing:-0.8px;line-height:1.1;margin-bottom:10px;
+}
+.register-wrap h2 em{font-style:italic;color:#3A5BFF}
+.register-wrap .reg-sub{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14.5px;
+  color:#555;line-height:1.55;margin-bottom:26px;
+}
+.reg-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.reg-field{display:flex;flex-direction:column;gap:6px}
+.reg-field.reg-full{grid-column:1 / -1}
+.reg-field label{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#888;
+  text-transform:uppercase;letter-spacing:1.4px;
+}
+.reg-field input,.reg-field select{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#111;
+  background:#f7f8ff;border:1px solid #e2e6f5;border-radius:10px;
+  padding:13px 15px;outline:none;
+  transition:all .25s;
+  appearance:none;-webkit-appearance:none;-moz-appearance:none;
+}
+.reg-field select{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:14px;padding-right:40px;
+}
+.reg-field input:focus,.reg-field select:focus{
+  background-color:#fff;border-color:#3A5BFF;
+  box-shadow:0 0 0 4px rgba(58,91,255,.12);
+}
+.reg-field input::placeholder{color:#b0b6cc}
+.reg-field.is-error input,.reg-field.is-error select{border-color:#e05d5d;background:#fff6f6}
+.reg-field .reg-err{display:none;font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11.5px;color:#c62828;margin-top:4px}
+.reg-field.is-error .reg-err{display:block}
+.reg-submit{
+  grid-column:1 / -1;
+  margin-top:6px;
+  display:flex;align-items:center;justify-content:flex-end;gap:14px;
+}
+.reg-success{
+  display:none;text-align:center;padding:20px 0;
+}
+.reg-success.show{display:block;animation:regSuccess .5s cubic-bezier(.16,1,.3,1)}
+.reg-success .reg-check{
+  width:56px;height:56px;border-radius:50%;margin:0 auto 14px;
+  background:rgba(74,222,128,.15);border:2px solid #4ade80;
+  display:flex;align-items:center;justify-content:center;
+  color:#4ade80;font-size:26px;
+  box-shadow:0 0 24px rgba(74,222,128,.35);
+}
+.reg-success h3{
+  font-family:'Tobias',Georgia,serif;font-size:24px;color:#111;margin-bottom:8px;
+}
+.reg-success p{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#555;line-height:1.55;
+}
+.reg-success .reg-next{
+  display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:14px;color:#3A5BFF;
+  padding:12px 20px;border:1px solid rgba(58,91,255,.35);border-radius:999px;
+  text-decoration:none;transition:all .2s;
+}
+.reg-success .reg-next:hover{background:#3A5BFF;color:#fff;border-color:#3A5BFF}
+.reg-success .reg-next-hint{
+  display:block;margin-top:10px;font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#8b90a3;letter-spacing:.2px;
+}
+@keyframes regSuccess{
+  0%{opacity:0;transform:scale(.94)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+/* FINAL CTA section removed — merged into FAQ via .fq-cta */
+
+/* ──────────────────────────────────────────────────────
+   FOOTER
+────────────────────────────────────────────────────── */
+footer{padding:56px 60px 36px;background:#fff;border-top:1px solid #eee}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;max-width:1200px;margin:0 auto}
+.fc-social{display:flex;gap:14px;margin-top:16px}
+.fc-social a{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border:1px solid #e5e7f0;border-radius:50%;color:#444;margin:0;transition:all .18s}
+.fc-social a:hover{color:#fff;background:#3A5BFF;border-color:#3A5BFF}
+.foot-contact{font-family:'Suisseintl',Arial,sans-serif;font-size:13px;font-weight:400;color:#111;text-decoration:underline;text-underline-offset:3px}
+.foot-contact:hover{color:#3A5BFF}
+.fc h4{font-family:'Suisseintl',Arial,sans-serif;font-size:13px;font-weight:400;color:#111;margin-bottom:14px}
+.fc .fc-sub{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;font-weight:400;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-top:14px;margin-bottom:8px}
+.fc a{display:block;font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:13px;color:#666;margin-bottom:6px;transition:color .15s}
+.fc a:hover{color:#3A5BFF}
+.foot-bottom{max-width:1200px;margin:36px auto 0;padding-top:24px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11px;color:#999}
+
+/* ──────────────────────────────────────────────────────
+   RESPONSIVE
+────────────────────────────────────────────────────── */
+@media(max-width:1100px){
+  .app-tabs{grid-template-columns:repeat(4,1fr)}
+  .app-panel{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:900px){
+  header,.sec-problem,.sec-approach,.sec-benefits,.sec-faq,footer{padding-left:28px;padding-right:28px}
+  header nav{display:none}
+  .hero h1{font-size:42px}
+  .hero .sub{font-size:16px}
+  .prob-header,.ben-header,.fq-cta{grid-template-columns:1fr;gap:28px}
+  .prob-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .app-tabs{grid-template-columns:repeat(3,1fr)}
+  .ben-row{grid-template-columns:28px 1fr auto;gap:12px;padding:14px 2px}
+  .ben-row .ben-stat{display:none}
+  .ben-screen-body{padding:22px 20px 26px}
+  .ben-screen-bar{padding:12px 14px}
+  .ben-screen-bar .bar-title{display:none}
+  .faq-header h2{font-size:28px}
+  .fq-body-inner{padding:0 16px 14px 50px}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .sec-problem,.sec-approach,.sec-benefits,.sec-faq{padding-top:70px;padding-bottom:70px}
+  .reg-modal{padding:16px}
+  .register-wrap{padding:32px 26px}
+  .reg-form{grid-template-columns:1fr}
+  .reg-submit{flex-direction:column;align-items:stretch;gap:10px}
+  .app-header h2{font-size:36px}
+}
+
+/* ──────────────────────────────────────────────────────
+   POPUP / IFRAME MODAL — every external click opens here
+────────────────────────────────────────────────────── */
+.popup-overlay{
+  position:fixed;inset:0;z-index:11000;
+  display:none;align-items:center;justify-content:center;
+  padding:24px;background:rgba(8,10,30,.6);backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  opacity:0;transition:opacity .25s ease;
+}
+.popup-overlay.open{display:flex;opacity:1}
+.popup-overlay.is-compact{align-items:flex-end;justify-content:flex-end;padding:18px}
+.popup-panel{
+  position:relative;width:100%;max-width:960px;height:86vh;max-height:740px;
+  background:#fff;border-radius:22px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(10,14,40,.45);
+  display:flex;flex-direction:column;
+  animation:popupIn .3s cubic-bezier(.16,1,.3,1);
+  transition:max-width .35s cubic-bezier(.16,1,.3,1), height .35s cubic-bezier(.16,1,.3,1), max-height .35s cubic-bezier(.16,1,.3,1), border-radius .35s ease;
+}
+/* Expanded state — near-fullscreen */
+.popup-overlay.is-expanded{padding:10px}
+.popup-overlay.is-expanded .popup-panel{max-width:100%;height:calc(100vh - 20px);max-height:none;border-radius:14px}
+/* Compact state — bottom-right chat-style, content hidden */
+.popup-overlay.is-compact .popup-panel{max-width:320px;height:60px;max-height:60px;border-radius:14px}
+.popup-overlay.is-compact .popup-panel iframe,
+.popup-overlay.is-compact .popup-fallback{display:none}
+@keyframes popupIn{0%{opacity:0;transform:translateY(14px) scale(.97)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.popup-head{
+  padding:14px 104px 14px 22px;border-bottom:1px solid #eef0f7;
+  display:flex;align-items:center;gap:12px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13px;color:#1a1f3a;
+  background:#fafbff;
+}
+.popup-head .popup-head-dot{width:8px;height:8px;border-radius:50%;background:#3A5BFF;box-shadow:0 0 10px rgba(58,91,255,.5)}
+.popup-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px;align-items:center}
+.popup-close,.popup-resize{
+  width:36px;height:36px;border:none;
+  background:#f2f4fb;border-radius:50%;cursor:pointer;font-size:16px;color:#1a1f3a;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+  font-family:'Suisseintl',Arial,sans-serif;line-height:1;
+}
+.popup-close{font-size:20px}
+.popup-resize:hover,.popup-close:hover{background:#e3e8ff;color:#3A5BFF}
+.popup-close:hover{transform:rotate(90deg)}
+.popup-resize svg{width:16px;height:16px;pointer-events:none}
+.popup-panel iframe{flex:1;width:100%;border:0;min-height:0;background:#fff}
+
+/* Shared mini-footer used inside popup overlay + register modal */
+.popup-mini-foot,.reg-mini-foot{
+  flex-shrink:0;
+  border-top:1px solid #eef0f7;background:#fafbff;
+  padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11.5px;color:#55607a;
+}
+/* Register mini-foot: bleed edge-to-edge to match card width */
+.reg-mini-foot{margin:28px -46px -44px;padding:12px 46px;border-bottom-left-radius:22px;border-bottom-right-radius:22px}
+.reg-modal.is-expanded .reg-mini-foot{margin:28px -60px -48px;padding:12px 60px}
+.popup-mini-foot a,.reg-mini-foot a{color:#3A5BFF;text-decoration:none}
+.popup-mini-foot a:hover,.reg-mini-foot a:hover{text-decoration:underline}
+.popup-mini-foot .pmf-left,.reg-mini-foot .rmf-left{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.popup-mini-foot .pmf-social,.reg-mini-foot .rmf-social{display:inline-flex;align-items:center;gap:8px}
+.popup-mini-foot .pmf-social svg,.reg-mini-foot .rmf-social svg{color:#55607a;transition:color .2s}
+.popup-mini-foot .pmf-social a:hover svg,.reg-mini-foot .rmf-social a:hover svg{color:#3A5BFF}
+.popup-mini-foot .pmf-right,.reg-mini-foot .rmf-right{color:#8a93ab;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase}
+
+/* In expanded popup, nothing changes. In compact popup, hide mini-foot. */
+.popup-overlay.is-compact .popup-mini-foot,
+.reg-modal.is-compact .reg-mini-foot{display:none}
+.popup-fallback{
+  display:none;padding:22px 24px;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#333;
+  background:#fff7ef;border-top:1px solid #f2c9a8;line-height:1.55;
+}
+.popup-fallback a{color:#3A5BFF;font-weight:500}
+body.popup-open{overflow:hidden}
+@media(max-width:900px){
+  .popup-overlay{padding:14px}
+  .popup-panel{height:92vh;border-radius:18px}
+}
+
+/* ──────────────────────────────────────────────────────
+   RESPONSIVE — Tight mobile pass (≤480px)
+────────────────────────────────────────────────────── */
+@media(max-width:480px){
+  header{padding:14px 18px}
+  header .logo{font-size:14px}
+  .sec-logobar,.sec-reg-ribbon,.sec-problem,.sec-approach,.sec-benefits,.sec-faq,.sec-book-demo,footer{
+    padding-left:18px;padding-right:18px;
+  }
+  .hero{padding:120px 18px 80px}
+  .hero h1{font-size:30px;line-height:1.1;letter-spacing:-1px}
+  .hero .sub{font-size:14px}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:10px}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .kpibar-row{grid-template-columns:1fr 1fr;gap:7px}
+  .kpi-num{font-size:15px}
+  .kpi-label{font-size:8.5px;letter-spacing:1px;text-align:center}
+  .prob-grid{grid-template-columns:1fr;gap:10px}
+  .prob-header h2{font-size:28px}
+  .prob-header > p{margin-top:14px;font-size:14px}
+  .app-tabs{grid-template-columns:repeat(2,1fr);gap:8px}
+  .app-tab-name{font-size:11px;line-height:1.2}
+  .app-header h2{font-size:28px;line-height:1.1}
+  .app-cta-row{flex-direction:column;align-items:stretch;gap:10px}
+  .app-cta-row .btn{width:100%;justify-content:center}
+  .ben-header h2{font-size:26px;line-height:1.1}
+  .ben-row{grid-template-columns:24px 1fr;gap:10px;padding:12px 0}
+  .ben-row .ben-val{display:none}
+  .faq-header h2{font-size:24px}
+  .fq-cta-actions{flex-direction:column;align-items:stretch;gap:10px}
+  .fq-cta-actions .btn{width:100%;justify-content:center}
+  .register-wrap{padding:26px 20px}
+  .register-wrap h2{font-size:24px}
+  .reg-mini-foot{margin:24px -20px -26px;padding:10px 20px}
+  footer{padding:40px 18px 28px}
+  .foot-bottom{flex-direction:column;gap:10px;align-items:flex-start;text-align:left}
+}
+
+
+/* ──────────────────────────────────────────────────────
+   LANGUAGE SWITCHER — small dropdown in header
+────────────────────────────────────────────────────── */
+.lang-switcher{position:relative;display:inline-flex;align-items:center}
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:none;cursor:pointer;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13px;color:#111;
+  padding:6px 8px;border-radius:6px;
+  transition:background .15s,color .15s;
+}
+.lang-toggle:hover{background:#f2f4fb;color:#3A5BFF}
+.lang-toggle .lang-globe{width:14px;height:14px;flex-shrink:0}
+.lang-toggle .lang-current{font-weight:400;letter-spacing:.4px}
+.lang-toggle .lang-chev{width:10px;height:10px;flex-shrink:0;transition:transform .2s ease;opacity:.6}
+.lang-toggle[aria-expanded="true"] .lang-chev{transform:rotate(180deg)}
+.lang-menu{
+  position:absolute;top:calc(100% + 6px);right:0;
+  background:#fff;border:1px solid #eef0f7;border-radius:10px;
+  box-shadow:0 18px 40px rgba(12,20,60,.12),0 4px 10px rgba(12,20,60,.06);
+  padding:6px;margin:0;list-style:none;
+  min-width:160px;z-index:100;
+  opacity:0;transform:translateY(-4px);pointer-events:none;
+  transition:opacity .18s,transform .18s;
+}
+.lang-menu.open{opacity:1;transform:translateY(0);pointer-events:auto}
+.lang-menu li{margin:0;padding:0}
+.lang-menu a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:9px 12px;border-radius:6px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13px;color:#1a1f3a;
+  text-decoration:none;transition:background .15s,color .15s;
+}
+.lang-menu a:hover{background:#f2f4fb;color:#3A5BFF}
+.lang-menu a.active{color:#3A5BFF;font-weight:500;background:#eaefff}
+.lang-menu a.active::after{content:'✓';font-size:12px;opacity:.8}
+@media(max-width:900px){
+  .lang-switcher{margin-right:auto}
+}
+/* LANG SWITCHER MARKER */
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════ -->
+<header>
+  <a href="#" class="logo" aria-label="Machines Like Me">
+    <img src="./assets/mlm-logo.png" alt="Machines Like Me">
+  </a>
+  <nav>
+    <a href="#problem">Branchen</a>
+    <a href="#approach">Product</a>
+    <a href="#benefits">Ergebnisse</a>
+    <a href="#faq">FAQ</a>
+    <div class="lang-switcher" id="langSwitcher">
+      <button type="button" class="lang-toggle" id="langToggle" aria-expanded="false" aria-haspopup="true" aria-label="Change language">
+        <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-current">DE</span>
+        <svg class="lang-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <ul class="lang-menu" id="langMenu" role="menu">
+      <li><a href="../en/" data-lang="en"><span>English</span><span class="lang-code">EN</span></a></li>
+      <li><a href="../de/" class="active" data-lang="de"><span>Deutsch</span><span class="lang-code">DE</span></a></li>
+      <li><a href="../nl/" data-lang="nl"><span>Nederlands</span><span class="lang-code">NL</span></a></li>
+      </ul>
+    </div>
+
+    <a href="https://machineslikeme.com/de/consulting/" data-cta="nav-book-demo" class="btn btn-sm js-popup" target="_blank" rel="noopener">Demo buchen</a>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <!-- Apple-style background video. Replace src with any direct .mp4 URL.
+       Good free sources: pexels.com/videos, coverr.co, mixkit.co -->
+  <video class="hero-video" autoplay loop muted playsinline preload="metadata"
+         poster="./assets/hero-poster.jpg">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <span class="pill">KI-Automatisierung zum Festpreis</span>
+    <h1>Vom Milchgeld bis zur Händlerbestellung, <em>das Back Office läuft von allein.</em></h1>
+    <p class="sub">Wir setzen KI-Mitarbeiter ein, die Milchabrechnung, Chargenfreigabe, Kühlkettenüberwachung und CSRD-Berichte automatisieren — damit Ihre Teams aufhören, Tabellen nachzulaufen und sich auf die Molkerei konzentrieren.</p>
+    <div class="hero-ctas">
+      <a href="https://machineslikeme.com/de/consulting/" data-cta="hero-book-demo" class="btn js-popup" target="_blank" rel="noopener">Demo buchen</a>
+      <a href="#" data-asset="deck" data-asset-label="Automation map for dairy" data-cta="hero-download-map" class="btn btn-ghost-white js-asset-link">Automatisierungskarte herunterladen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     KPI BAR — 6 headline numbers, Fixed Price featured in the centre
+══════════════════════════════════════════════════ -->
+<section class="sec-logobar" aria-label="Key automation outcomes">
+  <div class="logobar-inner">
+    <div class="logobar-label">Die Zahlen hinter jedem Engagement</div>
+    <div class="kpibar-row">
+      <div class="kpi-item"><span class="kpi-num">Bis zu 85 %</span><span class="kpi-label">Automatisierungsrate</span></div>
+      <div class="kpi-item"><span class="kpi-num">5–10×</span><span class="kpi-label">Less labor</span></div>
+      <div class="kpi-item kpi-featured">
+        <span class="kpi-num">Festpreis</span>
+        <span class="kpi-label">Kein Risiko, garantiert</span>
+      </div>
+      <div class="kpi-item"><span class="kpi-num">&lt;12 Mo</span><span class="kpi-label">Amortisationszeit</span></div>
+      <div class="kpi-item"><span class="kpi-num">8–12 w</span><span class="kpi-label">Erste Agenten produktiv</span></div>
+      <div class="kpi-item"><span class="kpi-num">Weltweit</span><span class="kpi-label">Reichweite</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PROBLEM — Apple-style scroll reveal (subtle)
+══════════════════════════════════════════════════ -->
+<section class="sec-problem" id="problem">
+  <div class="prob-header">
+    <div>
+      <span class="badge">Die Milchindustrie-Realität</span>
+      <h2>Ihre Marge gewinnt oder verliert zwischen Hof und Regal.</h2>
+    </div>
+    <p>Europäische Molkereibetriebe verlieren 3–6 Margenpunkte durch Reibungen zwischen Hof, Werk, Labor und Einzelhändler. Das Produkt ist nicht das Problem — der Papierkram ist es.</p>
+  </div>
+  <div class="prob-grid" id="probGrid">
+    <div class="prob-card">
+      <div class="p-num">1</div>
+      <h4>Rohmilch-Volatilität bewegt sich schneller als Ihre Pläne.</h4>
+      <p>Prices swing weekly, feed costs shift, farmer margins tighten. Planning teams rebuild forecasts by hand while markets already moved on.</p>
+    </div>
+    <div class="prob-card">
+      <div class="p-num">2</div>
+      <h4>Die Kühlkette bricht in den blinden Flecken.</h4>
+      <p>Telemetrie-Alarme rutschen durch. Kurzhaltbarer Bestand staut sich. Tourenpläne ignorieren die Verzögerungen von gestern — und Qualitätsbeschwerden landen eine Woche zu spät auf dem Schreibtisch.</p>
+    </div>
+    <div class="prob-card">
+      <div class="p-num">3</div>
+      <h4>Qualitätsnachweise leben in Tabellen.</h4>
+      <p>HACCP-Aufzeichnungen, Allergentests, Sensorik-Panels, Chargenfreigaben — verteilt über Labore, Schichten und Molkereien. Jedes Audit wird zur Schnitzeljagd.</p>
+    </div>
+    <div class="prob-card">
+      <div class="p-num">4</div>
+      <h4>CSRD und Scope 3 fressen wöchentlich Marge.</h4>
+      <p>Methandaten vom Hof, PPWR-Meldungen, Wasser- und Energie-KPIs, Werkabrechnungen — Führungskräfte verbringen 30–40 % der Woche damit, Daten zusammenzustellen, statt die Molkerei zu verbessern.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     MLM APPROACH — THE HEART — 12 departments
+══════════════════════════════════════════════════ -->
+<section class="sec-approach" id="approach">
+  <div class="app-header">
+    <span class="badge">Der MLM Ansatz</span>
+    <h2>Maßgeschneiderte Agenten, <em>gebaut für jede Molkerei-Abteilung.</em></h2>
+    <p>Wir liefern keine Standardsoftware. Wir entwerfen KI-Mitarbeiter rund um die Prozesse, Werkzeuge und Menschen jeder Funktion — vom Tankwagen am Hof bis zur Händlerbestellung. Klicken Sie auf eine Abteilung, um sie zu erkunden.</p>
+  </div>
+
+  <div class="app-wrap">
+
+    <!-- 12 department tiles — 6×2 grid (TOP) -->
+    <div class="app-tabs">
+      <div class="app-tab active" data-dept="milkops">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 4h-6l-1-4z"/><path d="M8 7l-1 4v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-8l-1-4"/><path d="M10 13h4"/></svg></div>
+        <div class="app-tab-name">Milk Intake<br>&amp; Farm Ops</div>
+      </div>
+      <div class="app-tab" data-dept="processing">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8 7 17M17 7l2.8-2.8"/></svg></div>
+        <div class="app-tab-name">Dairy<br>Processing</div>
+      </div>
+      <div class="app-tab" data-dept="packaging">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M3 7 12 3l9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4"/><path d="M12 11v10"/></svg></div>
+        <div class="app-tab-name">Packaging<br>&amp; Filling</div>
+      </div>
+      <div class="app-tab" data-dept="qa">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></div>
+        <div class="app-tab-name">Qualität &amp;<br>Labor</div>
+      </div>
+      <div class="app-tab" data-dept="procurement">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l3 5v6h-2"/><path d="M3 7v11h3"/><circle cx="8" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+        <div class="app-tab-name">Procurement<br>&amp; Ingredients</div>
+      </div>
+      <div class="app-tab" data-dept="logistics">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="app-tab-name">Cold Chain<br>&amp; Logistics</div>
+      </div>
+      <div class="app-tab" data-dept="sales">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+        <div class="app-tab-name">Vertrieb &amp;<br>Key Accounts</div>
+      </div>
+      <div class="app-tab" data-dept="marketing">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M3 11h4l8-5v12l-8-5H3z"/><path d="M18 8a5 5 0 0 1 0 8"/></svg></div>
+        <div class="app-tab-name">Marke &amp;<br>Konsumenten</div>
+      </div>
+      <div class="app-tab" data-dept="finance">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 7H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H7"/></svg></div>
+        <div class="app-tab-name">Finance &amp;<br>Controlling</div>
+      </div>
+      <div class="app-tab" data-dept="hr">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+        <div class="app-tab-name">HR<br>&amp; Workforce</div>
+      </div>
+      <div class="app-tab" data-dept="ehs">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-6 7-6 12a6 6 0 0 0 12 0c0-5-3-8-6-12z"/><path d="M12 10v8"/></svg></div>
+        <div class="app-tab-name">Sustainability<br>&amp; EHS</div>
+      </div>
+      <div class="app-tab" data-dept="it">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <div class="app-tab-name">IT &amp;<br>Digital Ops</div>
+      </div>
+    </div>
+
+    <!-- Detail panel (content swaps via JS) — BELOW buttons, with morph animation -->
+    <div class="app-panel" id="app-panel">
+      <!-- content injected by JS -->
+    </div>
+
+    <!-- TWO CTAs -->
+    <div class="app-cta">
+      <div class="app-cta-row">
+        <a href="https://machineslikeme.com/de/consulting/" data-cta="approach-book-demo" class="btn js-popup" target="_blank" rel="noopener">Kostenlose Demo buchen</a>
+        <a href="#" data-asset="deck" data-asset-label="Automation map for dairy" data-cta="approach-download-map" class="btn btn-outline js-asset-link">Automatisierungskarte herunterladen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CASE STUDIES — Apple "Stage" pattern (rotating)
+══════════════════════════════════════════════════ -->
+<section class="sec-cases" id="cases">
+  <div class="cases-inner">
+    <div class="cases-head">
+      <span class="badge">Case study</span>
+      <h2>Beweise statt Versprechen.</h2>
+      <p>Zwei Referenz-Implementierungen bei einer führenden deutschen Bio-Molkerei — 389 Prozesse in drei Tagen kartiert, und ein Produktionsplanungs-Agent, der in unter drei Sekunden neu plant.</p>
+    </div>
+
+    <div class="cases-stage" id="casesStage">
+      <div class="case-visual" id="caseVisual" style="background-image:url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1200&q=85');background-position:center;background-size:cover;background-repeat:no-repeat;">
+        <div class="cv-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <span class="cv-tag" id="cvTag">Case 01 · Bio-Molkerei 🇩🇪</span>
+        <div class="cv-foot">
+          <div class="cv-line"><i id="cvLineFill"></i></div>
+          <span class="cv-pct" id="cvPct">3 Tage</span>
+        </div>
+        <div class="cv-title" id="cvTitle">389 Prozesse in 3 Tagen kartiert — nicht in 3 Monaten.</div>
+      </div>
+
+      <div class="case-content" id="caseContent">
+        <div class="c-eyebrow" id="ccEyebrow">KI-gestützte Prozess-Discovery</div>
+        <div class="c-big" id="ccBig">389</div>
+        <div class="c-big-sub" id="ccBigSub">Aktivitäten in 5 Clustern (OTC, PTP-RHB, PTP-EM, MTS-F, MTS-H) mit ~500 KI-Mikrointerviews vor Ort mit 2 Beratern dokumentiert — eine Baseline, die eine Tier-1-Beratung in Monaten nicht liefern konnte.</div>
+        <div class="case-kpis" id="ccKpis">
+          <div class="case-kpi"><span class="ck-n">~500</span><span class="ck-l">Mikrointerviews</span></div>
+          <div class="case-kpi"><span class="ck-n">5 Cluster</span><span class="ck-l">389 Aktivitäten</span></div>
+          <div class="case-kpi"><span class="ck-n">413 MB</span><span class="ck-l">Strukturiertes Liefer-Paket</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cases-nav">
+      <button class="case-dot active" data-case="0" type="button"><span class="cd-n">01</span><span class="cd-l">Prozess-Discovery</span></button>
+      <button class="case-dot" data-case="1" type="button"><span class="cd-n">02</span><span class="cd-l">Produktionsplanung</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     BENEFITS — DARK "SYSTEM STATUS" SCREEN
+══════════════════════════════════════════════════ -->
+<section class="sec-benefits" id="benefits">
+  <div class="ben-header">
+    <span class="badge">Was Sie bekommen</span>
+    <h2>Ergebnisse, keine Softwarelizenzen. <em>Komplett abgedeckt.</em></h2>
+    <p>Wir verkaufen keine Tools. Wir liefern Ergebnisse. Das garantiert jedes Engagement — ab dem ersten Tag aktiviert.</p>
+  </div>
+
+  <div class="ben-screen" id="benScreen">
+    <!-- Screen chrome -->
+    <div class="ben-screen-bar">
+      <span class="dot d1"></span>
+      <span class="dot d2"></span>
+      <span class="dot d3"></span>
+      <span class="bar-title">mlm.deployment.status</span>
+      <span class="bar-status">Alle Systeme einsatzbereit</span>
+    </div>
+    <div class="ben-screen-progress"></div>
+
+    <!-- Task list -->
+    <div class="ben-screen-body">
+      <div class="ben-list">
+
+        <div class="ben-row" data-step="1">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Automatisierungsrate</span>
+            <span class="bl-desc">Wir automatisieren typischerweise bis zu 85 % des manuellen Aufwands in jedem Back-Office-Prozess.</span>
+          </div>
+          <div class="ben-val">Bis zu 85 %</div>
+          <div class="ben-stat">Aktiv</div>
+        </div>
+
+        <div class="ben-row" data-step="2">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Labor reduction</span>
+            <span class="bl-desc">Die Bearbeitungszeit pro Prozess sinkt um das 5–10-fache. Die Ausführung beschleunigt sich. Fehlerraten sinken.</span>
+          </div>
+          <div class="ben-val">5–10×</div>
+          <div class="ben-stat">Aktiv</div>
+        </div>
+
+        <div class="ben-row" data-step="3">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Amortisationszeit</span>
+            <span class="bl-desc">Die große Mehrheit der Engagements amortisiert sich innerhalb von zwölf Monaten — gebunden an ein hartes ROI-Modell.</span>
+          </div>
+          <div class="ben-val">&lt;12 Mo</div>
+          <div class="ben-stat">Fixiert</div>
+        </div>
+
+        <div class="ben-row" data-step="4">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Festpreis, keine Überraschungen</span>
+            <span class="bl-desc">Jedes Engagement ist Festpreis. Wenn ein Prozess nicht automatisierbar ist, erhalten Sie einen Gutschein für einen anderen.</span>
+          </div>
+          <div class="ben-val">Festpreis</div>
+          <div class="ben-stat">Guaranteed</div>
+        </div>
+
+        <div class="ben-row" data-step="5">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Globale Präsenz</span>
+            <span class="bl-desc">Teams in den USA, Skandinavien, Großbritannien, Niederlande, Luxemburg, Belgien und Deutschland. Vor Ort, wenn Sie uns brauchen.</span>
+          </div>
+          <div class="ben-val">Weltweit</div>
+          <div class="ben-stat">Online</div>
+        </div>
+
+        <div class="ben-row" data-step="6">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Enterprise-Sicherheit</span>
+            <span class="bl-desc">DSGVO-konform, mit vollständigen Audit-Trails und rollenbasiertem Zugriff bei jeder Agentenaktion.</span>
+          </div>
+          <div class="ben-val">GDPR</div>
+          <div class="ben-stat">Secure</div>
+        </div>
+
+      </div>
+
+      <div class="ben-footer">
+        <span>6 / 6 Funktionen abgedeckt</span>
+        <span class="ben-foot-right">Deployment abgeschlossen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FAQ — Chat with the MLM agent
+══════════════════════════════════════════════════ -->
+<section class="sec-faq" id="faq">
+  <div class="faq-header">
+    <span class="badge">Häufig gefragt</span>
+    <h2>Antworten vor dem ersten Gespräch.</h2>
+    <button type="button" class="faq-toggle" id="faqToggle" aria-expanded="false" aria-controls="faqList">
+      <span class="ft-txt">Klicken Sie, um die sechs Fragen zu erkunden, die Molkerei-Führungskräfte uns am häufigsten stellen</span>
+      <span class="ft-arrow" aria-hidden="true">↓</span>
+    </button>
+  </div>
+
+  <div class="faq-list" id="faqList" hidden>
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Wann sehen wir die ersten Ergebnisse?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Erste Automatisierungen gehen typischerweise in 8–12 Wochen live. Die meisten Engagements amortisieren sich innerhalb von 12 Monaten. Wir machen keine mehrjährigen Transformationsprogramme — wir liefern schnell funktionierende Agenten und iterieren.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Müssen wir unser ERP, MES oder LIMS ersetzen?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Nein. Unsere Agenten sitzen auf dem, was Sie haben — SAP, Oracle, MES/SCADA, LIMS, TMS/WMS und die Tools, die Ihre Werke bereits nutzen. Wo keine Integration existiert, bedienen unsere Agenten dieselben Screens, die Ihr Personal heute nutzt.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Was passiert mit unseren bestehenden Teams?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Sie steigen in der Wertschöpfungskette auf. Werksleiter, QA-Leads, Planer, KAMs und Controller behalten die Kontrolle — jede Agentenaktion ist auditierbar und reversibel, die Verantwortung bleibt beim Menschen. Was wegfällt, ist Copy-Paste, nicht das Urteilsvermögen.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Wie ist Ihr Pricing?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Festpreis pro Scope. Sollten wir während der Umsetzung feststellen, dass ein Prozess nicht automatisierbar ist, erhalten Sie einen Gutschein für einen anderen Prozess. Optionale SLAs reichen von Support zu Geschäftszeiten bis 24/7-Abdeckung.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Wo werden unsere Daten gespeichert?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Gehostet in EU- oder US-Regionen Ihrer Wahl, DSGVO-konform, mit rollenbasiertem Zugriff, vollständigen Audit-Trails und der Option einer privaten Bereitstellung für Enterprise-Kunden. Ihre Daten werden nie für das Training anderer Modelle verwendet.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Was gehört typischerweise zum Scope in der Milchwirtschaft?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Milchabrechnung, Chargenfreigabe, Kühlkettenüberwachung, Tankwagen-Routenoptimierung, CSRD- und Scope-3-Reporting, Trade-Promotion-Planung, Verpackungsdesign-Freigabe, Bestellabgleich und MES/SCADA-Alarm-Triage. Wir definieren den Scope pro Abteilung — jeder Agent ist maßgeschneidert für Ihre Prozesse und Werkzeuge.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     BOOK A DEMO — Apple-style portrait CTA (own section)
+══════════════════════════════════════════════════ -->
+<section class="sec-book-demo">
+  <div class="fq-cta" id="book-demo">
+    <div class="fq-cta-portrait">
+      <!--
+        Primary: ./assets/andreas.jpg  ·  Fallback: Unsplash  ·  Final: "CM" initials
+      -->
+      <img src="./assets/andreas.jpg"
+           alt="Andreas Jung, Vertriebsleiter Deutschland bei MACHINES LIKE ME"
+           onerror="if(this.dataset.fb!=='1'){this.dataset.fb='1';this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=85';}else{this.style.display='none';this.parentNode.querySelector('.portrait-fallback').style.display='flex';}">
+      <div class="portrait-fallback" aria-hidden="true">AJ</div>
+    </div>
+    <div class="fq-cta-copy">
+      <span class="badge">Bereit, wenn Sie es sind</span>
+      <h3>Noch Fragen? <em>Talk to Christopher.</em></h3>
+      <p>30 Minuten mit unserem CEO. Bringen Sie einen schmerzhaften Prozess mit &mdash; gehen Sie mit einem konkreten Plan und einem Festpreisangebot nach Hause.</p>
+      <div class="fq-cta-actions">
+        <a href="https://machineslikeme.com/de/consulting/" data-cta="book-demo" class="btn js-popup" target="_blank" rel="noopener">Kostenlose Demo buchen</a>
+        <div class="fq-cta-person">
+          <strong>Christopher Menzel</strong>
+          <span>CEO &amp; Co-founder, MACHINES LIKE ME</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-grid">
+    <div class="fc">
+      <a href="mailto:aj@machineslikeme.com" class="foot-contact" data-cta="foot-email">aj@machineslikeme.com</a>
+      <div class="fc-sub">Regionale Präsenz</div>
+      <a href="#">United States</a>
+      <a href="#">Schweden</a>
+      <a href="#">Niederlande</a>
+      <a href="#">Luxemburg</a>
+      <a href="#">Belgien</a>
+      <a href="#">Deutschland</a>
+    </div>
+    <div class="fc">
+      <h4>Bleiben Sie in Kontakt</h4>
+      <a href="https://www.machineslikeme.com" data-cta="foot-home" class="js-popup" target="_blank" rel="noopener">www.machineslikeme.com</a>
+      <a href="mailto:aj@machineslikeme.com" data-cta="foot-email-2">aj@machineslikeme.com</a>
+      <div class="fc-social">
+        <a href="https://www.linkedin.com/company/machineslikeme" data-cta="foot-linkedin" class="js-popup" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 MACHINES LIKE ME. Alle Rechte vorbehalten.</span>
+    <span>Wir automatisieren, Sie profitieren.</span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════
+     POPUP MODAL — generic iframe popup for every outbound click
+══════════════════════════════════════════════════ -->
+<div class="popup-overlay" id="popupOverlay" aria-hidden="true">
+  <div class="popup-panel" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-head">
+      <span class="popup-head-dot" aria-hidden="true"></span>
+      <span id="popupTitle">Vorschau</span>
+    </div>
+    <div class="popup-actions">
+      <button type="button" class="popup-resize" id="popupMinimize" aria-label="Minimize popup" title="Minimize" data-cta="popup-minimize">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="19"/></svg>
+      </button>
+      <button type="button" class="popup-resize" id="popupExpand" aria-label="Expand popup" title="Expand" data-cta="popup-expand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <button type="button" class="popup-close" id="popupClose" aria-label="Close popup" data-cta="popup-close">×</button>
+    </div>
+    <iframe id="popupFrame" src="about:blank" title="External content" allow="autoplay; clipboard-read; clipboard-write"></iframe>
+    <div class="popup-fallback" id="popupFallback">
+      Diese Seite kann nicht im Popup angezeigt werden.
+      <a href="#" id="popupFallbackLink" rel="noopener">In neuem Tab öffnen →</a>
+    </div>
+    <div class="popup-mini-foot" aria-label="MLM contact">
+      <div class="pmf-left">
+        <a href="https://www.machineslikeme.com" class="js-popup" data-cta="popup-foot-home" target="_blank" rel="noopener">www.machineslikeme.com</a>
+        <a href="mailto:aj@machineslikeme.com" data-cta="popup-foot-email">aj@machineslikeme.com</a>
+        <span class="pmf-social">
+          <a href="https://www.linkedin.com/company/machineslikeme" class="js-popup" data-cta="popup-foot-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </span>
+      </div>
+      <div class="pmf-right">&copy; 2026 MLM</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     REGISTER MODAL — opens on gated asset clicks
+══════════════════════════════════════════════════ -->
+<div class="reg-modal" id="regModal" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+  <div class="register-wrap">
+    <div class="reg-actions">
+      <button type="button" class="reg-resize" id="regMinimize" aria-label="Minimize modal" title="Minimize" data-cta="reg-minimize">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="19"/></svg>
+      </button>
+      <button type="button" class="reg-resize" id="regExpand" aria-label="Expand modal" title="Expand" data-cta="reg-expand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <button type="button" class="reg-close" id="regClose" aria-label="Close" data-cta="reg-close">×</button>
+    </div>
+    <div class="reg-asset" id="regAssetPill">
+      <span>Anfrage:</span>
+      <span class="reg-asset-name" id="regAssetName">Sales-Deck</span>
+    </div>
+    <h2 id="regTitle">Sagen Sie uns, wer Sie sind und wir <em><span id="regTitleAction">senden Ihnen das Deck</span>.</em></h2>
+    <p class="reg-sub" id="regSub">Dauert 30 Sekunden. Wir senden Ihnen das Deck per E-Mail und melden uns einmal kurz zurück — keine Drip-Kampagnen, kein Lärm.</p>
+
+    <form class="reg-form" id="regForm" novalidate>
+      <input type="hidden" name="asset" id="regAssetInput" value="deck">
+      <!-- UTM & source tracking hidden fields (auto-captured from URL on open) -->
+      <input type="hidden" name="utm_source"   id="regUtmSource">
+      <input type="hidden" name="utm_medium"   id="regUtmMedium">
+      <input type="hidden" name="utm_campaign" id="regUtmCampaign">
+      <input type="hidden" name="utm_term"     id="regUtmTerm">
+      <input type="hidden" name="utm_content"  id="regUtmContent">
+
+      <div class="reg-field">
+        <label for="regFirst">Vorname</label>
+        <input id="regFirst" name="first_name" type="text" placeholder="Anna" required>
+        <span class="reg-err">Bitte geben Sie Ihren Vornamen ein.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regLast">Nachname</label>
+        <input id="regLast" name="last_name" type="text" placeholder="Schmidt" required>
+        <span class="reg-err">Bitte geben Sie Ihren Nachnamen ein.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regRole">Funktion</label>
+        <input id="regRole" name="role" type="text" placeholder="Head of Operations" required>
+        <span class="reg-err">Bitte geben Sie Ihre Funktion ein.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regCompany">Unternehmen</label>
+        <input id="regCompany" name="company" type="text" placeholder="Arla Foods" required>
+        <span class="reg-err">Bitte geben Sie Ihr Unternehmen ein.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regSize">Unternehmensgröße</label>
+        <select id="regSize" name="company_size" required>
+          <option value="">Auswählen…</option>
+          <option value="1-50">1–50 Mitarbeiter</option>
+          <option value="51-200">51–200 Mitarbeiter</option>
+          <option value="201-1000">201–1.000 Mitarbeiter</option>
+          <option value="1001-5000">1.001–5.000 Mitarbeiter</option>
+          <option value="5000+">5.000+ Mitarbeiter</option>
+        </select>
+        <span class="reg-err">Bitte wählen Sie die Unternehmensgröße aus.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regEmail">Geschäftliche E-Mail</label>
+        <input id="regEmail" name="email" type="email" placeholder="anna@unternehmen.de" required>
+        <span class="reg-err" id="regEmailErr">Bitte verwenden Sie Ihre Geschäftsadresse (kein gmail, hotmail, yahoo, outlook).</span>
+      </div>
+
+      <div class="reg-submit">
+        <button type="submit" class="btn" id="regSubmitBtn">Schicken Sie mir das Deck</button>
+      </div>
+    </form>
+
+    <div class="reg-success" id="regSuccess">
+      <div class="reg-check">✓</div>
+      <h3 id="regSuccessTitle">Danke — das Deck ist unterwegs.</h3>
+      <p>Schauen Sie in der nächsten Minute in Ihren Posteingang. Falls Sie es nicht sehen, prüfen Sie den Werbung-Ordner oder schreiben Sie an <a href="mailto:aj@machineslikeme.com" data-cta="reg-success-email">aj@machineslikeme.com</a>.</p>
+      <a href="https://machineslikeme.com/de/consulting/" data-cta="reg-success-book-demo" class="reg-next js-popup" target="_blank" rel="noopener">In der Zwischenzeit — 15 Min. Intro mit Andreas buchen →</a>
+      <span class="reg-next-hint">Kein Pitch. Ein kurzes Gespräch, um die ersten Automatisierungs-Kandidaten zu identifizieren.</span>
+    </div>
+
+    <div class="reg-mini-foot" aria-label="MLM contact">
+      <div class="rmf-left">
+        <a href="https://www.machineslikeme.com" class="js-popup" data-cta="reg-foot-home" target="_blank" rel="noopener">www.machineslikeme.com</a>
+        <a href="mailto:aj@machineslikeme.com" data-cta="reg-foot-email">aj@machineslikeme.com</a>
+        <span class="rmf-social">
+          <a href="https://www.linkedin.com/company/machineslikeme" class="js-popup" data-cta="reg-foot-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </span>
+      </div>
+      <div class="rmf-right">&copy; 2026 MLM</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ──────────────────────────────────────────────────────
+   FAQ — master "click to explore" reveals the list.
+   Individual questions expand on HOVER (desktop) or CLICK (touch).
+────────────────────────────────────────────────────── */
+(function(){
+  const toggle = document.getElementById('faqToggle');
+  const list   = document.getElementById('faqList');
+  const items  = document.querySelectorAll('#faqList .fq-item');
+
+  // Master toggle: reveal / hide the full list
+  if(toggle && list){
+    toggle.addEventListener('click', () => {
+      const open = list.hasAttribute('hidden') ? true : false;
+      if(open){
+        list.removeAttribute('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.querySelector('.ft-txt').textContent = 'Fragen ausblenden';
+      } else {
+        list.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.querySelector('.ft-txt').textContent = 'Klicken Sie, um die sechs Fragen zu erkunden, die Molkerei-Führungskräfte uns am häufigsten stellen';
+        // Reset all open items when collapsing
+        items.forEach(i => {
+          i.classList.remove('open');
+          const b = i.querySelector('.fq-btn');
+          if(b) b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  }
+
+  // Individual questions: click toggle as fallback for touch devices
+  items.forEach(item => {
+    const btn = item.querySelector('.fq-btn');
+    if(!btn) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach(i => {
+        i.classList.remove('open');
+        const b = i.querySelector('.fq-btn');
+        if(b) b.setAttribute('aria-expanded', 'false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+/* ──────────────────────────────────────────────────────
+   PROBLEM — Apple-style scroll reveal
+────────────────────────────────────────────────────── */
+const probCards = document.querySelectorAll('.prob-card');
+const probObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('in-view');
+  });
+}, { threshold: 0.2 });
+probCards.forEach(c => probObs.observe(c));
+
+/* ──────────────────────────────────────────────────────
+   MLM Approach — 12 departments data + interaction
+────────────────────────────────────────────────────── */
+const DEPT_DATA = {
+  milkops: {
+    tag: 'Milcheingang & Hofbetrieb',
+    title: 'Jeder Tankwagen geroutet, jeder Liter bepreist, jeder Landwirt beantwortet.',
+    desc: 'KI-Agenten optimieren Tankwagen-Routen von Mitgliedsbetrieben, planen Qualitätstests am Hof, erstellen Auszahlungsabrechnungen für Landwirte, prognostizieren Fett- und Eiweißanteile und beantworten Anfragen von Mitgliedern — halten die Rohmilch-Lieferkette am Laufen ohne einen Tower voller Planer.',
+    pct: '~85%',
+    items: [
+      'Tankwagen-Routenoptimierung über Mitgliedsbetriebe',
+      'Milchtest-Planung am Hof und Ergebnisaufnahme',
+      'Milchgeldabrechnungen und Gutschriftläufe für Landwirte',
+      'Fett-/Eiweißanteil-Prognose für den Produktionsmix',
+      'Beratung und Anfragenbearbeitung für Mitgliedslandwirte',
+    ],
+  },
+  processing: {
+    tag: 'Molkerei-Verarbeitung',
+    title: 'Werk nach Ausnahme gesteuert, nicht per Pieper.',
+    desc: 'Agenten planen Produktionschargen, überwachen Pasteurisierung und Fermentation in Echtzeit, verwalten Starterkulturen, verfolgen Käsereifung und analysieren Molke- und Ausbeute-Abweichungen — damit Schichtleiter auf Signale reagieren, nicht auf Alarmstürme.',
+    pct: '~82%',
+    items: [
+      'Tägliche Produktionscharge-Planung und Rüstplanung',
+      'Pasteurisierungs- und CIP-Parameter-Überwachung',
+      'Starterkultur-Bestand und Rotation',
+      'Käsereifungs-Tracking über Kühlhäuser und Lager',
+      'Molke- und Ausbeute-Abweichungsanalyse pro Linie und SKU',
+    ],
+  },
+  packaging: {
+    tag: 'Verpackung & Abfüllung',
+    title: 'OEE hoch, Rüstzeiten runter, Artwork beim ersten Mal richtig.',
+    desc: 'Agenten ziehen OEE-Daten von jedem Abfüller, führen SMED-Rüstanalysen durch, überwachen Füllung und Siegelintegrität, leiten Verpackungs-Artwork durch Multi-Brand-Freigaben und stimmen Verpackungsmaterial-Abweichungen ab — halten Linien länger am Laufen mit niedrigeren Verlustraten.',
+    pct: '~85%',
+    items: [
+      'Verpackungslinien-OEE-Reporting über alle Abfüller',
+      'SMED-Rüstanalyse und Coaching-Vorschläge',
+      'Füll- und Siegel-Integritätsüberwachung mit Auto-Eskalation',
+      'Multi-Brand-Verpackungs-Artwork-Freigabe-Routing',
+      'Verpackungsmaterial-Abweichungsabgleich',
+    ],
+  },
+  qa: {
+    tag: 'Qualitätssicherung & Labor',
+    title: 'Chargenfreigabe schneller, Audit-Nachweise immer bereit.',
+    desc: 'Agenten erledigen Wareneingangskontrolle von Zutaten, Inprozess-Checks, Sensorik-Panel-Koordination, Fertigwaren-Chargenfreigabe und Abweichungen/CAPA — verwandeln das QA-Labor von einem Engpass in einen laufenden Audit-Trail.',
+    pct: '~80%',
+    items: [
+      'Wareneingangskontrolle und CoA-Erfassung',
+      'Inprozess-Qualitätsprüfungen und Abweichungsmeldung',
+      'Sensorik-Panel-Planung, Erfassung und Trendanalyse',
+      'Fertigwaren-Chargenfreigabe mit voller Rückverfolgbarkeit',
+      'Abweichungs-Protokoll und CAPA-Abschlussverfolgung',
+    ],
+  },
+  procurement: {
+    tag: 'Einkauf & Zutaten',
+    title: 'Kulturen, Enzyme und Kartons — beschafft ohne Krise.',
+    desc: 'Von der Zutaten-Bedarfsprognose über Hedging-Unterstützung, Lieferantenrisiko-Monitoring, Bestellabwicklung bis zu Vertragsverlängerungen — Agenten führen einen einzigen Workflow, damit Einkäufer verhandeln statt Auftragsbestätigungen hinterherzulaufen.',
+    pct: '~85%',
+    items: [
+      'Zutaten-Bedarfsprognose nach SKU und Werk',
+      'Hedging-Entscheidungsunterstützung für Milch-Rohstoffe',
+      'Lieferantenrisiko- und Lebensmittelsicherheits-Monitoring',
+      'Bestellabwicklung und mehrstufiges Freigabe-Routing',
+      'Vertragsverlängerungs-Triage mit Preis-Benchmarking',
+    ],
+  },
+  logistics: {
+    tag: 'Kühlkette & Distributionslogistik',
+    title: 'Von der Molkerei ins Regal, temperaturdicht und pünktlich.',
+    desc: 'Agenten überwachen Kühlketten-Telemetrie in Echtzeit, planen Sekundärdistributions-Routen, optimieren die Ladeplanung, rotieren kurzhaltbaren Bestand und bearbeiten Retouren und Reverse-Logistik — schützen die Haltbarkeit und reduzieren Vorfälle, bevor sie den Händler erreichen.',
+    pct: '~83%',
+    items: [
+      'Kühlketten-Telemetrieüberwachung und Alarm-Triage',
+      'Sekundärdistributions-Routenplanung über DCs',
+      'Ladeplanung und LKW-Auslastungsoptimierung',
+      'Bestandsalterung und Kurzdatum-Rotation über Lager',
+      'Retouren und Reverse-Logistik-Ausnahmebehandlung',
+    ],
+  },
+  sales: {
+    tag: 'Vertrieb & Key Accounts',
+    title: 'Jede Promotion bepreist, jede Reklamation gelöst.',
+    desc: 'Agenten entwerfen Retail-Promotion-Pläne, messen Trade-Spend-ROI, erstellen Joint Business Plans, pflegen Preislisten über Accounts und lösen Order-to-Cash-Ausnahmen — damit KAMs ihre Zeit mit Einkäufern verbringen, nicht mit Excel.',
+    pct: '~84%',
+    items: [
+      'Retail-Promotion-Planung und Uplift-Modellierung',
+      'Trade-Spend-ROI-Analyse nach Kunde und SKU',
+      'JBP-Entwurfsgenerierung für Key Accounts',
+      'Multi-Country-Preislistenverwaltung',
+      'Order-to-Cash-Ausnahme- und Abzugsbearbeitung',
+    ],
+  },
+  marketing: {
+    tag: 'Brand Marketing & Konsumenten',
+    title: 'Master-Brand und Sub-Brands bewegen sich gemeinsam, in jedem Markt.',
+    desc: 'Agenten erstellen Kampagnen-Briefings, synthetisieren Shopper-Insights, lokalisieren Inhalte über Märkte, führen Social Listening und Brand-Sentiment-Analyse durch und verwalten Loyalty-Programme — halten Brand-Teams in der Strategie, nicht in Copy-Paste.',
+    pct: '~85%',
+    items: [
+      'Kampagnen-Briefing-Erstellung pro Marke und Markt',
+      'Shopper-Insight-Synthese aus Panel- und POS-Daten',
+      'Mehrsprachige Content-Lokalisierung mit Brand-Guardrails',
+      'Social Listening und Brand-Sentiment-Reporting',
+      'Konsumenten-Loyalty-Programmverwaltung',
+    ],
+  },
+  finance: {
+    tag: 'Finanzen & Controlling',
+    title: 'Bücher schneller geschlossen, Marge früher gesehen, Landwirte korrekt bezahlt.',
+    desc: 'Agenten führen Milchpreis-Abrechnungen an Mitgliedsbetriebe aus, gleichen AP-Rechnungen ab, treiben AR-Inkasso, führen Werks-Kostencontrolling durch und konsolidieren Budgets — geben CFOs Echtzeit-Sicht über Genossenschaft und jede Molkerei.',
+    pct: '~85%',
+    items: [
+      'Milchpreis-Abrechnung an Mitgliedslandwirte',
+      'AP-3-Way-Abgleich für Zutaten und Verpackung',
+      'AR-Inkasso und Mahnwesen für Retail und Foodservice',
+      'Werks-Kostencontrolling und Abweichungserklärung',
+      'Budgetkonsolidierung über Molkereien und Genossenschaft',
+    ],
+  },
+  hr: {
+    tag: 'Personalwesen',
+    title: 'Schichten abgedeckt, Zertifikate aktuell, Lohnabrechnung korrekt.',
+    desc: 'Agenten erledigen Schichtplanung über Molkereien, screenen Bewerbungen, prüfen Lohnabrechnungen, erstellen Lernpfade und analysieren Mitarbeiterbefragungen — halten die Belegschaft konform und einsatzfähig in jedem Werk.',
+    pct: '~82%',
+    items: [
+      'Schichtplanung über Molkereien und Schichten',
+      'Bewerbungs-CV-Screening mit Kompetenz-Matching',
+      'Lohnabrechnungs-Genauigkeitsprüfungen vor jedem Lauf',
+      'Lernpfad-Generierung pro Rolle und Werk',
+      'Engagement-Survey-Analyse und Maßnahmen-Routing',
+    ],
+  },
+  ehs: {
+    tag: 'Nachhaltigkeit, Sicherheit & EHS',
+    title: 'Scope 3 am Hof, CSRD im Bericht, PPWR auf dem Karton.',
+    desc: 'Agenten verfolgen Hof-Scope-3-Methan, führen Wasser- und Energie-KPIs über Werke, entwerfen CSRD-Berichte, prüfen PPWR-Verpackungs-Compliance und protokollieren EHS-Vorfälle — verwandeln Nachhaltigkeitsarbeit vom Quartals-Hektik in kontinuierlichen Nachweis.',
+    pct: '~84%',
+    items: [
+      'Scope-3-Hof-Methandaten-Erfassung und Modellierung',
+      'Werks-Wasser- und Energie-KPI-Dashboards',
+      'CSRD-Berichtsentwurf aus operativen Daten',
+      'PPWR-Verpackungs-Compliance pro SKU und Markt',
+      'EHS-Vorfall-Protokoll und Korrekturmaßnahmen-Routing',
+    ],
+  },
+  it: {
+    tag: 'IT & Digital Operations',
+    title: 'Werke, Genossenschaft und Vertrieb — eine saubere Datenebene.',
+    desc: 'Agenten triagieren ERP-Tickets, regieren SAP-Stammdaten, triagieren MES/SCADA-Alarme, überwachen Cybersecurity und führen IT-Zugriffsprüfungen durch — halten ERP, MES, PLM und kommerzielle Systeme synchron, ohne Ticket-Backlog.',
+    pct: '~85%',
+    items: [
+      'ERP(SAP)-Ticket-Triage und First-Line-Lösung',
+      'SAP-Stammdaten-Governance über Werke',
+      'MES/SCADA-Alarm-Triage und Schicht-Eskalation',
+      'Cybersecurity-Alarm-Überwachung über OT und IT',
+      'Periodische IT-Zugriffsprüfung und Rollenbereinigung',
+    ],
+  },
+};
+
+const panel = document.getElementById('app-panel');
+const tabs = document.querySelectorAll('.app-tab');
+
+function renderPanel(dept){
+  const d = DEPT_DATA[dept];
+  panel.innerHTML = `
+    <div class="app-panel-left">
+      <span class="ap-tag">${d.tag}</span>
+      <h3>${d.title}</h3>
+      <p>${d.desc}</p>
+      <div class="ap-automation">
+        <span class="ap-num">${d.pct}</span>
+        <span class="ap-lab">Menschlicher Aufwand automatisiert</span>
+      </div>
+    </div>
+    <div class="app-panel-right">
+      <ul class="ap-list">
+        ${d.items.map(it => `<li>${it}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+}
+
+// Initial render
+renderPanel('milkops');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderPanel(tab.dataset.dept);
+  });
+  tab.addEventListener('mouseenter', () => {
+    if(!tab.classList.contains('active')){
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderPanel(tab.dataset.dept);
+    }
+  });
+});
+
+/* ──────────────────────────────────────────────────────
+   BENEFITS — sequential "power-on" of task rows
+────────────────────────────────────────────────────── */
+const benRows = document.querySelectorAll('.ben-row');
+const benScreen = document.getElementById('benScreen');
+let benTimers = [];
+
+function playBenefits(){
+  benTimers.forEach(t => clearTimeout(t));
+  benTimers = [];
+  benRows.forEach((row, i) => {
+    benTimers.push(setTimeout(() => row.classList.add('on'), 450 + i * 340));
+  });
+}
+function resetBenefits(){
+  benTimers.forEach(t => clearTimeout(t));
+  benTimers = [];
+  benRows.forEach(row => row.classList.remove('on'));
+}
+
+const benObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) playBenefits();
+    else resetBenefits();
+  });
+}, { threshold: 0.25 });
+if(benScreen) benObs.observe(benScreen);
+
+/* Case studies: single-case static display. */
+
+/* ──────────────────────────────────────────────────────
+   REGISTER MODAL — asset-specific copy, open/close, submit
+────────────────────────────────────────────────────── */
+const regModal        = document.getElementById('regModal');
+const regClose        = document.getElementById('regClose');
+const regAssetPill    = document.getElementById('regAssetPill');
+const regAssetName    = document.getElementById('regAssetName');
+const regAssetInput   = document.getElementById('regAssetInput');
+const regTitleAction  = document.getElementById('regTitleAction');
+const regSub          = document.getElementById('regSub');
+const regSubmitBtn    = document.getElementById('regSubmitBtn');
+const regSuccessTitle = document.getElementById('regSuccessTitle');
+const regForm         = document.getElementById('regForm');
+const regSuccess      = document.getElementById('regSuccess');
+
+// Copy that changes based on which asset was requested.
+const ASSET_COPY = {
+  deck: {
+    label:        'Automatisierungskarte für die Milchwirtschaft',
+    titleAction:  'senden Ihnen die Automatisierungskarte',
+    sub:          "Wir senden Ihnen die Automatisierungskarte für die Milchwirtschaft — die Bereiche, die wir in Ihrem Betrieb potenziell automatisieren können, plus die typischen Metriken, die jeder Bereich bewegt. Anfrage in 30 Sekunden.",
+    submit:       'Schicken Sie mir die Automatisierungskarte',
+    successTitle: "Danke — die Automatisierungskarte ist unterwegs."
+  }
+};
+
+// Capture UTM params from the current URL once, reuse on every modal open.
+const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+const UTM_CACHE = (function(){
+  try{
+    const p = new URLSearchParams(window.location.search);
+    const out = {};
+    UTM_KEYS.forEach(k => { out[k] = p.get(k) || ''; });
+    return out;
+  }catch(_){ return Object.fromEntries(UTM_KEYS.map(k => [k,''])); }
+})();
+
+// Consumer email domains we reject — we only want work emails.
+const BLOCKED_EMAIL_DOMAINS = ['gmail.com','googlemail.com','hotmail.com','hotmail.co.uk','outlook.com','live.com','yahoo.com','yahoo.co.uk','icloud.com','me.com','aol.com','proton.me','protonmail.com'];
+
+function openRegModal(assetKey){
+  const copy = ASSET_COPY[assetKey] || ASSET_COPY.deck;
+  if(regAssetInput)   regAssetInput.value       = assetKey;
+  if(regAssetName)    regAssetName.textContent  = copy.label;
+  if(regTitleAction)  regTitleAction.textContent = copy.titleAction;
+  if(regSub)          regSub.textContent        = copy.sub;
+  if(regSubmitBtn)    regSubmitBtn.textContent  = copy.submit;
+  if(regSuccessTitle) regSuccessTitle.textContent = copy.successTitle;
+
+  // reset any previous "sent" state
+  if(regForm){
+    regForm.reset();
+    regForm.style.display = '';
+    if(regAssetInput) regAssetInput.value = assetKey;
+    // Clear any error states
+    regForm.querySelectorAll('.reg-field.is-error').forEach(f => f.classList.remove('is-error'));
+  }
+  if(regSuccess) regSuccess.classList.remove('show');
+
+  // Populate UTM hidden fields from cached URL params
+  UTM_KEYS.forEach(k => {
+    const el = document.getElementById('regUtm' + k.replace('utm_','').replace(/^./, c => c.toUpperCase()));
+    if(el) el.value = UTM_CACHE[k] || '';
+  });
+
+  regModal.classList.remove('is-expanded','is-compact');
+  regModal.classList.add('show');
+  document.body.classList.add('reg-open');
+
+  // focus first input for accessibility
+  setTimeout(() => {
+    const first = document.getElementById('regFirst');
+    if(first) first.focus();
+  }, 120);
+}
+
+function closeRegModal(){
+  regModal.classList.remove('show','is-expanded','is-compact');
+  document.body.classList.remove('reg-open');
+}
+
+/* Expand / minimize / restore for the register modal */
+function setRegSize(mode){
+  if(!regModal) return;
+  regModal.classList.remove('is-expanded','is-compact');
+  if(mode === 'expanded') regModal.classList.add('is-expanded');
+  if(mode === 'compact')  regModal.classList.add('is-compact');
+  const rExp = document.getElementById('regExpand');
+  const rMin = document.getElementById('regMinimize');
+  if(rExp){
+    const isExp = regModal.classList.contains('is-expanded');
+    rExp.setAttribute('aria-label', isExp ? 'Restore modal' : 'Expand modal');
+    rExp.setAttribute('title',      isExp ? 'Restore' : 'Expand');
+  }
+  if(rMin){
+    const isCompact = regModal.classList.contains('is-compact');
+    rMin.setAttribute('aria-label', isCompact ? 'Restore modal' : 'Minimize modal');
+    rMin.setAttribute('title',      isCompact ? 'Restore' : 'Minimize');
+  }
+  if(window.mlmTrack) window.mlmTrack.track('reg_modal_resize', { mode });
+}
+(function(){
+  const rExp = document.getElementById('regExpand');
+  const rMin = document.getElementById('regMinimize');
+  if(rExp) rExp.addEventListener('click', e => {
+    e.stopPropagation();
+    setRegSize(regModal.classList.contains('is-expanded') ? 'default' : 'expanded');
+  });
+  if(rMin) rMin.addEventListener('click', e => {
+    e.stopPropagation();
+    setRegSize(regModal.classList.contains('is-compact') ? 'default' : 'compact');
+  });
+  // Click on the compact pill body restores it
+  const wrap = regModal ? regModal.querySelector('.register-wrap') : null;
+  if(wrap) wrap.addEventListener('click', e => {
+    if(!regModal.classList.contains('is-compact')) return;
+    if(e.target.closest('.reg-close') || e.target.closest('.reg-resize')) return;
+    setRegSize('default');
+  });
+})();
+
+// Any anchor marked .js-asset-link opens the modal instead of navigating.
+document.querySelectorAll('.js-asset-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    openRegModal(link.dataset.asset || 'deck');
+  });
+});
+
+// Close on ×, backdrop click, and Escape.
+if(regClose) regClose.addEventListener('click', closeRegModal);
+if(regModal) regModal.addEventListener('click', e => {
+  if(e.target === regModal) closeRegModal();
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && regModal.classList.contains('show')) closeRegModal();
+});
+
+// Form handler — front-end only. Replace the fetch() URL with your real
+// lead-capture endpoint (HubSpot, Marketo, Mailchimp, webhook, etc.).
+if(regForm){
+  // Helper: toggle error state on a field (by input id)
+  const setErr = (inputId, on, msg) => {
+    const input = document.getElementById(inputId);
+    if(!input) return;
+    const field = input.closest('.reg-field');
+    if(!field) return;
+    field.classList.toggle('is-error', !!on);
+    if(msg){
+      const err = field.querySelector('.reg-err');
+      if(err) err.textContent = msg;
+    }
+  };
+
+  // Live-clear error when user edits a field
+  regForm.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('input', () => {
+      const field = el.closest('.reg-field');
+      if(field) field.classList.remove('is-error');
+    });
+    el.addEventListener('change', () => {
+      const field = el.closest('.reg-field');
+      if(field) field.classList.remove('is-error');
+    });
+  });
+
+  regForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const data = {
+      asset:         regAssetInput ? regAssetInput.value : 'deck',
+      first_name:    regForm.first_name.value.trim(),
+      last_name:     regForm.last_name.value.trim(),
+      role:          regForm.role.value.trim(),
+      company:       regForm.company.value.trim(),
+      company_size:  regForm.company_size.value,
+      email:         regForm.email.value.trim(),
+      utm_source:    regForm.utm_source.value,
+      utm_medium:    regForm.utm_medium.value,
+      utm_campaign:  regForm.utm_campaign.value,
+      utm_term:      regForm.utm_term.value,
+      utm_content:   regForm.utm_content.value
+    };
+
+    let firstErr = null;
+    const required = [
+      ['regFirst',   data.first_name,    'Please enter your first name.'],
+      ['regLast',    data.last_name,     'Please enter your last name.'],
+      ['regRole',    data.role,          'Please enter your role.'],
+      ['regCompany', data.company,       'Please enter your company.'],
+      ['regSize',    data.company_size,  'Please select company size.']
+    ];
+    required.forEach(([id, val, msg]) => {
+      if(!val){ setErr(id, true, msg); if(!firstErr) firstErr = id; }
+    });
+
+    // Email: required + format + work-email only
+    const email = data.email.toLowerCase();
+    const emailShape = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!email){
+      setErr('regEmail', true, 'Please enter your work email.');
+      if(!firstErr) firstErr = 'regEmail';
+    } else if(!emailShape.test(email)){
+      setErr('regEmail', true, "That doesn't look like a valid email.");
+      if(!firstErr) firstErr = 'regEmail';
+    } else {
+      const domain = email.split('@')[1];
+      if(BLOCKED_EMAIL_DOMAINS.includes(domain)){
+        setErr('regEmail', true, 'Please use your work email (not gmail, hotmail, yahoo, outlook, etc.).');
+        if(!firstErr) firstErr = 'regEmail';
+      }
+    }
+
+    if(firstErr){
+      const el = document.getElementById(firstErr);
+      if(el) el.focus();
+      return;
+    }
+
+    // ── Submit to HubSpot Forms API + open mailto to Jeff for follow-up ──
+    const hsPayload = {
+      submittedAt: Date.now(),
+      fields: [
+        { objectTypeId: "0-1", name: "firstname", value: data.first_name },
+        { objectTypeId: "0-1", name: "lastname",  value: data.last_name },
+        { objectTypeId: "0-1", name: "email",     value: data.email }
+      ],
+      context: {
+        pageUri:  location.href,
+        pageName: document.title
+      }
+    };
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/139585830/e8e6ab7a-1d07-48a2-bce1-832a1cd50d9c', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(hsPayload)
+    }).catch(err => console.warn('[MLM] HubSpot submit failed', err));
+
+    // Open prefilled mailto to rep (full lead details, including extras HubSpot doesn't store)
+    const mailSubject = encodeURIComponent('Anfrage Automatisierungskarte — ' + data.company + ' (' + data.first_name + ' ' + data.last_name + ')');
+    const mailBody = encodeURIComponent(
+      'Hallo Andreas,\n\nEin neuer Lead hat gerade die Automatisierungskarte über die Landing Page angefordert:\n\n' +
+      'Name:        ' + data.first_name + ' ' + data.last_name + '\n' +
+      'E-Mail:      ' + data.email + '\n' +
+      'Funktion:    ' + data.role + '\n' +
+      'Unternehmen: ' + data.company + '\n' +
+      'Größe:       ' + data.company_size + '\n' +
+      'Asset:       ' + data.asset + '\n' +
+      'UTM:         Quelle=' + data.utm_source + ' / medium=' + data.utm_medium + ' / campaign=' + data.utm_campaign + '\n\n' +
+      '— MLM Landing Page'
+    );
+    setTimeout(() => {
+      window.location.href = 'mailto:aj@machineslikeme.com?subject=' + mailSubject + '&body=' + mailBody;
+    }, 200);
+
+
+    regForm.style.display = 'none';
+    if(regSuccess) regSuccess.classList.add('show');
+
+    if (window.mlmTrack) window.mlmTrack.track('lead_submit', { asset: data.asset, company_size: data.company_size });
+  });
+}
+
+/* ──────────────────────────────────────────────────────
+   ANALYTICS — UTM capture + click / scroll / time tracking
+────────────────────────────────────────────────────── */
+(function(){
+  const LAUNCHED_AT = Date.now();
+  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+  const qs = new URLSearchParams(location.search);
+  const UTM = {};
+  UTM_KEYS.forEach(k => UTM[k] = qs.get(k) || '');
+
+  // Unique session id (UUID-lite)
+  const SESSION_ID = 'mlm_' + Math.random().toString(36).slice(2,10) + '_' + Date.now().toString(36);
+
+  // dataLayer for GTM / Segment / any downstream consumer
+  window.dataLayer = window.dataLayer || [];
+
+  function track(event, props){
+    const payload = Object.assign({
+      event,
+      session_id:       SESSION_ID,
+      industry:         'dairy',
+      landing:          'dairy',
+      page:             location.pathname + location.search,
+      t_ms_since_load:  Date.now() - LAUNCHED_AT,
+      ts:               new Date().toISOString()
+    }, UTM, props || {});
+    window.dataLayer.push(payload);
+    if (window.console && console.debug) console.debug('[mlm.track]', event, payload);
+    return payload;
+  }
+  window.mlmTrack = { track, UTM, sessionId: SESSION_ID, launchedAt: LAUNCHED_AT };
+
+  // Initial page view
+  track('page_view', {
+    referrer:    document.referrer || '(direct)',
+    viewport_w:  window.innerWidth,
+    viewport_h:  window.innerHeight
+  });
+
+  // Navigation / paint timings (when available)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      try {
+        const nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+        if (nav) {
+          track('nav_timing', {
+            dns_ms:      Math.round(nav.domainLookupEnd - nav.domainLookupStart),
+            tcp_ms:      Math.round(nav.connectEnd - nav.connectStart),
+            ttfb_ms:     Math.round(nav.responseStart - nav.requestStart),
+            dom_ms:      Math.round(nav.domContentLoadedEventEnd - nav.startTime),
+            load_ms:     Math.round(nav.loadEventEnd - nav.startTime)
+          });
+        }
+      } catch(e){}
+    }, 0);
+  });
+
+  // Scroll depth (25/50/75/100)
+  const depthBuckets = [25,50,75,100];
+  const seenDepth = new Set();
+  function onScroll(){
+    const h = document.documentElement;
+    const maxScroll = Math.max(1, h.scrollHeight - window.innerHeight);
+    const pct = Math.min(100, Math.round((window.scrollY / maxScroll) * 100));
+    depthBuckets.forEach(d => {
+      if (pct >= d && !seenDepth.has(d)) {
+        seenDepth.add(d);
+        track('scroll_depth', { pct: d });
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Section visibility via IntersectionObserver
+  const seenSections = new Set();
+  if ('IntersectionObserver' in window) {
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting && en.intersectionRatio > 0.35) {
+          const id = en.target.id || en.target.className.split(/\s+/).find(c => /^sec-/.test(c));
+          if (id && !seenSections.has(id)) {
+            seenSections.add(id);
+            track('section_view', { section: id });
+          }
+        }
+      });
+    }, { threshold: [0.35] });
+    document.querySelectorAll('section[id], section[class*="sec-"]').forEach(s => so.observe(s));
+  }
+
+  // Time heartbeats (seconds on page)
+  const heartbeats = [15, 30, 60, 120, 180, 300, 600];
+  let hbIdx = 0;
+  const hbTimer = setInterval(() => {
+    if (hbIdx >= heartbeats.length) { clearInterval(hbTimer); return; }
+    track('time_on_page', { seconds: heartbeats[hbIdx] });
+    hbIdx++;
+  }, 15000);
+
+  // Final time on exit (best-effort)
+  window.addEventListener('beforeunload', () => {
+    track('page_exit', { seconds: Math.round((Date.now() - LAUNCHED_AT) / 1000) });
+  });
+  // Tab hidden → also track a pause
+  document.addEventListener('visibilitychange', () => {
+    track(document.hidden ? 'tab_hidden' : 'tab_visible', {
+      seconds: Math.round((Date.now() - LAUNCHED_AT) / 1000)
+    });
+  });
+
+  // Click delegation — tracks every anchor / button / CTA
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a, button');
+    if (!el) return;
+    const href = el.getAttribute && el.getAttribute('href');
+    const label = (el.textContent || el.getAttribute('aria-label') || '').trim().slice(0, 80);
+    const ctaId = el.dataset.cta || el.dataset.asset || null;
+    const kind  = el.tagName === 'BUTTON' ? 'button' :
+                  (href && href.startsWith('#') ? 'anchor_internal' :
+                   href && /^(mailto|tel):/.test(href) ? href.split(':')[0] :
+                   href && /^https?:/.test(href) ? 'external' : 'link');
+    track('cta_click', {
+      cta_id: ctaId,
+      label,
+      kind,
+      href:   href || null,
+      classes: (el.className || '').toString().slice(0, 120)
+    });
+  }, true);
+})();
+
+/* ──────────────────────────────────────────────────────
+   POPUP — every outbound link opens in an iframe overlay
+────────────────────────────────────────────────────── */
+(function(){
+  const overlay   = document.getElementById('popupOverlay');
+  const panel     = overlay ? overlay.querySelector('.popup-panel') : null;
+  const frame     = document.getElementById('popupFrame');
+  const titleEl   = document.getElementById('popupTitle');
+  const closeBtn  = document.getElementById('popupClose');
+  const expandBtn = document.getElementById('popupExpand');
+  const minBtn    = document.getElementById('popupMinimize');
+  const fb        = document.getElementById('popupFallback');
+  const fbLink    = document.getElementById('popupFallbackLink');
+  if (!overlay || !frame) return;
+
+  let openedAt = 0;
+  let checkTimer = null;
+
+  function appendUtm(url){
+    try {
+      const u  = new URL(url, location.href);
+      const qs = new URLSearchParams(location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k => {
+        const v = qs.get(k);
+        if (v && !u.searchParams.has(k)) u.searchParams.set(k, v);
+      });
+      return u.href;
+    } catch(e){ return url; }
+  }
+
+  function openPopup(url, label){
+    if (!url) return;
+    openedAt = Date.now();
+    overlay.classList.remove('is-expanded','is-compact');
+    fb.style.display = 'none';
+    titleEl.textContent = label || 'Preview';
+    let finalUrl = appendUtm(url);
+    // Calendly embed-friendly variant
+    if (/calendly\.com/.test(finalUrl) && !/embed/.test(finalUrl)) {
+      const sep = finalUrl.includes('?') ? '&' : '?';
+      finalUrl += sep + 'embed_domain=' + encodeURIComponent(location.hostname || 'mlm') + '&embed_type=Inline';
+    }
+    fbLink.href = finalUrl;
+    frame.src = finalUrl;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.classList.add('popup-open');
+
+    if (window.mlmTrack) window.mlmTrack.track('popup_open', { url: finalUrl, label });
+
+    // If embed is blocked by X-Frame-Options, show fallback after 2.5s
+    clearTimeout(checkTimer);
+    checkTimer = setTimeout(() => {
+      let blocked = false;
+      try {
+        const doc = frame.contentDocument;
+        if (!doc || !doc.body || !doc.body.children.length) blocked = true;
+      } catch(err){ /* cross-origin — assume OK */ }
+      if (blocked) fb.style.display = 'block';
+    }, 2500);
+  }
+
+  function closePopup(){
+    const dwellSec = openedAt ? Math.round((Date.now() - openedAt) / 1000) : 0;
+    overlay.classList.remove('open','is-expanded','is-compact');
+    overlay.setAttribute('aria-hidden','true');
+    frame.src = 'about:blank';
+    document.body.classList.remove('popup-open');
+    if (window.mlmTrack) window.mlmTrack.track('popup_close', { seconds: dwellSec });
+  }
+
+  // Expand / minimize / restore — three-state resize
+  function setSize(mode){
+    // mode: 'default' | 'expanded' | 'compact'
+    overlay.classList.remove('is-expanded','is-compact');
+    if (mode === 'expanded') overlay.classList.add('is-expanded');
+    if (mode === 'compact')  overlay.classList.add('is-compact');
+    // Update button labels/titles
+    if (expandBtn){
+      const isExpanded = overlay.classList.contains('is-expanded');
+      expandBtn.setAttribute('aria-label', isExpanded ? 'Restore popup' : 'Expand popup');
+      expandBtn.setAttribute('title',      isExpanded ? 'Restore' : 'Expand');
+    }
+    if (minBtn){
+      const isCompact = overlay.classList.contains('is-compact');
+      minBtn.setAttribute('aria-label', isCompact ? 'Restore popup' : 'Minimize popup');
+      minBtn.setAttribute('title',      isCompact ? 'Restore' : 'Minimize');
+    }
+    if (window.mlmTrack) window.mlmTrack.track('popup_resize', { mode });
+  }
+
+  if (expandBtn) expandBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setSize(overlay.classList.contains('is-expanded') ? 'default' : 'expanded');
+  });
+  if (minBtn) minBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setSize(overlay.classList.contains('is-compact') ? 'default' : 'compact');
+  });
+  // Click on compact pill restores it
+  if (panel) panel.addEventListener('click', (e) => {
+    if (!overlay.classList.contains('is-compact')) return;
+    if (e.target.closest('.popup-close') || e.target.closest('.popup-resize')) return;
+    setSize('default');
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closePopup);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closePopup();
+  });
+
+  // NOTE: Click-delegation popup overlay is intentionally disabled.
+  // Outbound links now open in a new tab natively via target="_blank".
+  // If we want to re-enable the iframe preview overlay later, restore the
+  // delegation block here.
+})();
+
+/* CASE STUDIES — rotating carousel (auto 5s + manual + hover pause) */
+(function(){
+  const CASES = [{"tag": "Case 01 · Bio-Molkerei 🇩🇪", "dot_label": "Prozess-Discovery", "visual_title": "389 Prozesse in 3 Tagen kartiert — nicht in 3 Monaten.", "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1200&q=85", "pct": "3 Tage", "eyebrow": "KI-gestützte Prozess-Discovery", "big": "389", "big_sub": "Aktivitäten in 5 Clustern (OTC, PTP-RHB, PTP-EM, MTS-F, MTS-H) mit ~500 KI-Mikrointerviews vor Ort mit 2 Beratern dokumentiert — eine Baseline, die eine Tier-1-Beratung in Monaten nicht liefern konnte.", "kpis": [["~500", "Mikrointerviews"], ["5 Cluster", "389 Aktivitäten"], ["413 MB", "Strukturiertes Liefer-Paket"]]}, {"tag": "Case 02 · Bio-Molkerei 🇩🇪", "dot_label": "Produktionsplanung", "visual_title": "Komplette Produktions-Neuplanung in unter 3 Sekunden. 24/7 autonom.", "image": "https://images.unsplash.com/photo-1651525670099-f828fb5478a5?auto=format&fit=crop&w=1200&q=85", "pct": "<3 s", "eyebrow": "Autonome Produktionsplanung", "big": "", "big_sub": "Von monatlicher Kapazität bis zum nächsten Produktionsauftrag — jede Produktionsentscheidung in einer einzigen integrierten Optimierung berechnet. Der Agent fusioniert ERP-, WMS-, SCADA/IoT- und Wartungssignale kontinuierlich, damit der Plan immer die Realität abbildet.", "kpis": [["95%", "Weniger Planungsaufwand"], ["<3 s", "End-to-End-Neuplanung"], ["24/7", "Autonomer Betrieb"]]}];
+  if(!CASES || CASES.length < 2) return;
+  const sec = document.getElementById('cases');
+  const stage = document.getElementById('casesStage');
+  if(!sec || !stage) return;
+  const cvVisual  = document.getElementById('caseVisual');
+  const cvTag     = document.getElementById('cvTag');
+  const cvTitle   = document.getElementById('cvTitle');
+  const cvPct     = document.getElementById('cvPct');
+  const ccEyebrow = document.getElementById('ccEyebrow');
+  const ccBig     = document.getElementById('ccBig');
+  const ccBigSub  = document.getElementById('ccBigSub');
+  const ccKpis    = document.getElementById('ccKpis');
+  const dots      = Array.from(document.querySelectorAll('.cases-nav .case-dot'));
+  let idx = 0, timer = null, paused = false;
+
+  function paint(i){
+    const c = CASES[i];
+    if(!c) return;
+    stage.classList.add('case-is-leaving');
+    setTimeout(function(){
+      cvVisual.style.backgroundImage = "url('" + c.image + "')";
+      cvTag.textContent     = c.tag;
+      cvTitle.textContent   = c.visual_title;
+      cvPct.textContent     = c.pct;
+      ccEyebrow.textContent = c.eyebrow;
+      ccBig.textContent     = c.big;
+      ccBig.style.display = c.big ? '' : 'none';
+      ccBigSub.textContent  = c.big_sub;
+      ccKpis.innerHTML = c.kpis.map(function(k){return '<div class="case-kpi"><span class="ck-n">'+k[0]+'</span><span class="ck-l">'+k[1]+'</span></div>';}).join('');
+      dots.forEach(function(d,k){d.classList.toggle('active', k===i);});
+      stage.classList.remove('case-is-leaving');
+    }, 320);
+  }
+  function next(){ idx = (idx + 1) % CASES.length; paint(idx); }
+  function go(i){ idx = i; paint(idx); restart(); }
+  function start(){ if(timer) return; timer = setInterval(function(){ if(!paused) next(); }, 5000); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function restart(){ stop(); start(); }
+
+  dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
+  stage.addEventListener('mouseenter', function(){ paused = true; });
+  stage.addEventListener('mouseleave', function(){ paused = false; });
+
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) start(); else stop(); });
+  }, {threshold: 0.2});
+  obs.observe(sec);
+})();
+</script>
+
+<script>
+/* ──────────────────────────────────────────────────────
+   LANGUAGE SWITCHER — toggle dropdown
+────────────────────────────────────────────────────── */
+(function(){
+  const toggle = document.getElementById('langToggle');
+  const menu = document.getElementById('langMenu');
+  const wrap = document.getElementById('langSwitcher');
+  if(!toggle || !menu) return;
+  function close(){
+    toggle.setAttribute('aria-expanded','false');
+    menu.classList.remove('open');
+  }
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = menu.classList.contains('open');
+    if(open){ close(); }
+    else { toggle.setAttribute('aria-expanded','true'); menu.classList.add('open'); }
+  });
+  document.addEventListener('click', e => {
+    if(!wrap.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') close();
+  });
+})();
+</script>
+</body>
+</html>

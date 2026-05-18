@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machines Like Me — Gebouwd voor Private Equity</title>
+<style>
+/* ──────────────────────────────────────────────────────
+   FONT FACES
+────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Suisseintl';
+  src: url('https://cdn.prod.website-files.com/686ce151be97e21fe2785a7e/6937f095ca75121d8087849d_SuisseIntl-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Suisseintl Book';
+  src: url('https://cdn.prod.website-files.com/686ce151be97e21fe2785a7e/6937f095f94b0ecaff03bdb8_SuisseIntl-Book.woff2') format('woff2');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Tobias';
+  src: url('https://cdn.prod.website-files.com/686ce151be97e21fe2785a7e/6937f06bc55b1e39f54a0128_Tobias-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+/* ──────────────────────────────────────────────────────
+   RESET
+────────────────────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Suisseintl','Suisseintl Book',Arial,sans-serif;color:#111;background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+.container{max-width:1240px;margin:0 auto;padding:0 60px}
+.badge{display:inline-block;font-family:'Suisseintl',Arial,sans-serif;font-size:10.5px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:#3A5BFF;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#3A5BFF;color:#fff;padding:13px 28px;border-radius:6px;font-family:'Suisseintl',Arial,sans-serif;font-weight:400;font-size:14px;border:none;cursor:pointer;transition:all .2s}
+.btn:hover{background:#2845d9;transform:translateY(-1px)}
+.btn-sm{padding:10px 22px;font-size:13px}
+.btn-outline{background:transparent;border:1.5px solid #3A5BFF;color:#3A5BFF}
+.btn-outline:hover{background:#3A5BFF;color:#fff}
+.btn-white{background:#fff;color:#3A5BFF}
+.btn-white:hover{background:#f0f2ff}
+.btn-ghost-white{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.btn-ghost-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-dark{background:#111;color:#fff}
+.btn-dark:hover{background:#1d1d1d;transform:translateY(-1px)}
+.btn-outline-dark{background:transparent;border:1.5px solid #111;color:#111}
+.btn-outline-dark:hover{background:#111;color:#fff}
+
+/* ──────────────────────────────────────────────────────
+   HEADER
+────────────────────────────────────────────────────── */
+header{
+  background:#fff;padding:22px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:999;
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.logo{display:inline-flex;align-items:center;text-decoration:none}
+.logo img{display:block;height:38px;width:auto;max-width:110px}
+header nav{display:flex;gap:30px;align-items:center}
+header nav a{font-family:'Suisseintl',Arial,sans-serif;font-size:14px;font-weight:400;color:#111;transition:color .15s}
+header nav a:hover{color:#3A5BFF}
+
+/* ──────────────────────────────────────────────────────
+   HERO
+────────────────────────────────────────────────────── */
+.hero{
+  position:relative;min-height:560px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:url('https://images.unsplash.com/photo-1541976590-713941681591?w=1800&q=80');
+  background-size:cover;background-position:center 40%;
+}
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:1;pointer-events:none;
+  animation:heroVideoFade 1.4s ease forwards;
+}
+@keyframes heroVideoFade{
+  0%{opacity:0}100%{opacity:1}
+}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,40,.55) 0%,rgba(8,12,40,.65) 60%,rgba(8,12,40,.78) 100%);z-index:2}
+.hero-content{position:relative;z-index:3;padding:0 60px;max-width:920px}
+.hero .pill{
+  display:inline-block;
+  background:rgba(58,91,255,.2);color:rgba(255,255,255,.9);
+  font-family:'Suisseintl',Arial,sans-serif;
+  font-size:12px;font-weight:400;padding:7px 16px;border-radius:20px;
+  margin-bottom:28px;letter-spacing:.3px;
+  border:1px solid rgba(58,91,255,.3);
+}
+.hero h1{
+  font-family:'Tobias',Georgia,serif;
+  font-size:68px;font-weight:400;color:#fff;
+  line-height:1.05;margin-bottom:24px;letter-spacing:-1.5px;
+}
+.hero h1 em{
+  font-style:italic;color:#9fb2ff;
+}
+.hero .sub{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;
+  font-size:18px;color:rgba(255,255,255,.78);
+  line-height:1.6;margin-bottom:38px;max-width:640px;margin-left:auto;margin-right:auto;
+}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ──────────────────────────────────────────────────────
+   KPI BAR — compact lavender chips, Fixed Price glows softly
+────────────────────────────────────────────────────── */
+/* Regulatory ribbon — slim band above the KPI bar, F&B-specific */
+.sec-reg-ribbon{
+  padding:14px 60px;
+  background:linear-gradient(90deg,#0b1030 0%,#1a2050 50%,#0b1030 100%);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.reg-ribbon-inner{
+  max-width:1120px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,.86);
+  letter-spacing:.2px;line-height:1.4;text-align:center;
+}
+.reg-ribbon-dot{
+  width:7px;height:7px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 0 4px rgba(74,222,128,.18),0 0 8px rgba(74,222,128,.6);
+  flex-shrink:0;
+}
+.reg-ribbon-txt strong{font-weight:500;color:#fff}
+@media(max-width:720px){
+  .sec-reg-ribbon{padding:14px 18px}
+  .reg-ribbon-inner{font-size:12px;flex-wrap:wrap}
+}
+
+.sec-logobar{padding:34px 60px 30px;background:#fff;border-bottom:1px solid #eef0f7}
+.logobar-inner{max-width:1120px;margin:0 auto;text-align:center}
+.logobar-label{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#8b90a3;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+
+.kpibar-row{
+  display:grid;grid-template-columns:repeat(6,1fr);
+  align-items:stretch;gap:10px;
+  max-width:1120px;margin:0 auto;
+}
+.kpi-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:18px 10px;gap:6px;
+  background:linear-gradient(180deg,#f3f5ff 0%,#ebeeff 100%);
+  border:1px solid #e2e6ff;border-radius:10px;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.kpi-item:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(58,91,255,.08)}
+.kpi-num{
+  font-family:'Tobias',Georgia,serif;font-size:20px;font-weight:400;
+  color:#111;letter-spacing:-.3px;line-height:1;
+}
+.kpi-label{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:9.5px;color:#666;
+  text-transform:uppercase;letter-spacing:1.4px;
+}
+
+/* Fixed Price — same card, just a luminous resplandor */
+.kpi-item.kpi-featured{
+  position:relative;overflow:visible;
+  border-color:#c9d2ff;
+  box-shadow:0 0 0 1px rgba(123,155,255,.28),
+             0 8px 20px rgba(58,91,255,.14),
+             0 0 36px rgba(123,155,255,.18);
+  animation:kpiGlow 4s ease-in-out infinite;
+}
+.kpi-item.kpi-featured::before{
+  content:'';position:absolute;inset:-1px;border-radius:11px;
+  background:linear-gradient(135deg,rgba(123,155,255,.32),rgba(58,91,255,.1) 40%,transparent 70%);
+  z-index:-1;filter:blur(8px);opacity:.9;
+  animation:kpiGlow 4s ease-in-out infinite reverse;
+}
+.kpi-item.kpi-featured .kpi-num{
+  color:#111;
+  text-shadow:0 0 14px rgba(123,155,255,.32);
+}
+.kpi-item.kpi-featured .kpi-label{color:#555}
+@keyframes kpiGlow{
+  0%,100%{box-shadow:0 0 0 1px rgba(123,155,255,.28),0 8px 20px rgba(58,91,255,.14),0 0 36px rgba(123,155,255,.18)}
+  50%    {box-shadow:0 0 0 1px rgba(123,155,255,.45),0 12px 28px rgba(58,91,255,.22),0 0 56px rgba(123,155,255,.34)}
+}
+
+@media(max-width:1100px){
+  .kpibar-row{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+  .kpibar-row{grid-template-columns:repeat(2,1fr);gap:8px}
+  .kpi-num{font-size:17px}
+}
+@media(max-width:900px){.sec-logobar{padding:48px 28px}}
+
+/* ──────────────────────────────────────────────────────
+   PROBLEM — Apple-style scroll reveal (subtle, secondary)
+────────────────────────────────────────────────────── */
+.sec-problem{padding:64px 60px 110px;background:#fff;position:relative;overflow:hidden}
+.prob-header{max-width:1140px;margin:0 auto 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.prob-header > p{margin-top:58px}
+.prob-header h2{font-family:'Tobias',Georgia,serif;font-size:44px;font-weight:400;color:#111;line-height:1.06;letter-spacing:-1px}
+.prob-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:15px;color:#555;line-height:1.65}
+
+.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1140px;margin:0 auto}
+.prob-card{
+  position:relative;
+  background:#fafbfd;border:1px solid #eceef5;border-radius:14px;
+  padding:28px 24px 26px;overflow:hidden;
+  transition:transform .6s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .3s;
+  opacity:0;transform:translateY(32px);
+}
+.prob-card.in-view{opacity:1;transform:translateY(0)}
+.prob-card:nth-child(1){transition-delay:0s}
+.prob-card:nth-child(2){transition-delay:.08s}
+.prob-card:nth-child(3){transition-delay:.16s}
+.prob-card:nth-child(4){transition-delay:.24s}
+.prob-card:hover{border-color:#d7dcf5;box-shadow:0 12px 32px rgba(12,20,60,.06);transform:translateY(-4px) scale(1.01)}
+.prob-card .p-num{
+  font-family:'Tobias',Georgia,serif;font-size:34px;color:#3A5BFF;line-height:1;letter-spacing:-0.5px;
+  display:inline-block;margin-bottom:14px;
+}
+.prob-card h4{font-family:'Suisseintl',Arial,sans-serif;font-size:14.5px;font-weight:400;color:#111;line-height:1.4;margin-bottom:10px}
+.prob-card p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:12.5px;color:#6a6f7f;line-height:1.6}
+.prob-card::after{
+  content:'';position:absolute;inset:auto 0 0 0;height:2px;
+  background:linear-gradient(90deg,transparent,#3A5BFF,transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.4,0,.2,1);
+}
+.prob-card:hover::after{transform:scaleX(1)}
+
+/* ──────────────────────────────────────────────────────
+   MLM APPROACH — THE HEART — 12 departments, with PE backdrop
+────────────────────────────────────────────────────── */
+.sec-approach{
+  padding:130px 60px 120px;
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(238,241,255,.62) 0%,rgba(245,246,255,.66) 40%,rgba(233,237,255,.76) 100%),
+    url('./assets/mlm-approach-bg.jpg') center/cover no-repeat;
+  background-blend-mode:normal;
+}
+.sec-approach::before{
+  /* Top soft glow — lifts the header copy off the photo */
+  content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:90%;height:60%;
+  background:radial-gradient(ellipse,rgba(255,255,255,.82) 0%,rgba(255,255,255,.35) 45%,transparent 75%);
+  pointer-events:none;
+}
+.sec-approach::after{
+  /* Light wash — keeps photo color peeking but restores text legibility */
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(238,241,255,.32) 0%,rgba(255,255,255,.18) 40%,rgba(233,237,255,.42) 100%);
+  pointer-events:none;
+}
+.app-header{max-width:1140px;margin:0 auto 56px;text-align:center;position:relative;z-index:2}
+.app-header h2{font-family:'Tobias',Georgia,serif;font-size:58px;font-weight:400;color:#111;line-height:1.02;letter-spacing:-1.8px;margin-bottom:18px}
+.app-header h2 em{font-style:italic;color:#3A5BFF}
+.app-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:17px;color:#555;line-height:1.6;max-width:680px;margin:0 auto}
+
+.app-wrap{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+
+/* DETAIL PANEL — shown BELOW buttons, morphs on swap */
+.app-panel{
+  background:rgba(255,255,255,.82);backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.9);border-radius:22px;
+  padding:48px 54px;min-height:280px;
+  display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center;
+  box-shadow:0 20px 60px rgba(58,91,255,.12), 0 6px 18px rgba(12,20,60,.04);
+  position:relative;overflow:hidden;
+  margin-top:24px;
+  transition:box-shadow .4s, transform .4s;
+  animation:panelMorph .55s cubic-bezier(.16,1,.3,1);
+}
+@keyframes panelMorph{
+  0%{opacity:0;transform:translateY(-8px) scale(.985)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+/* Arrow pointing from tiles down to panel */
+.app-panel::after{
+  content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:18px;height:18px;
+  background:rgba(255,255,255,.82);
+  border-left:1px solid rgba(255,255,255,.9);
+  border-top:1px solid rgba(255,255,255,.9);
+  backdrop-filter:blur(24px);
+  transition:left .4s cubic-bezier(.4,0,.2,1);
+}
+.app-panel::before{
+  content:'';position:absolute;top:-20%;right:-10%;width:320px;height:320px;
+  background:radial-gradient(circle,rgba(123,155,255,.22) 0%,transparent 70%);
+  pointer-events:none;
+}
+.app-panel-left{position:relative;z-index:1}
+.app-panel-left .ap-tag{
+  display:inline-block;font-family:'Suisseintl',Arial,sans-serif;
+  font-size:10.5px;color:#3A5BFF;text-transform:uppercase;letter-spacing:2.2px;
+  border:1px solid rgba(58,91,255,.25);padding:5px 13px;border-radius:20px;
+  margin-bottom:16px;
+  background:rgba(255,255,255,.5);
+}
+.app-panel-left h3{font-family:'Tobias',Georgia,serif;font-size:34px;font-weight:400;color:#111;line-height:1.12;margin-bottom:16px;letter-spacing:-0.6px}
+.app-panel-left p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:15px;color:#555;line-height:1.7;margin-bottom:24px}
+.ap-automation{display:inline-flex;align-items:baseline;gap:12px;background:rgba(58,91,255,.07);padding:10px 18px;border-radius:12px;border:1px solid rgba(58,91,255,.15)}
+.ap-automation .ap-num{font-family:'Tobias',Georgia,serif;font-size:38px;color:#3A5BFF;line-height:1;letter-spacing:-1px}
+.ap-automation .ap-lab{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#3A5BFF;text-transform:uppercase;letter-spacing:1.5px}
+
+.app-panel-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:24px}
+
+/* MOCK UI CARD — concrete "what the agent sees" preview per dept */
+.ap-mock{
+  background:linear-gradient(180deg,#fafbff 0%,#f3f5fc 100%);
+  border:1px solid rgba(58,91,255,.18);border-radius:14px;
+  padding:18px 20px;
+  box-shadow:0 8px 28px rgba(12,20,60,.06),inset 0 1px 0 rgba(255,255,255,.9);
+  font-family:'Suisseintl',Arial,sans-serif;color:#1a2050;
+  opacity:0;transform:translateY(8px);
+  animation:apFadeIn .6s cubic-bezier(.16,1,.3,1) .1s forwards;
+}
+.ap-mock-head{
+  display:flex;align-items:center;gap:8px;margin-bottom:14px;
+  padding-bottom:10px;border-bottom:1px solid rgba(58,91,255,.1);
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#3A5BFF;font-weight:500;
+}
+.ap-mock-head::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 0 3px rgba(74,222,128,.18);
+}
+.ap-mock-row{
+  display:grid;grid-template-columns:1fr auto;align-items:center;
+  padding:7px 0;font-size:12.5px;color:#2a3050;line-height:1.4;
+  border-bottom:1px dashed rgba(58,91,255,.08);
+}
+.ap-mock-row:last-child{border-bottom:none}
+.ap-mock-pill{
+  display:inline-block;font-size:10px;font-weight:500;letter-spacing:.5px;
+  padding:3px 9px;border-radius:20px;text-transform:uppercase;
+}
+.ap-mock-pill.ok{background:rgba(74,222,128,.18);color:#15803d}
+.ap-mock-pill.warn{background:rgba(251,191,36,.2);color:#92400e}
+.ap-mock-pill.bad{background:rgba(244,114,128,.18);color:#9f1239}
+.ap-mock-pill.info{background:rgba(58,91,255,.13);color:#3A5BFF}
+.ap-mock-bar{
+  height:6px;background:rgba(58,91,255,.12);border-radius:8px;overflow:hidden;
+  margin-top:4px;
+}
+.ap-mock-bar i{
+  display:block;height:100%;background:linear-gradient(90deg,#3A5BFF,#6b8aff);border-radius:8px;
+}
+.ap-mock-num{font-family:'Tobias',Georgia,serif;font-size:28px;color:#3A5BFF;line-height:1;letter-spacing:-.5px}
+.ap-mock-sub{font-size:11px;color:#6a7090;margin-top:2px;letter-spacing:.3px}
+.ap-mock-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.ap-mock-cell{
+  background:rgba(255,255,255,.7);border:1px solid rgba(58,91,255,.1);
+  border-radius:10px;padding:10px 12px;text-align:center;
+}
+.ap-mock-cell .n{font-family:'Tobias',Georgia,serif;font-size:20px;color:#3A5BFF;line-height:1}
+.ap-mock-cell .l{font-size:9.5px;color:#6a7090;text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block}
+.ap-mock-spark{
+  width:100%;height:48px;display:block;
+}
+.ap-mock-score{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:8px;color:#fff;
+  font-family:'Tobias',Georgia,serif;font-size:18px;font-weight:600;
+  margin-right:10px;
+}
+.ap-mock-score.a{background:#15803d}
+.ap-mock-score.b{background:#65a30d}
+.ap-mock-score.c{background:#ca8a04}
+.ap-mock-score.d{background:#ea580c}
+
+.ap-list{list-style:none;padding:0;margin:0}
+.ap-list li{
+  display:flex;align-items:flex-start;gap:14px;padding:11px 0;
+  border-bottom:1px solid rgba(0,0,0,.055);
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:13.5px;color:#333;line-height:1.5;
+  opacity:0;transform:translateX(14px);
+  animation:apFadeIn .55s cubic-bezier(.16,1,.3,1) forwards;
+}
+.ap-list li:last-child{border-bottom:none}
+.ap-list li:nth-child(1){animation-delay:.05s}
+.ap-list li:nth-child(2){animation-delay:.12s}
+.ap-list li:nth-child(3){animation-delay:.19s}
+.ap-list li:nth-child(4){animation-delay:.26s}
+.ap-list li:nth-child(5){animation-delay:.33s}
+@keyframes apFadeIn{to{opacity:1;transform:translateX(0)}}
+.ap-list li::before{
+  content:'';width:7px;height:7px;border-radius:50%;background:#3A5BFF;
+  margin-top:7px;flex-shrink:0;box-shadow:0 0 0 4px rgba(58,91,255,.12);
+}
+
+/* 12 DEPARTMENT TILES — 6×2 grid */
+.app-tabs{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:12px;
+}
+.app-tab{
+  background:rgba(255,255,255,.6);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.95);border-radius:16px;
+  padding:18px 10px 16px;text-align:center;cursor:pointer;
+  transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .3s, background .4s;
+  position:relative;overflow:hidden;
+}
+.app-tab::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,#3A5BFF 0%,#6b8aff 100%);
+  opacity:0;transition:opacity .45s;z-index:0;
+}
+.app-tab::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+  transition:left .7s cubic-bezier(.4,0,.2,1);z-index:2;pointer-events:none;
+}
+.app-tab:hover::after{left:100%}
+.app-tab:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 14px 32px rgba(58,91,255,.2)}
+.app-tab.active{border-color:transparent;box-shadow:0 14px 36px rgba(58,91,255,.32)}
+.app-tab.active::before{opacity:1}
+.app-tab > *{position:relative;z-index:1;transition:color .35s}
+.app-tab.active .app-tab-name{color:#fff}
+.app-tab.active .app-icon{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)}
+.app-tab.active .app-icon svg{stroke:#fff}
+
+.app-icon{
+  width:40px;height:40px;border-radius:11px;
+  background:rgba(58,91,255,.08);border:1px solid rgba(58,91,255,.12);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 10px;
+  transition:all .35s;
+}
+.app-icon svg{width:20px;height:20px;stroke:#3A5BFF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.app-tab-name{font-family:'Suisseintl',Arial,sans-serif;font-size:11.5px;font-weight:400;color:#111;line-height:1.28}
+
+/* MLM Approach CTA — two buttons */
+.app-cta{text-align:center;margin-top:52px;position:relative;z-index:2}
+.app-cta h3{font-family:'Tobias',Georgia,serif;font-size:30px;font-weight:400;color:#111;margin-bottom:22px;letter-spacing:-0.5px;line-height:1.2}
+.app-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Shared animations (used by other dark surfaces) */
+@keyframes gradientShift{to{background-position:-200% 0}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* Shared utility */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ──────────────────────────────────────────────────────
+   CASE STUDIES — Apple-style "Stage" pattern (rotating)
+────────────────────────────────────────────────────── */
+.sec-cases{padding:110px 60px 90px;background:#fafbfd;position:relative;overflow:hidden}
+.cases-inner{max-width:1180px;margin:0 auto}
+.cases-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px}
+.cases-head h2{font-family:'Tobias',Georgia,serif;font-size:46px;font-weight:400;color:#111;line-height:1.05;letter-spacing:-1.3px;margin:0}
+.cases-head p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:15px;color:#555;line-height:1.65;margin:0;text-align:right;max-width:440px;justify-self:end}
+.cases-stage{display:grid;grid-template-columns:0.95fr 1fr;gap:56px;align-items:center}
+.case-visual{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;max-width:480px;width:100%;justify-self:end;background:#0f1a3d center/cover no-repeat;box-shadow:0 24px 60px rgba(12,20,60,.22), 0 4px 12px rgba(12,20,60,.08);border:1px solid rgba(255,255,255,.06);transition:opacity .45s ease, background-image .45s ease}
+.case-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,40,.25) 0%,rgba(10,16,40,.15) 35%,rgba(10,16,40,.78) 100%);pointer-events:none}
+.case-visual::after{content:'';position:absolute;top:0;left:0;right:0;height:30px;background:linear-gradient(180deg,rgba(10,16,40,.55),rgba(10,16,40,.35));border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.case-visual .cv-dots{position:absolute;top:11px;left:14px;display:flex;gap:7px;z-index:3}
+.case-visual .cv-dots span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.2);transition:background .35s ease, box-shadow .35s ease, transform .35s ease}
+.case-visual .cv-dots span.is-live{background:#4ade80;border-color:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.25), 0 0 10px rgba(74,222,128,.55);transform:scale(1.05)}
+.case-visual .cv-tag{position:absolute;top:48px;left:26px;font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,.82);letter-spacing:2px;text-transform:uppercase;z-index:2;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.case-visual .cv-title{position:absolute;bottom:26px;left:26px;right:26px;font-family:'Tobias',Georgia,serif;font-size:22px;color:#fff;line-height:1.18;letter-spacing:-.4px;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.case-visual .cv-foot{position:absolute;bottom:74px;left:26px;right:26px;display:flex;gap:10px;align-items:center;z-index:2}
+.case-visual .cv-foot .cv-line{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.18);overflow:hidden}
+.case-visual .cv-foot .cv-line i{display:block;height:100%;background:linear-gradient(90deg,#6b8aff,#3A5BFF);width:72%;border-radius:2px;transition:width .55s cubic-bezier(.16,1,.3,1)}
+.case-visual .cv-foot .cv-pct{font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,.85);letter-spacing:1.2px;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+.case-content{opacity:1;transition:opacity .3s ease}
+.case-content .c-eyebrow{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#3A5BFF;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.case-content .c-big{font-family:'Tobias',Georgia,serif;font-size:76px;font-weight:400;color:#111;line-height:.95;letter-spacing:-2.4px;margin-bottom:8px}
+.case-content .c-big-sub{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#555;margin-bottom:30px;line-height:1.55}
+.case-kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:28px;padding:20px 0;border-top:1px solid #e5e7f0;border-bottom:1px solid #e5e7f0}
+.case-kpi .ck-n{display:block;font-family:'Tobias',Georgia,serif;font-size:22px;color:#3A5BFF;letter-spacing:-.4px;margin-bottom:4px}
+.case-kpi .ck-l{font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1.3px}
+.cases-nav{display:flex;align-items:center;justify-content:center;gap:36px;margin-top:44px;padding-top:28px;border-top:1px solid #e5e7f0}
+.case-dot{cursor:pointer;background:none;border:none;padding:0;display:flex;align-items:center;gap:14px;opacity:.4;transition:opacity .25s}
+.case-dot:hover{opacity:.7}
+.case-dot.active{opacity:1}
+.case-dot .cd-n{font-family:'Tobias',Georgia,serif;font-size:18px;color:#111;letter-spacing:-.3px}
+.case-dot .cd-l{font-family:'Suisseintl',Arial,sans-serif;font-size:12px;color:#444;letter-spacing:.2px}
+.case-dot.active .cd-n,.case-dot.active .cd-l{color:#3A5BFF}
+.case-is-leaving .case-visual,.case-is-leaving .case-content{opacity:0}
+@media(max-width:960px){
+  .cases-head{grid-template-columns:1fr;gap:14px;margin-bottom:32px}
+  .cases-head h2{font-size:32px}
+  .cases-head p{text-align:left;justify-self:start;max-width:none}
+  .cases-stage{grid-template-columns:1fr;gap:28px}
+  .case-visual{justify-self:center;max-width:380px}
+  .case-content .c-big{font-size:60px}
+  .cases-nav{gap:22px;flex-wrap:wrap;justify-content:center}
+}
+
+/* ──────────────────────────────────────────────────────
+   BENEFITS — DARK "SYSTEM STATUS" SCREEN
+────────────────────────────────────────────────────── */
+.sec-benefits{
+  padding:120px 60px;
+  background:linear-gradient(180deg,#050815 0%,#0b1030 50%,#050815 100%);
+  position:relative;overflow:hidden;
+}
+.sec-benefits::before{
+  content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);
+  width:70%;height:60%;
+  background:radial-gradient(ellipse,rgba(58,91,255,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.sec-benefits::after{
+  content:'';position:absolute;bottom:-10%;right:-10%;width:40%;height:50%;
+  background:radial-gradient(circle,rgba(74,222,128,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.ben-header{max-width:1140px;margin:0 auto 54px;text-align:center;position:relative;z-index:2}
+.ben-header .badge{color:#8aa5ff}
+.ben-header h2{font-family:'Tobias',Georgia,serif;font-size:52px;font-weight:400;color:#fff;line-height:1.04;letter-spacing:-1.4px;margin-bottom:16px}
+.ben-header h2 em{font-style:italic;color:#6b8aff}
+.ben-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:16px;color:rgba(255,255,255,.6);line-height:1.65;max-width:640px;margin:0 auto}
+
+/* SCREEN CONTAINER */
+.ben-screen{
+  max-width:900px;margin:0 auto;position:relative;z-index:2;
+  background:linear-gradient(160deg,#0b1030 0%,#141a44 50%,#0b1030 100%);
+  border-radius:22px;
+  border:1px solid rgba(123,155,255,.15);
+  box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04) inset;
+  overflow:hidden;
+  padding:0;
+}
+.ben-screen::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1.5px;
+  background:linear-gradient(90deg,transparent 0%,#3A5BFF 30%,#6b8aff 50%,#3A5BFF 70%,transparent 100%);
+  background-size:200% 100%;animation:gradientShift 5s linear infinite;
+  z-index:3;
+}
+/* Screen chrome / titlebar */
+.ben-screen-bar{
+  display:flex;align-items:center;gap:8px;padding:14px 18px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(0,0,0,.18);
+}
+.ben-screen-bar .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.ben-screen-bar .d1{background:#ff5f56}
+.ben-screen-bar .d2{background:#ffbd2e}
+.ben-screen-bar .d3{background:#27c93f;box-shadow:0 0 8px rgba(39,201,63,.6)}
+.ben-screen-bar .bar-title{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,.5);
+  margin-left:14px;letter-spacing:1.5px;text-transform:uppercase;
+}
+.ben-screen-bar .bar-status{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:10px;color:#4ade80;
+  background:rgba(74,222,128,.12);padding:4px 10px;border-radius:12px;
+  letter-spacing:1.2px;border:1px solid rgba(74,222,128,.2);
+}
+.ben-screen-bar .bar-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:blink 1.8s ease-in-out infinite}
+
+/* Screen scan-line progress at top */
+.ben-screen-progress{
+  height:2px;background:rgba(255,255,255,.04);position:relative;overflow:hidden;
+}
+.ben-screen-progress::after{
+  content:'';position:absolute;top:0;left:0;bottom:0;
+  background:linear-gradient(90deg,transparent,#4ade80,transparent);
+  width:40%;animation:scanline 2.4s ease-in-out infinite;
+}
+@keyframes scanline{
+  0%{left:-40%}100%{left:100%}
+}
+
+.ben-screen-body{padding:30px 36px 36px}
+
+/* Task list */
+.ben-list{display:flex;flex-direction:column;gap:2px}
+.ben-row{
+  display:grid;
+  grid-template-columns:32px 1fr auto auto;
+  gap:18px;align-items:center;
+  padding:16px 4px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  opacity:.45;
+  transition:opacity .7s;
+}
+.ben-row:last-child{border-bottom:none}
+.ben-row.on{opacity:1}
+
+/* Checkbox circle indicator */
+.ben-check{
+  width:22px;height:22px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.03);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .65s cubic-bezier(.16,1,.3,1);
+  position:relative;
+}
+.ben-check svg{width:12px;height:12px;stroke:#4ade80;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .55s ease .25s}
+.ben-row.on .ben-check{
+  background:rgba(74,222,128,.15);
+  border-color:#4ade80;
+  box-shadow:0 0 18px rgba(74,222,128,.55), inset 0 0 8px rgba(74,222,128,.25);
+}
+.ben-row.on .ben-check svg{stroke-dashoffset:0}
+.ben-row.on .ben-check::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid rgba(74,222,128,.4);
+  animation:pulseCheck 1.6s ease-out;
+}
+@keyframes pulseCheck{
+  0%{transform:scale(1);opacity:.7}
+  100%{transform:scale(1.6);opacity:0}
+}
+
+/* Label + desc */
+.ben-label{display:flex;flex-direction:column;gap:3px}
+.ben-label .bl-title{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:14.5px;color:#fff;font-weight:400;
+  letter-spacing:.1px;
+}
+.ben-label .bl-desc{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:12px;
+  color:rgba(255,255,255,.5);line-height:1.5;
+}
+
+/* Value column */
+.ben-val{
+  font-family:'Tobias',Georgia,serif;font-size:22px;color:#fff;line-height:1;
+  letter-spacing:-0.4px;text-align:right;min-width:60px;
+  transition:color .65s, text-shadow .65s;
+}
+.ben-row.on .ben-val{color:#6b8aff;text-shadow:0 0 14px rgba(107,138,255,.5)}
+
+/* Status pill */
+.ben-stat{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:9.5px;letter-spacing:1.5px;
+  text-transform:uppercase;padding:5px 10px;border-radius:10px;
+  background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);
+  border:1px solid rgba(255,255,255,.08);
+  transition:all .65s;min-width:78px;text-align:center;
+}
+.ben-row.on .ben-stat{
+  background:rgba(74,222,128,.1);
+  color:#4ade80;
+  border-color:rgba(74,222,128,.3);
+}
+
+/* Footer summary */
+.ben-footer{
+  margin-top:22px;padding:16px 4px 4px;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11px;
+  color:rgba(255,255,255,.5);letter-spacing:1.2px;text-transform:uppercase;
+}
+.ben-footer .ben-foot-right{display:inline-flex;align-items:center;gap:8px;color:#4ade80}
+.ben-footer .ben-foot-right::before{content:'';width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80}
+
+/* ──────────────────────────────────────────────────────
+   FAQ — chat with the MLM agent
+────────────────────────────────────────────────────── */
+.sec-faq{
+  padding:90px 60px 48px;
+  background:
+    radial-gradient(80% 60% at 50% 0%,rgba(58,91,255,.18) 0%,transparent 70%),
+    linear-gradient(180deg,#0c1230 0%,#141a44 100%);
+  position:relative;
+}
+.sec-faq .badge{background:rgba(123,155,255,.18);color:#cfd9ff}
+.faq-header{max-width:780px;margin:0 auto 28px;text-align:center}
+.faq-header h2{font-family:'Tobias',Georgia,serif;font-size:36px;font-weight:400;color:#fff;letter-spacing:-.9px;margin-bottom:16px;line-height:1.1}
+.faq-header h2 em{font-style:italic;color:#8aa4ff}
+.faq-header p{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:rgba(255,255,255,.65);line-height:1.55}
+
+/* Click-to-explore toggle that opens the full FAQ list */
+.faq-toggle{
+  display:inline-flex;align-items:center;gap:10px;
+  cursor:pointer;background:none;border:none;padding:10px 4px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13.5px;color:#8aa4ff;
+  letter-spacing:.2px;
+  transition:color .2s;
+}
+.faq-toggle:hover{color:#cfd9ff}
+.faq-toggle .ft-txt{border-bottom:1px dashed rgba(138,164,255,.55);padding-bottom:2px}
+.faq-toggle .ft-arrow{
+  display:inline-flex;width:22px;height:22px;border-radius:50%;
+  background:rgba(138,164,255,.18);align-items:center;justify-content:center;
+  font-size:12px;transition:transform .3s ease, background .2s;
+}
+.faq-toggle[aria-expanded="true"] .ft-arrow{transform:rotate(180deg);background:rgba(138,164,255,.32)}
+.faq-toggle[aria-expanded="true"] .ft-txt{border-bottom-color:transparent}
+
+/* Collapsed / expanded list states */
+.faq-list[hidden]{display:none}
+.faq-list{animation:faqReveal .45s cubic-bezier(.16,1,.3,1)}
+@keyframes faqReveal{
+  0%{opacity:0;transform:translateY(-6px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+
+/* Compact accordion — click to expand/collapse, multiple items can stay open */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.fq-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s,box-shadow .25s,background .25s}
+.fq-item:hover{border-color:rgba(138,164,255,.32);background:rgba(255,255,255,.08)}
+.fq-item.open{border-color:rgba(138,164,255,.5);background:rgba(255,255,255,.09);box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.fq-btn{
+  width:100%;cursor:pointer;background:transparent;border:none;
+  padding:14px 18px;display:flex;align-items:center;gap:12px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:14px;color:#e6ebff;text-align:left;
+  transition:color .2s;
+}
+.fq-btn:hover,
+.fq-item:hover .fq-btn,
+.fq-item.open .fq-btn{color:#fff}
+.fq-btn .fq-tw{
+  flex-shrink:0;width:22px;height:22px;border-radius:50%;
+  background:rgba(138,164,255,.18);color:#8aa4ff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;line-height:1;transition:transform .25s ease, background .2s;
+}
+.fq-item.open .fq-btn .fq-tw{transform:rotate(45deg);background:#3A5BFF;color:#fff}
+.fq-btn .fq-q{flex:1}
+.fq-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1);
+}
+.fq-item.open .fq-body{max-height:360px}
+
+.fq-body-inner{
+  padding:0 18px 16px 52px;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.75);
+}
+
+/* Footer hint (legacy — kept for safety, not rendered) */
+.fq-foot{
+  margin-top:24px;text-align:center;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:12px;color:#888;
+}
+.fq-foot a{color:#3A5BFF}
+
+/* Book-a-demo CTA — refined, compact, professional */
+.sec-book-demo{padding:40px 60px 90px;background:linear-gradient(180deg,#141a44 0%,#2a2f66 18%,#f7f8ff 100%)}
+.fq-cta{
+  position:relative;
+  max-width:640px;margin:0 auto;
+  display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;
+  padding:22px 26px;border-radius:16px;
+  background:#ffffff;
+  border:1px solid rgba(20,26,68,.06);
+  box-shadow:0 18px 44px rgba(12,20,60,.08), 0 2px 6px rgba(12,20,60,.04);
+}
+.fq-cta-copy{position:relative}
+.fq-cta-copy .badge{
+  display:inline-block;
+  background:rgba(58,91,255,.08);color:#3A5BFF;
+  padding:3px 10px;border-radius:999px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:1px;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.fq-cta-copy h3{
+  font-family:'Tobias',Georgia,serif;font-weight:400;font-size:22px;
+  color:#0c1230;margin:0 0 6px;letter-spacing:-.4px;line-height:1.2;
+}
+.fq-cta-copy h3 em{font-style:italic;color:#3A5BFF}
+.fq-cta-copy p{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:13px;
+  color:#55607a;line-height:1.5;margin:0 0 12px;max-width:440px;
+}
+.fq-cta-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.fq-cta-actions .btn{
+  display:inline-block;
+  padding:10px 20px;font-size:13px;border-radius:999px;
+}
+.fq-cta-person{display:flex;flex-direction:column;line-height:1.25}
+.fq-cta-person strong{font-family:'Suisseintl',Arial,sans-serif;font-size:12.5px;font-weight:500;color:#111}
+.fq-cta-person span{font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11.5px;color:#7a8299}
+
+/* Portrait — small, round, clean */
+.fq-cta-portrait{
+  position:relative;
+  width:80px;height:80px;flex-shrink:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,#eef1ff,#e4e9ff);
+}
+.fq-cta-portrait img{
+  display:block;
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  border-radius:50%;
+  box-shadow:0 8px 20px rgba(12,20,60,.14), inset 0 0 0 2px #fff;
+}
+.fq-cta-portrait .portrait-halo,
+.fq-cta-portrait .portrait-badge{display:none}
+.fq-cta-portrait .portrait-fallback{
+  display:none;position:absolute;inset:0;
+  align-items:center;justify-content:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,#3A5BFF,#6b8aff);
+  color:#fff;font-family:'Tobias',Georgia,serif;font-size:34px;letter-spacing:-1px;
+  box-shadow:0 8px 20px rgba(12,20,60,.14);
+}
+@media(max-width:720px){
+  .fq-cta{grid-template-columns:1fr;gap:16px;padding:24px 22px;text-align:center}
+  .fq-cta-portrait{margin:0 auto}
+  .fq-cta-actions{justify-content:center}
+  .fq-cta-copy p{margin-left:auto;margin-right:auto}
+}
+
+/* ──────────────────────────────────────────────────────
+   REGISTER — gated asset modal
+────────────────────────────────────────────────────── */
+.reg-modal{
+  position:fixed;inset:0;z-index:10000;
+  display:none;align-items:center;justify-content:center;
+  padding:24px;
+  background:rgba(10,14,40,.55);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  opacity:0;
+  transition:opacity .3s cubic-bezier(.16,1,.3,1);
+}
+.reg-modal.show{display:flex;opacity:1}
+.reg-modal.show .register-wrap{animation:regModalIn .45s cubic-bezier(.16,1,.3,1)}
+@keyframes regModalIn{
+  0%{opacity:0;transform:translateY(16px) scale(.97)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+body.reg-open{overflow:hidden}
+.register-wrap{
+  position:relative;
+  width:100%;max-width:640px;max-height:calc(100vh - 48px);overflow-y:auto;
+  background:#fff;border:1px solid #e9ecf5;border-radius:22px;
+  padding:44px 46px;
+  box-shadow:0 40px 100px rgba(12,20,60,.35), 0 8px 24px rgba(12,20,60,.15);
+  transition:max-width .35s cubic-bezier(.16,1,.3,1), max-height .35s cubic-bezier(.16,1,.3,1), padding .3s ease, border-radius .3s ease;
+}
+/* Expanded: takes full available space */
+.reg-modal.is-expanded{align-items:stretch;justify-content:stretch;padding:10px}
+.reg-modal.is-expanded .register-wrap{max-width:100%;max-height:100%;min-height:calc(100vh - 20px);border-radius:14px;padding:48px 60px}
+/* Compact: collapse to a small bottom-right chip; content hidden */
+.reg-modal.is-compact{align-items:flex-end;justify-content:flex-end;padding:18px}
+.reg-modal.is-compact .register-wrap{max-width:320px;min-height:0;max-height:62px;padding:14px 54px 14px 20px;border-radius:14px;overflow:hidden;cursor:pointer}
+.reg-modal.is-compact .register-wrap > *:not(.reg-actions):not(.reg-asset){display:none}
+.reg-modal.is-compact .reg-asset{margin:0;font-size:11px}
+.reg-actions{
+  position:absolute;top:12px;right:12px;display:flex;gap:6px;align-items:center;z-index:2;
+}
+.reg-close,.reg-resize{
+  width:34px;height:34px;border-radius:50%;
+  background:#f7f8ff;border:1px solid #e9ecf5;
+  display:flex;align-items:center;justify-content:center;
+  color:#888;font-size:16px;line-height:1;cursor:pointer;
+  transition:all .2s;
+  font-family:'Suisseintl',Arial,sans-serif;
+}
+.reg-close{font-size:18px}
+.reg-resize svg{width:14px;height:14px;pointer-events:none}
+.reg-close:hover,.reg-resize:hover{background:#eaefff;color:#3A5BFF;border-color:#3A5BFF}
+.reg-close:hover{transform:rotate(90deg)}
+.reg-asset{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:999px;
+  background:#eaefff;border:1px solid #c7d3ff;color:#3A5BFF;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11.5px;letter-spacing:.5px;
+  margin-bottom:18px;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+}
+.reg-asset::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:#3A5BFF;
+  box-shadow:0 0 8px rgba(58,91,255,.6);
+}
+.reg-asset .reg-asset-name{font-weight:400;color:#3A5BFF}
+.register-wrap h2{
+  font-family:'Tobias',Georgia,serif;font-size:34px;font-weight:400;color:#111;
+  letter-spacing:-0.8px;line-height:1.1;margin-bottom:10px;
+}
+.register-wrap h2 em{font-style:italic;color:#3A5BFF}
+.register-wrap .reg-sub{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14.5px;
+  color:#555;line-height:1.55;margin-bottom:26px;
+}
+.reg-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.reg-field{display:flex;flex-direction:column;gap:6px}
+.reg-field.reg-full{grid-column:1 / -1}
+.reg-field label{
+  font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#888;
+  text-transform:uppercase;letter-spacing:1.4px;
+}
+.reg-field input,.reg-field select{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#111;
+  background:#f7f8ff;border:1px solid #e2e6f5;border-radius:10px;
+  padding:13px 15px;outline:none;
+  transition:all .25s;
+  appearance:none;-webkit-appearance:none;-moz-appearance:none;
+}
+.reg-field select{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:14px;padding-right:40px;
+}
+.reg-field input:focus,.reg-field select:focus{
+  background-color:#fff;border-color:#3A5BFF;
+  box-shadow:0 0 0 4px rgba(58,91,255,.12);
+}
+.reg-field input::placeholder{color:#b0b6cc}
+.reg-field.is-error input,.reg-field.is-error select{border-color:#e05d5d;background:#fff6f6}
+.reg-field .reg-err{display:none;font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11.5px;color:#c62828;margin-top:4px}
+.reg-field.is-error .reg-err{display:block}
+.reg-submit{
+  grid-column:1 / -1;
+  margin-top:6px;
+  display:flex;align-items:center;justify-content:flex-end;gap:14px;
+}
+.reg-success{
+  display:none;text-align:center;padding:20px 0;
+}
+.reg-success.show{display:block;animation:regSuccess .5s cubic-bezier(.16,1,.3,1)}
+.reg-success .reg-check{
+  width:56px;height:56px;border-radius:50%;margin:0 auto 14px;
+  background:rgba(74,222,128,.15);border:2px solid #4ade80;
+  display:flex;align-items:center;justify-content:center;
+  color:#4ade80;font-size:26px;
+  box-shadow:0 0 24px rgba(74,222,128,.35);
+}
+.reg-success h3{
+  font-family:'Tobias',Georgia,serif;font-size:24px;color:#111;margin-bottom:8px;
+}
+.reg-success p{
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#555;line-height:1.55;
+}
+.reg-success .reg-next{
+  display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:14px;color:#3A5BFF;
+  padding:12px 20px;border:1px solid rgba(58,91,255,.35);border-radius:999px;
+  text-decoration:none;transition:all .2s;
+}
+.reg-success .reg-next:hover{background:#3A5BFF;color:#fff;border-color:#3A5BFF}
+.reg-success .reg-next-hint{
+  display:block;margin-top:10px;font-family:'Suisseintl',Arial,sans-serif;font-size:11px;color:#8b90a3;letter-spacing:.2px;
+}
+@keyframes regSuccess{
+  0%{opacity:0;transform:scale(.94)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+/* FINAL CTA section removed — merged into FAQ via .fq-cta */
+
+/* ──────────────────────────────────────────────────────
+   FOOTER
+────────────────────────────────────────────────────── */
+footer{padding:56px 60px 36px;background:#fff;border-top:1px solid #eee}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;max-width:1200px;margin:0 auto}
+.fc-social{display:flex;gap:14px;margin-top:16px}
+.fc-social a{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border:1px solid #e5e7f0;border-radius:50%;color:#444;margin:0;transition:all .18s}
+.fc-social a:hover{color:#fff;background:#3A5BFF;border-color:#3A5BFF}
+.foot-contact{font-family:'Suisseintl',Arial,sans-serif;font-size:13px;font-weight:400;color:#111;text-decoration:underline;text-underline-offset:3px}
+.foot-contact:hover{color:#3A5BFF}
+.fc h4{font-family:'Suisseintl',Arial,sans-serif;font-size:13px;font-weight:400;color:#111;margin-bottom:14px}
+.fc .fc-sub{font-family:'Suisseintl',Arial,sans-serif;font-size:11px;font-weight:400;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-top:14px;margin-bottom:8px}
+.fc a{display:block;font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:13px;color:#666;margin-bottom:6px;transition:color .15s}
+.fc a:hover{color:#3A5BFF}
+.foot-bottom{max-width:1200px;margin:36px auto 0;padding-top:24px;border-top:1px solid #eee;display:flex;justify-content:space-between;font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11px;color:#999}
+
+/* ──────────────────────────────────────────────────────
+   RESPONSIVE
+────────────────────────────────────────────────────── */
+@media(max-width:1100px){
+  .app-tabs{grid-template-columns:repeat(4,1fr)}
+  .app-panel{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:900px){
+  header,.sec-problem,.sec-approach,.sec-benefits,.sec-faq,footer{padding-left:28px;padding-right:28px}
+  header nav{display:none}
+  .hero h1{font-size:42px}
+  .hero .sub{font-size:16px}
+  .prob-header,.ben-header,.fq-cta{grid-template-columns:1fr;gap:28px}
+  .prob-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .app-tabs{grid-template-columns:repeat(3,1fr)}
+  .ben-row{grid-template-columns:28px 1fr auto;gap:12px;padding:14px 2px}
+  .ben-row .ben-stat{display:none}
+  .ben-screen-body{padding:22px 20px 26px}
+  .ben-screen-bar{padding:12px 14px}
+  .ben-screen-bar .bar-title{display:none}
+  .faq-header h2{font-size:28px}
+  .fq-body-inner{padding:0 16px 14px 50px}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .sec-problem,.sec-approach,.sec-benefits,.sec-faq{padding-top:70px;padding-bottom:70px}
+  .reg-modal{padding:16px}
+  .register-wrap{padding:32px 26px}
+  .reg-form{grid-template-columns:1fr}
+  .reg-submit{flex-direction:column;align-items:stretch;gap:10px}
+  .app-header h2{font-size:36px}
+}
+
+/* ──────────────────────────────────────────────────────
+   POPUP / IFRAME MODAL — every external click opens here
+────────────────────────────────────────────────────── */
+.popup-overlay{
+  position:fixed;inset:0;z-index:11000;
+  display:none;align-items:center;justify-content:center;
+  padding:24px;background:rgba(8,10,30,.6);backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  opacity:0;transition:opacity .25s ease;
+}
+.popup-overlay.open{display:flex;opacity:1}
+.popup-overlay.is-compact{align-items:flex-end;justify-content:flex-end;padding:18px}
+.popup-panel{
+  position:relative;width:100%;max-width:960px;height:86vh;max-height:740px;
+  background:#fff;border-radius:22px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(10,14,40,.45);
+  display:flex;flex-direction:column;
+  animation:popupIn .3s cubic-bezier(.16,1,.3,1);
+  transition:max-width .35s cubic-bezier(.16,1,.3,1), height .35s cubic-bezier(.16,1,.3,1), max-height .35s cubic-bezier(.16,1,.3,1), border-radius .35s ease;
+}
+/* Expanded state — near-fullscreen */
+.popup-overlay.is-expanded{padding:10px}
+.popup-overlay.is-expanded .popup-panel{max-width:100%;height:calc(100vh - 20px);max-height:none;border-radius:14px}
+/* Compact state — bottom-right chat-style, content hidden */
+.popup-overlay.is-compact .popup-panel{max-width:320px;height:60px;max-height:60px;border-radius:14px}
+.popup-overlay.is-compact .popup-panel iframe,
+.popup-overlay.is-compact .popup-fallback{display:none}
+@keyframes popupIn{0%{opacity:0;transform:translateY(14px) scale(.97)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.popup-head{
+  padding:14px 104px 14px 22px;border-bottom:1px solid #eef0f7;
+  display:flex;align-items:center;gap:12px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13px;color:#1a1f3a;
+  background:#fafbff;
+}
+.popup-head .popup-head-dot{width:8px;height:8px;border-radius:50%;background:#3A5BFF;box-shadow:0 0 10px rgba(58,91,255,.5)}
+.popup-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px;align-items:center}
+.popup-close,.popup-resize{
+  width:36px;height:36px;border:none;
+  background:#f2f4fb;border-radius:50%;cursor:pointer;font-size:16px;color:#1a1f3a;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+  font-family:'Suisseintl',Arial,sans-serif;line-height:1;
+}
+.popup-close{font-size:20px}
+.popup-resize:hover,.popup-close:hover{background:#e3e8ff;color:#3A5BFF}
+.popup-close:hover{transform:rotate(90deg)}
+.popup-resize svg{width:16px;height:16px;pointer-events:none}
+.popup-panel iframe{flex:1;width:100%;border:0;min-height:0;background:#fff}
+
+/* Shared mini-footer used inside popup overlay + register modal */
+.popup-mini-foot,.reg-mini-foot{
+  flex-shrink:0;
+  border-top:1px solid #eef0f7;background:#fafbff;
+  padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:11.5px;color:#55607a;
+}
+/* Register mini-foot: bleed edge-to-edge to match card width */
+.reg-mini-foot{margin:28px -46px -44px;padding:12px 46px;border-bottom-left-radius:22px;border-bottom-right-radius:22px}
+.reg-modal.is-expanded .reg-mini-foot{margin:28px -60px -48px;padding:12px 60px}
+.popup-mini-foot a,.reg-mini-foot a{color:#3A5BFF;text-decoration:none}
+.popup-mini-foot a:hover,.reg-mini-foot a:hover{text-decoration:underline}
+.popup-mini-foot .pmf-left,.reg-mini-foot .rmf-left{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.popup-mini-foot .pmf-social,.reg-mini-foot .rmf-social{display:inline-flex;align-items:center;gap:8px}
+.popup-mini-foot .pmf-social svg,.reg-mini-foot .rmf-social svg{color:#55607a;transition:color .2s}
+.popup-mini-foot .pmf-social a:hover svg,.reg-mini-foot .rmf-social a:hover svg{color:#3A5BFF}
+.popup-mini-foot .pmf-right,.reg-mini-foot .rmf-right{color:#8a93ab;font-size:10.5px;letter-spacing:.4px;text-transform:uppercase}
+
+/* In expanded popup, nothing changes. In compact popup, hide mini-foot. */
+.popup-overlay.is-compact .popup-mini-foot,
+.reg-modal.is-compact .reg-mini-foot{display:none}
+.popup-fallback{
+  display:none;padding:22px 24px;
+  font-family:'Suisseintl Book','Suisseintl',Arial,sans-serif;font-size:14px;color:#333;
+  background:#fff7ef;border-top:1px solid #f2c9a8;line-height:1.55;
+}
+.popup-fallback a{color:#3A5BFF;font-weight:500}
+body.popup-open{overflow:hidden}
+@media(max-width:900px){
+  .popup-overlay{padding:14px}
+  .popup-panel{height:92vh;border-radius:18px}
+}
+
+/* ──────────────────────────────────────────────────────
+   RESPONSIVE — Tight mobile pass (≤480px)
+────────────────────────────────────────────────────── */
+@media(max-width:480px){
+  header{padding:14px 18px}
+  header .logo{font-size:14px}
+  .sec-logobar,.sec-reg-ribbon,.sec-problem,.sec-approach,.sec-benefits,.sec-faq,.sec-book-demo,footer{
+    padding-left:18px;padding-right:18px;
+  }
+  .hero{padding:120px 18px 80px}
+  .hero h1{font-size:30px;line-height:1.1;letter-spacing:-1px}
+  .hero .sub{font-size:14px}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:10px}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .kpibar-row{grid-template-columns:1fr 1fr;gap:7px}
+  .kpi-num{font-size:15px}
+  .kpi-label{font-size:8.5px;letter-spacing:1px;text-align:center}
+  .prob-grid{grid-template-columns:1fr;gap:10px}
+  .prob-header h2{font-size:28px}
+  .prob-header > p{margin-top:14px;font-size:14px}
+  .app-tabs{grid-template-columns:repeat(2,1fr);gap:8px}
+  .app-tab-name{font-size:11px;line-height:1.2}
+  .app-header h2{font-size:28px;line-height:1.1}
+  .app-cta-row{flex-direction:column;align-items:stretch;gap:10px}
+  .app-cta-row .btn{width:100%;justify-content:center}
+  .ben-header h2{font-size:26px;line-height:1.1}
+  .ben-row{grid-template-columns:24px 1fr;gap:10px;padding:12px 0}
+  .ben-row .ben-val{display:none}
+  .faq-header h2{font-size:24px}
+  .fq-cta-actions{flex-direction:column;align-items:stretch;gap:10px}
+  .fq-cta-actions .btn{width:100%;justify-content:center}
+  .register-wrap{padding:26px 20px}
+  .register-wrap h2{font-size:24px}
+  .reg-mini-foot{margin:24px -20px -26px;padding:10px 20px}
+  footer{padding:40px 18px 28px}
+  .foot-bottom{flex-direction:column;gap:10px;align-items:flex-start;text-align:left}
+}
+
+
+/* ──────────────────────────────────────────────────────
+   LANGUAGE SWITCHER — small dropdown in header
+────────────────────────────────────────────────────── */
+.lang-switcher{position:relative;display:inline-flex;align-items:center}
+.lang-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:none;cursor:pointer;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13px;color:#111;
+  padding:6px 8px;border-radius:6px;
+  transition:background .15s,color .15s;
+}
+.lang-toggle:hover{background:#f2f4fb;color:#3A5BFF}
+.lang-toggle .lang-globe{width:14px;height:14px;flex-shrink:0}
+.lang-toggle .lang-current{font-weight:400;letter-spacing:.4px}
+.lang-toggle .lang-chev{width:10px;height:10px;flex-shrink:0;transition:transform .2s ease;opacity:.6}
+.lang-toggle[aria-expanded="true"] .lang-chev{transform:rotate(180deg)}
+.lang-menu{
+  position:absolute;top:calc(100% + 6px);right:0;
+  background:#fff;border:1px solid #eef0f7;border-radius:10px;
+  box-shadow:0 18px 40px rgba(12,20,60,.12),0 4px 10px rgba(12,20,60,.06);
+  padding:6px;margin:0;list-style:none;
+  min-width:160px;z-index:100;
+  opacity:0;transform:translateY(-4px);pointer-events:none;
+  transition:opacity .18s,transform .18s;
+}
+.lang-menu.open{opacity:1;transform:translateY(0);pointer-events:auto}
+.lang-menu li{margin:0;padding:0}
+.lang-menu a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:9px 12px;border-radius:6px;
+  font-family:'Suisseintl',Arial,sans-serif;font-size:13px;color:#1a1f3a;
+  text-decoration:none;transition:background .15s,color .15s;
+}
+.lang-menu a:hover{background:#f2f4fb;color:#3A5BFF}
+.lang-menu a.active{color:#3A5BFF;font-weight:500;background:#eaefff}
+.lang-menu a.active::after{content:'✓';font-size:12px;opacity:.8}
+@media(max-width:900px){
+  .lang-switcher{margin-right:auto}
+}
+/* LANG SWITCHER MARKER */
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════ -->
+<header>
+  <a href="#" class="logo" aria-label="Machines Like Me">
+    <img src="./assets/mlm-logo.png" alt="Machines Like Me">
+  </a>
+  <nav>
+    <a href="#problem">Sectoren</a>
+    <a href="#approach">Onze Aanpak</a>
+    <a href="#benefits">Resultaten</a>
+    <a href="#faq">FAQ</a>
+    <div class="lang-switcher" id="langSwitcher">
+      <button type="button" class="lang-toggle" id="langToggle" aria-expanded="false" aria-haspopup="true" aria-label="Change language">
+        <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-current">NL</span>
+        <svg class="lang-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <ul class="lang-menu" id="langMenu" role="menu">
+      <li><a href="../en/" data-lang="en"><span>English</span><span class="lang-code">EN</span></a></li>
+      <li><a href="../de/" data-lang="de"><span>Deutsch</span><span class="lang-code">DE</span></a></li>
+      <li><a href="../nl/" class="active" data-lang="nl"><span>Nederlands</span><span class="lang-code">NL</span></a></li>
+      </ul>
+    </div>
+
+    <a href="https://machineslikeme.com/nl/consulting/" data-cta="nav-book-demo" class="btn btn-sm js-popup" target="_blank" rel="noopener">Boek een demo</a>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <!-- Apple-style background video. Replace src with any direct .mp4 URL.
+       Good free sources: pexels.com/videos, coverr.co, mixkit.co -->
+  <video class="hero-video" autoplay loop muted playsinline preload="metadata"
+         poster="./assets/hero-poster.jpg">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <span class="pill">AI-automatisering voor Private Equity</span>
+    <h1>Rendementen worden in de back office gemaakt. <em>Maak die van jou sneller.</em></h1>
+    <p class="sub">We zetten AI-medewerkers in voor deal sourcing, due diligence, fund accounting, portfolio operations en LP-rapportage — zodat partners operational alpha over fondsen en vintages laten samenstellen, in plaats van datarooms na te jagen. Vaste prijs. Eerste agents live in 8–12 weken.</p>
+    <div class="hero-ctas">
+      <a href="https://machineslikeme.com/nl/consulting/" data-cta="hero-book-demo" class="btn js-popup" target="_blank" rel="noopener">Boek een demo</a>
+      <a href="#" data-asset="deck" data-asset-label="Automation map for private equity" data-cta="hero-download-map" class="btn btn-ghost-white js-asset-link">Download de automatiseringskaart</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     REGULATORY RIBBON — global F&B regulatory readiness
+══════════════════════════════════════════════════ -->
+<section class="sec-reg-ribbon" aria-label="Private equity regulatory readiness">
+  <div class="reg-ribbon-inner">
+    <span class="reg-ribbon-dot" aria-hidden="true"></span>
+    <span class="reg-ribbon-txt">
+      <strong>Gebouwd voor het regelgevingsritme van private equity</strong>
+      &nbsp;·&nbsp; Fondsaangiften, LP-transparantiestandaarden en ESG-rapportage — audit-klaar, in elke jurisdictie waar je fondsen leven.
+    </span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     KPI BAR — 6 headline numbers, Fixed Price featured in the centre
+══════════════════════════════════════════════════ -->
+<section class="sec-logobar" aria-label="Key automation outcomes">
+  <div class="logobar-inner">
+    <div class="logobar-label">De cijfers achter elke opdracht</div>
+    <div class="kpibar-row">
+      <div class="kpi-item"><span class="kpi-num">Tot 85%</span><span class="kpi-label">Automatisering van administratieve taken</span></div>
+      <div class="kpi-item"><span class="kpi-num">5–10x</span><span class="kpi-label">Meer doorvoer</span></div>
+      <div class="kpi-item kpi-featured">
+        <span class="kpi-num">Vaste prijs</span>
+        <span class="kpi-label">Geen risico, gegarandeerd</span>
+      </div>
+      <div class="kpi-item"><span class="kpi-num">&lt;12 mnd</span><span class="kpi-label">Terugverdientijd</span></div>
+      <div class="kpi-item"><span class="kpi-num">8–12 weken</span><span class="kpi-label">Eerste agents live</span></div>
+      <div class="kpi-item"><span class="kpi-num">Wereldwijd</span><span class="kpi-label">Dekking</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PROBLEM — Apple-style scroll reveal (subtle)
+══════════════════════════════════════════════════ -->
+<section class="sec-problem" id="problem">
+  <div class="prob-header">
+    <div>
+      <span class="badge">De Private Equity realiteit</span>
+      <h2>Je rendementen worden bepaald in de back office tussen deals.</h2>
+    </div>
+    <p>PE-firma's verliezen deal flow, partnertijd en LP-vertrouwen aan back-office wrijving: ondoorzichtige pipelines, DD die verzuipt in PDF's, verspreide portfoliodata en LP-transparantievragen die sneller groeien dan IR-teams kunnen leveren. In een markt waar snelheid en operational alpha het rendement bepalen, kan de back office niet analoog blijven.</p>
+  </div>
+  <div class="prob-grid" id="probGrid">
+    <div class="prob-card">
+      <div class="p-num">1</div>
+      <h4>De deal pipeline is een black box.</h4>
+      <p>Het meeste pipeline-materiaal leeft in CRM's die niemand bijhoudt en e-mailthreads die niemand doorzoekt. Partnertijd gaat naar deals die nooit doorgaan, terwijl de proprietary deal naar een concurrent met een strakker proces glipt.</p>
+    </div>
+    <div class="prob-card">
+      <div class="p-num">2</div>
+      <h4>Due diligence verzuipt in papier.</h4>
+      <p>VDR's exploderen, vendor-DD rapporten stapelen op, IC-packs worden voor elke deal handmatig opnieuw gebouwd. Associates besteden nachten aan synthese die een agent in minuten kan voorverteren — terwijl de deal lead wacht om een echte beslissing te nemen.</p>
+    </div>
+    <div class="prob-card">
+      <div class="p-num">3</div>
+      <h4>Portfolio-data leeft in 80 spreadsheets.</h4>
+      <p>Elk portfoliobedrijf levert KPI's in eigen format, op eigen cadans. Board packs duren weken om te bouwen. Waardecreatie wordt anekdotisch besproken in plaats van rigoureus gemeten — en exit readiness is een verrassing, geen plan.</p>
+    </div>
+    <div class="prob-card">
+      <div class="p-num">4</div>
+      <h4>LP-transparantievraag overstijgt IR-capaciteit.</h4>
+      <p>DDQ's, capital calls, distributies, ESG-vragen, look-throughs — elke LP wil meer, sneller, in het eigen format. IR-partners besteden 30–40% van hun week aan data jagen in plaats van relaties bouwen die tot de volgende allocatie leiden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     MLM APPROACH — THE HEART — 12 departments
+══════════════════════════════════════════════════ -->
+<section class="sec-approach" id="approach">
+  <div class="app-header">
+    <span class="badge">De MLM Aanpak</span>
+    <h2>Op maat gemaakte agents, <em>gebouwd voor elke private equity functie.</em></h2>
+    <p>We leveren geen standaardsoftware. We ontwerpen AI-medewerkers rond de processen, tools en mensen van elke functie — en koppelen ze waar het ertoe doet. Klik op een afdeling om verder te kijken.</p>
+  </div>
+
+  <div class="app-wrap">
+
+    <!-- 12 department tiles — 6×2 grid (TOP) -->
+    <div class="app-tabs">
+      <div class="app-tab active" data-dept="fundraising">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M16 4l2-2 2 2"/><path d="M18 2v6"/></svg></div>
+        <div class="app-tab-name">Investor Relations<br>&amp; Fundraising</div>
+      </div>
+      <div class="app-tab" data-dept="sourcing">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M11 8v3l2 1"/></svg></div>
+        <div class="app-tab-name">Deal Sourcing<br>&amp; Origination</div>
+      </div>
+      <div class="app-tab" data-dept="dd">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M9 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+        <div class="app-tab-name">Due<br>Diligence</div>
+      </div>
+      <div class="app-tab" data-dept="execution">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M16 16l3 3 4-5"/></svg></div>
+        <div class="app-tab-name">Deal Execution<br>&amp; Capital Markets</div>
+      </div>
+      <div class="app-tab" data-dept="portfolio">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="12" y="6" width="3" height="12"/><rect x="17" y="13" width="3" height="5"/></svg></div>
+        <div class="app-tab-name">Portfolio Ops<br>&amp; Value Creation</div>
+      </div>
+      <div class="app-tab" data-dept="accounting">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 7H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H7"/></svg></div>
+        <div class="app-tab-name">Fund Accounting<br>&amp; Treasury</div>
+      </div>
+      <div class="app-tab" data-dept="compliance">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.5 9.3 8 10 4.5-.7 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="app-tab-name">Compliance<br>&amp; Risk</div>
+      </div>
+      <div class="app-tab" data-dept="legal">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M6 6h12"/><path d="M6 6 3 13h6L6 6z"/><path d="m18 6-3 7h6l-3-7z"/><path d="M8 21h8"/></svg></div>
+        <div class="app-tab-name">Legal &amp;<br>Fund Documentation</div>
+      </div>
+      <div class="app-tab" data-dept="tax">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+        <div class="app-tab-name">Tax &amp;<br>Structuring</div>
+      </div>
+      <div class="app-tab" data-dept="esg">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><path d="M12 21c0-7 5-12 9-12-1 7-5 12-9 12z"/><path d="M12 21c0-7-5-12-9-12 1 7 5 12 9 12z"/><path d="M12 21V9"/></svg></div>
+        <div class="app-tab-name">ESG &amp;<br>Sustainability</div>
+      </div>
+      <div class="app-tab" data-dept="hr">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 20c0-2.5 2-4.5 4.5-4.5"/></svg></div>
+        <div class="app-tab-name">Human Capital<br>&amp; Talent</div>
+      </div>
+      <div class="app-tab" data-dept="it">
+        <div class="app-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <div class="app-tab-name">Technology, Data<br>&amp; Analytics</div>
+      </div>
+    </div>
+
+    <!-- Detail panel (content swaps via JS) — BELOW buttons, with morph animation -->
+    <div class="app-panel" id="app-panel">
+      <!-- content injected by JS -->
+    </div>
+
+    <!-- TWO CTAs -->
+    <div class="app-cta">
+      <div class="app-cta-row">
+        <a href="https://machineslikeme.com/nl/consulting/" data-cta="approach-book-demo" class="btn js-popup" target="_blank" rel="noopener">Boek een gratis demo</a>
+        <a href="#" data-asset="deck" data-asset-label="Automation map for private equity" data-cta="approach-download-map" class="btn btn-outline js-asset-link">Download de automatiseringskaart</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     CASE STUDIES — Apple "Stage" pattern (rotating)
+══════════════════════════════════════════════════ -->
+<section class="sec-cases" id="cases">
+  <div class="cases-inner">
+    <div class="cases-head">
+      <span class="badge">Case study</span>
+      <h2>Bewijs, geen beloftes.</h2>
+      <p>Twee referentie-implementaties — het archief van 1,5 mln documenten van een Duits asset-managementbedrijf voor kantoorpanden audit-klaar gemaakt, en een gestaakt SAP-S/4HANA-programma in ~7 weken gereactiveerd met 389 gedocumenteerde processen.</p>
+    </div>
+
+    <div class="cases-stage" id="casesStage">
+      <div class="case-visual" id="caseVisual" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85');background-position:center;background-size:cover;background-repeat:no-repeat;">
+        <div class="cv-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <span class="cv-tag" id="cvTag">Case 01 · Asset-managementbedrijf voor kantoorpanden 🇩🇪</span>
+        <div class="cv-foot">
+          <div class="cv-line"><i id="cvLineFill"></i></div>
+          <span class="cv-pct" id="cvPct">>90%</span>
+        </div>
+        <div class="cv-title" id="cvTitle">1,5 mln+ documenten geïndexeerd over 70+ panden.</div>
+      </div>
+
+      <div class="case-content" id="caseContent">
+        <div class="c-eyebrow" id="ccEyebrow">Document Navigator</div>
+        <div class="c-big" id="ccBig">1,5 mln+</div>
+        <div class="c-big-sub" id="ccBigSub">Documenten over 1,3 mln m² beheerd kantoorruimte en 70+ panden OCR'd, auto-getagd en volledig doorzoekbaar gemaakt — terugverdiend in 8 maanden, met 1.700 teruggewonnen werkuren per jaar.</div>
+        <div class="case-kpis" id="ccKpis">
+          <div class="case-kpi"><span class="ck-n">1.700 uur/jr</span><span class="ck-l">Handmatige OCR geëlimineerd</span></div>
+          <div class="case-kpi"><span class="ck-n">>90%</span><span class="ck-l">Zoektijd-reductie</span></div>
+          <div class="case-kpi"><span class="ck-n">8 maanden</span><span class="ck-l">Terugverdientijd</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cases-nav">
+      <button class="case-dot active" data-case="0" type="button"><span class="cd-n">01</span><span class="cd-l">Document Navigator</span></button>
+      <button class="case-dot" data-case="1" type="button"><span class="cd-n">02</span><span class="cd-l">SAP S/4HANA-reactivering</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     BENEFITS — DARK "SYSTEM STATUS" SCREEN
+══════════════════════════════════════════════════ -->
+<section class="sec-benefits" id="benefits">
+  <div class="ben-header">
+    <span class="badge">Wat je krijgt</span>
+    <h2>Resultaten, geen softwarelicenties. <em>Volledig gedekt.</em></h2>
+    <p>We verkopen geen tools. We leveren resultaten. Dit garandeert elke samenwerking — geactiveerd vanaf dag één.</p>
+  </div>
+
+  <div class="ben-screen" id="benScreen">
+    <!-- Screen chrome -->
+    <div class="ben-screen-bar">
+      <span class="dot d1"></span>
+      <span class="dot d2"></span>
+      <span class="dot d3"></span>
+      <span class="bar-title">mlm.deployment.status</span>
+      <span class="bar-status">Alle systemen operationeel</span>
+    </div>
+    <div class="ben-screen-progress"></div>
+
+    <!-- Task list -->
+    <div class="ben-screen-body">
+      <div class="ben-list">
+
+        <div class="ben-row" data-step="1">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Automatiseringsgraad</span>
+            <span class="bl-desc">We automatiseren doorgaans tot 85% van het handwerk in elk back-office proces dat we aanpakken.</span>
+          </div>
+          <div class="ben-val">Tot 85%</div>
+          <div class="ben-stat">Actief</div>
+        </div>
+
+        <div class="ben-row" data-step="2">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Doorvoervermenigvuldiger</span>
+            <span class="bl-desc">Elk proces draait 5–10× sneller. Je team handelt meer af zonder moeite — uitvoering versnelt, foutmarges dalen.</span>
+          </div>
+          <div class="ben-val">5–10x</div>
+          <div class="ben-stat">Actief</div>
+        </div>
+
+        <div class="ben-row" data-step="3">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Terugverdientijd</span>
+            <span class="bl-desc">De meeste opdrachten verdienen zichzelf binnen twaalf maanden terug — gekoppeld aan een hard ROI-model.</span>
+          </div>
+          <div class="ben-val">&lt;12 mnd</div>
+          <div class="ben-stat">Vastgezet</div>
+        </div>
+
+        <div class="ben-row" data-step="4">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Vaste prijs, geen verrassingen</span>
+            <span class="bl-desc">Elke opdracht is voor een vaste prijs. Kan een proces niet geautomatiseerd worden, dan krijg je een voucher voor een ander.</span>
+          </div>
+          <div class="ben-val">Vast</div>
+          <div class="ben-stat">Guaranteed</div>
+        </div>
+
+        <div class="ben-row" data-step="5">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Wereldwijde dekking</span>
+            <span class="bl-desc">Teams in de VS, Scandinavië, VK, Nederland, Luxemburg, België en Duitsland. On-site wanneer je ons nodig hebt.</span>
+          </div>
+          <div class="ben-val">Wereldwijd</div>
+          <div class="ben-stat">Online</div>
+        </div>
+
+        <div class="ben-row" data-step="6">
+          <div class="ben-check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+          <div class="ben-label">
+            <span class="bl-title">Enterprise-grade beveiliging</span>
+            <span class="bl-desc">AVG-conform, met volledige audit trails en rolgebaseerde toegang bij elke agent-actie.</span>
+          </div>
+          <div class="ben-val">GDPR</div>
+          <div class="ben-stat">Secure</div>
+        </div>
+
+      </div>
+
+      <div class="ben-footer">
+        <span>6 / 6 functies gedekt</span>
+        <span class="ben-foot-right">Implementatie voltooid</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FAQ — Chat with the MLM agent
+══════════════════════════════════════════════════ -->
+<section class="sec-faq" id="faq">
+  <div class="faq-header">
+    <span class="badge">Veelgestelde vragen</span>
+    <h2>Antwoorden vóór het eerste gesprek.</h2>
+    <button type="button" class="faq-toggle" id="faqToggle" aria-expanded="false" aria-controls="faqList">
+      <span class="ft-txt">Klik hier om de zes vragen te bekijken die private equity-partners ons het vaakst stellen</span>
+      <span class="ft-arrow" aria-hidden="true">↓</span>
+    </button>
+  </div>
+
+  <div class="faq-list" id="faqList" hidden>
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Hoe lang voor we resultaten zien?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Eerste automatiseringen gaan doorgaans in 8–12 weken live. De meeste opdrachten verdienen zich binnen 12 maanden terug. We doen geen meerjarige transformatieprogramma's — we leveren snel werkende agents en itereren.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Moeten we ons deal-CRM, fund accounting of VDR vervangen?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">No. Our agents sit on top of what you have — DealCloud, Affinity or Salesforce on the deal side; Investran, eFront, Allvue or iLEVEL on fund accounting (or your outsourced fund admin partner — SS&amp;C, Citco, Apex, IQ-EQ, Alter Domus); Datasite, Intralinks or iDeals on VDRs; LP portals, ESG platforms and BI stacks downstream. Where an integration doesn't exist, our agents operate the same screens your team uses today.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Wat gebeurt er met onze bestaande teams?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Ze schuiven op in de waardeketen. Deal partners, associates, IR-teams, fund accountants en operating partners houden de regie — elke agent-actie is auditeerbaar en omkeerbaar, en de eindverantwoordelijkheid blijft bij de mens. Wat verdwijnt is copy-paste, data-scraping en afstemming, niet het oordeel over deals.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Hoe bepalen jullie de prijs?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Vaste prijs per workflow-automatisering. Als we tijdens uitvoering vaststellen dat een proces niet kan worden geautomatiseerd, krijg je een voucher voor een ander proces. Optionele SLA's lopen van support tijdens kantooruren tot 24/7 dekking.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Waar staat onze data?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Gehost in de regio van jouw keuze, AVG-conform, met rolgebaseerde toegang, volledige audit trails en de optie van private deployment. For private equity specifically: we support deal-team isolation, MNPI walls and per-deal data segmentation — built for confidentiality, not just compliance. Your data is never used to train anyone else's models.</div></div>
+    </div>
+
+    <div class="fq-item">
+      <button type="button" class="fq-btn" aria-expanded="false">
+        <span class="fq-tw" aria-hidden="true">+</span>
+        <span class="fq-q">Wat valt typisch binnen scope bij private equity?</span>
+      </button>
+      <div class="fq-body"><div class="fq-body-inner">Deal pipeline tracking and CIM extraction, vendor DD coordination and IC pack assembly, capital calls and distributions, NAV and portfolio valuation, LP DDQ and quarterly reporting, AIFMD/SEC filings, K-1 drafting and FATCA/CRS, side-letter tracking, portfolio company KPI aggregation and board packs, ESG monitoring and scope 3, and executive search across portfolio. We scope per function — every agent is custom-built around your deal cycle, fund vehicles and LP base.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     BOOK A DEMO — Apple-style portrait CTA (own section)
+══════════════════════════════════════════════════ -->
+<section class="sec-book-demo">
+  <div class="fq-cta" id="book-demo">
+    <div class="fq-cta-portrait">
+      <!--
+        Primary: ./assets/thomas.jpg  ·  Fallback: Unsplash  ·  Final: "CM" initials
+      -->
+      <img src="./assets/thomas.jpg"
+           alt="Thomas Tervoort, Hoofd Sales Nederland bij MACHINES LIKE ME"
+           onerror="if(this.dataset.fb!=='1'){this.dataset.fb='1';this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=85';}else{this.style.display='none';this.parentNode.querySelector('.portrait-fallback').style.display='flex';}">
+      <div class="portrait-fallback" aria-hidden="true">TT</div>
+    </div>
+    <div class="fq-cta-copy">
+      <span class="badge">Klaar wanneer jij dat bent</span>
+      <h3>Nog vragen? <em>Spreek met onze experts.</em></h3>
+      <p>30 minuten met een lid van het MLM-team. Breng één pijnlijk proces mee &mdash; vertrek met een concreet plan en een vaste-prijs offerte.</p>
+      <div class="fq-cta-actions">
+        <a href="https://machineslikeme.com/nl/consulting/" data-cta="book-demo" class="btn js-popup" target="_blank" rel="noopener">Boek een gratis demo</a>
+        <div class="fq-cta-person">
+          <strong>Thomas Tervoort</strong><span class="fq-cta-person-role">Hoofd Sales Nederland · MACHINES LIKE ME</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-grid">
+    <div class="fc">
+      <a href="mailto:tt@machineslikeme.com" class="foot-contact" data-cta="foot-email">tt@machineslikeme.com</a>
+      <div class="fc-sub">Regionale aanwezigheid</div>
+      <a href="#">België</a>
+      <a href="#">Duitsland</a>
+      <a href="#">Luxemburg</a>
+      <a href="#">Nederland</a>
+      <a href="#">Silicon Valley</a>
+      <a href="#">Zweden</a>
+    </div>
+    <div class="fc">
+      <h4>Blijf in contact</h4>
+      <a href="https://www.machineslikeme.com" data-cta="foot-home" class="js-popup" target="_blank" rel="noopener">www.machineslikeme.com</a>
+      <a href="mailto:tt@machineslikeme.com" data-cta="foot-email-2">tt@machineslikeme.com</a>
+      <div class="fc-social">
+        <a href="https://www.linkedin.com/company/machineslikeme" data-cta="foot-linkedin" class="js-popup" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 MACHINES LIKE ME. Alle rechten voorbehouden.</span>
+    <span>Wij automatiseren, jij profiteert.</span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════
+     POPUP MODAL — generic iframe popup for every outbound click
+══════════════════════════════════════════════════ -->
+<div class="popup-overlay" id="popupOverlay" aria-hidden="true">
+  <div class="popup-panel" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-head">
+      <span class="popup-head-dot" aria-hidden="true"></span>
+      <span id="popupTitle">Voorvertoning</span>
+    </div>
+    <div class="popup-actions">
+      <button type="button" class="popup-resize" id="popupMinimize" aria-label="Minimize popup" title="Minimize" data-cta="popup-minimize">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="19"/></svg>
+      </button>
+      <button type="button" class="popup-resize" id="popupExpand" aria-label="Expand popup" title="Expand" data-cta="popup-expand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <button type="button" class="popup-close" id="popupClose" aria-label="Close popup" data-cta="popup-close">×</button>
+    </div>
+    <iframe id="popupFrame" src="about:blank" title="External content" allow="autoplay; clipboard-read; clipboard-write"></iframe>
+    <div class="popup-fallback" id="popupFallback">
+      Deze site kan niet als pop-up worden weergegeven.
+      <a href="#" id="popupFallbackLink" rel="noopener">Open in een nieuw tabblad →</a>
+    </div>
+    <div class="popup-mini-foot" aria-label="MLM contact">
+      <div class="pmf-left">
+        <a href="https://www.machineslikeme.com" class="js-popup" data-cta="popup-foot-home" target="_blank" rel="noopener">www.machineslikeme.com</a>
+        <a href="mailto:tt@machineslikeme.com" data-cta="popup-foot-email">tt@machineslikeme.com</a>
+        <span class="pmf-social">
+          <a href="https://www.linkedin.com/company/machineslikeme" class="js-popup" data-cta="popup-foot-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </span>
+      </div>
+      <div class="pmf-right">&copy; 2026 MLM</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     REGISTER MODAL — opens on gated asset clicks
+══════════════════════════════════════════════════ -->
+<div class="reg-modal" id="regModal" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+  <div class="register-wrap">
+    <div class="reg-actions">
+      <button type="button" class="reg-resize" id="regMinimize" aria-label="Minimize modal" title="Minimize" data-cta="reg-minimize">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="19"/></svg>
+      </button>
+      <button type="button" class="reg-resize" id="regExpand" aria-label="Expand modal" title="Expand" data-cta="reg-expand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+      </button>
+      <button type="button" class="reg-close" id="regClose" aria-label="Close" data-cta="reg-close">×</button>
+    </div>
+    <div class="reg-asset" id="regAssetPill">
+      <span>Aanvraag:</span>
+      <span class="reg-asset-name" id="regAssetName">Sales-deck</span>
+    </div>
+    <h2 id="regTitle">Vertel ons wie je bent en we <em><span id="regTitleAction">sturen je het deck</span>.</em></h2>
+    <p class="reg-sub" id="regSub">Duurt 30 seconden. We mailen je het deck en sturen één kort bericht — geen drip-campagnes, geen ruis.</p>
+
+    <form class="reg-form" id="regForm" novalidate>
+      <input type="hidden" name="asset" id="regAssetInput" value="deck">
+      <!-- UTM & source tracking hidden fields (auto-captured from URL on open) -->
+      <input type="hidden" name="utm_source"   id="regUtmSource">
+      <input type="hidden" name="utm_medium"   id="regUtmMedium">
+      <input type="hidden" name="utm_campaign" id="regUtmCampaign">
+      <input type="hidden" name="utm_term"     id="regUtmTerm">
+      <input type="hidden" name="utm_content"  id="regUtmContent">
+
+      <div class="reg-field">
+        <label for="regFirst">Voornaam</label>
+        <input id="regFirst" name="first_name" type="text" placeholder="Anna" required>
+        <span class="reg-err">Vul je voornaam in.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regLast">Achternaam</label>
+        <input id="regLast" name="last_name" type="text" placeholder="de Vries" required>
+        <span class="reg-err">Vul je achternaam in.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regRole">Functie</label>
+        <input id="regRole" name="role" type="text" placeholder="Head of Operations" required>
+        <span class="reg-err">Vul je functie in.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regCompany">Bedrijf</label>
+        <input id="regCompany" name="company" type="text" placeholder="Jouw bedrijf" required>
+        <span class="reg-err">Vul je bedrijf in.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regSize">Bedrijfsgrootte</label>
+        <select id="regSize" name="company_size" required>
+          <option value="">Selecteer…</option>
+          <option value="1-50">1–50 medewerkers</option>
+          <option value="51-200">51–200 medewerkers</option>
+          <option value="201-1000">201–1.000 medewerkers</option>
+          <option value="1001-5000">1.001–5.000 medewerkers</option>
+          <option value="5000+">5.000+ medewerkers</option>
+        </select>
+        <span class="reg-err">Selecteer een bedrijfsgrootte.</span>
+      </div>
+      <div class="reg-field">
+        <label for="regEmail">Zakelijk e-mailadres</label>
+        <input id="regEmail" name="email" type="email" placeholder="anna@bedrijf.nl" required>
+        <span class="reg-err" id="regEmailErr">Gebruik je zakelijke e-mailadres (geen gmail, hotmail, yahoo, outlook).</span>
+      </div>
+
+      <div class="reg-submit">
+        <button type="submit" class="btn" id="regSubmitBtn">Stuur mij het deck</button>
+      </div>
+    </form>
+
+    <div class="reg-success" id="regSuccess">
+      <div class="reg-check">✓</div>
+      <h3 id="regSuccessTitle">Bedankt — het deck is onderweg.</h3>
+      <p>Check je inbox de komende minuut. Zie je niets, kijk dan bij Promoties of mail naar <a href="mailto:tt@machineslikeme.com" data-cta="reg-success-email">tt@machineslikeme.com</a>.</p>
+      <a href="https://machineslikeme.com/nl/consulting/" data-cta="reg-success-book-demo" class="reg-next js-popup" target="_blank" rel="noopener">Terwijl je wacht — boek een 15-min intro met Thomas →</a>
+      <span class="reg-next-hint">Geen pitch. Een kort gesprek om te bepalen welke processen je eerst automatiseert.</span>
+    </div>
+
+    <div class="reg-mini-foot" aria-label="MLM contact">
+      <div class="rmf-left">
+        <a href="https://www.machineslikeme.com" class="js-popup" data-cta="reg-foot-home" target="_blank" rel="noopener">www.machineslikeme.com</a>
+        <a href="mailto:tt@machineslikeme.com" data-cta="reg-foot-email">tt@machineslikeme.com</a>
+        <span class="rmf-social">
+          <a href="https://www.linkedin.com/company/machineslikeme" class="js-popup" data-cta="reg-foot-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </span>
+      </div>
+      <div class="rmf-right">&copy; 2026 MLM</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ──────────────────────────────────────────────────────
+   FAQ — master "click to explore" reveals the list.
+   Individual questions expand on HOVER (desktop) or CLICK (touch).
+────────────────────────────────────────────────────── */
+(function(){
+  const toggle = document.getElementById('faqToggle');
+  const list   = document.getElementById('faqList');
+  const items  = document.querySelectorAll('#faqList .fq-item');
+
+  // Master toggle: reveal / hide the full list
+  if(toggle && list){
+    toggle.addEventListener('click', () => {
+      const open = list.hasAttribute('hidden') ? true : false;
+      if(open){
+        list.removeAttribute('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.querySelector('.ft-txt').textContent = 'Vragen verbergen';
+      } else {
+        list.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.querySelector('.ft-txt').textContent = 'Klik hier om de zes vragen te bekijken die private equity-partners ons het vaakst stellen';
+        // Reset all open items when collapsing
+        items.forEach(i => {
+          i.classList.remove('open');
+          const b = i.querySelector('.fq-btn');
+          if(b) b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  }
+
+  // Individual questions: click toggle as fallback for touch devices
+  items.forEach(item => {
+    const btn = item.querySelector('.fq-btn');
+    if(!btn) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach(i => {
+        i.classList.remove('open');
+        const b = i.querySelector('.fq-btn');
+        if(b) b.setAttribute('aria-expanded', 'false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+/* ──────────────────────────────────────────────────────
+   PROBLEM — Apple-style scroll reveal
+────────────────────────────────────────────────────── */
+const probCards = document.querySelectorAll('.prob-card');
+const probObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('in-view');
+  });
+}, { threshold: 0.2 });
+probCards.forEach(c => probObs.observe(c));
+
+/* ──────────────────────────────────────────────────────
+   MLM Approach — 12 departments data + interaction
+────────────────────────────────────────────────────── */
+const DEPT_DATA = {
+  fundraising: {
+    tag: 'Investor Relations & Fundraising',
+    title: 'Kapitaal sneller opgehaald, LPs beter gerapporteerd.',
+    desc: "AI-agents targeten en scoren LPs, stellen DDQ-antwoorden op vanuit je kennisbank, genereren capital call- en distributie-mededelingen, bouwen kwartaal LP-rapportagepacks en volgen side-letter-verplichtingen — zodat IR-partners stoppen met data jagen en beginnen met allocaties sluiten.",
+    pct: '65-75%',
+    items: [
+      'LP-targeting en CRM-verrijking met next-best actions',
+      'DDQ-antwoordopstelling vanuit goedgekeurde kennisbank',
+      'Capital call- en distributiemededeling-generatie',
+      'Kwartaal LP-rapportagepack samenstelling',
+      'Side-letter-database met actieve-term tracking',
+    ],
+  },
+  sourcing: {
+    tag: 'Deal Sourcing & Origination',
+    title: 'Meer signaal per partner, minder tijd in ruis.',
+    desc: "Agents houden de deal pipeline actueel, screenen targets tegen het fondsmandaat, nemen CIMs op en structureren ze, scoren banker-reciprociteit en vernieuwen sector intelligence — zodat partnertijd naar passende deals gaat, niet naar deals die niet passen.",
+    pct: '65-75%',
+    items: [
+      'Deal pipeline tracking met auto-CRM updates',
+      'Inbound deal-triage met pursue/pass aanbeveling',
+      'CIM-extractie naar gestandaardiseerde one-pagers',
+      'Banker- en advisor-relatie scorecard',
+      'Sector intelligence en thematisch onderzoek-concepten',
+    ],
+  },
+  dd: {
+    tag: 'Due Diligence',
+    title: 'IC-klare bevindingen in dagen, niet in nachten van synthese.',
+    desc: "Agents beheren VDR's, synthetiseren commerciële, financiële, juridische, IT- en ESG-DD-bevindingen, bouwen het cross-workstream risicoregister en vullen de IC-pack voor — zodat associates stoppen met verzuipen in PDF's en de deal lead sneller het beeld krijgt.",
+    pct: '60-70%',
+    items: [
+      'VDR-provisioning, indexering en toegangstracking',
+      'Commerciële en financiële DD-synthese met risico-flags',
+      'Legal-DD issue list en contract-red-flag extractie',
+      'Customer reference call clustering en NPS-analyse',
+      'Cross-workstream DD-findings-pack opstellen',
+    ],
+  },
+  execution: {
+    tag: 'Deal Execution & Capital Markets',
+    title: 'Closings op tijd, financiering afgestemd, IC-packs die aankomen.',
+    desc: "Agents stellen term sheets op, sturen lender-outreach aan, draaien side-by-side financieringsvergelijkingen, beheren closing-checklists en W&I, bouwen de IC-pack en coördineren portfolio-herfinancieringen — zodat dealteams op marktsnelheid bewegen.",
+    pct: '60-70%',
+    items: [
+      'Term sheet opstellen en counter-redline vergelijking',
+      'Lender-outreach en side-by-side termvergelijking',
+      'Sources-and-uses modellering met funds-flow validatie',
+      'IC-pack samenstelling met evidence-links',
+      'Portfolio-herfinanciering en dividend-recap coördinatie',
+    ],
+  },
+  portfolio: {
+    tag: 'Portfolio Operations & Waardecreatie',
+    title: 'KPI\'s geaggregeerd, waardecreatie getrackt, exits voorbereid.',
+    desc: "Agents aggregeren portfolio-KPI's in één view, volgen 100-dagen plannen, bouwen board packs, monitoren commerciële en kosten-initiatieven en beoordelen exit-readiness — zodat operating partners het portfolio runnen met dezelfde snelheid als de deal.",
+    pct: '60-70%',
+    items: [
+      '100-dagen plan tracking met at-risk vroegwaarschuwing',
+      'Cross-portfolio KPI-aggregatie en benchmarking',
+      'Board-pack en CEO-dashboard auto-generatie',
+      'Cost-takeout en commerciële initiatief-tracking',
+      'Exit-readiness assessment en IPO-diagnostiek',
+    ],
+  },
+  accounting: {
+    tag: 'Fund Accounting, Waardering & Treasury',
+    title: 'NAV schoner, capital calls verwerkt, waardering verdedigbaar.',
+    desc: "Agents draaien NAV-berekeningen, verwerken capital calls en distributies, stemmen cash af over fondsen, berekenen management fees en waterfall carry en ondersteunen kwartaal-portfoliowaarderingen — zodat het CFO-kantoor lean en audit-klaar draait.",
+    pct: '65-75%',
+    items: [
+      'NAV-berekening met anomaliedetectie',
+      'Capital call- en distributie-verwerking end-to-end',
+      'Waterfall- en carried-interest berekening',
+      'Kwartaal-waarderingsmemo\'s portfoliobedrijven',
+      'Kwartaal-afsluiting orkestratie en audit-voorbereiding',
+    ],
+  },
+  compliance: {
+    tag: 'Compliance & Risico',
+    title: 'Indieningen op tijd, risico\'s vroeg zichtbaar, LPs schoon vrijgegeven.',
+    desc: "Agents vullen regelgevingsindieningen voor, draaien KYC/AML op LPs, monitoren trade compliance en conflicts, draaien portfolio stress-tests, volgen loan covenants en aggregeren operationeel risico — zodat compliance en risk regelgevers en lenders voor blijven.",
+    pct: '60-70%',
+    items: [
+      'Regelgevingsindieningen (AIFMD, SEC ADV/PF) voorinvullen',
+      'LP-KYC/AML onboarding met sanctie-screening',
+      'Trade compliance- en belangenverstrengeling-monitoring',
+      'Portfolio stress-testing en loan-covenant tracking',
+      'Fonds-risico dashboard met drempel-meldingen',
+    ],
+  },
+  legal: {
+    tag: 'Juridisch & Fondsdocumentatie',
+    title: 'Fondsdocumenten, side letters en contracten — actueel gehouden.',
+    desc: "Agents stellen fondsdocumenten op vanuit precedent, onderhandelen side letters, ondersteunen SPA-redlines, volgen portfolio corporate legal, beheren IP- en litigation-logs en cureren de juridische kennisbank — zodat een klein in-house legal team boven zijn gewicht presteert.",
+    pct: '55-65%',
+    items: [
+      'Fondsdocument (LPA, PPM) opstellen vanuit precedent',
+      'Side-letter onderhandeling en lopende tracking',
+      'SPA- en NDA-redline diff en counter-support',
+      'Portfolio corporate legal en IP-register beheer',
+      'Juridische kennisbank-curatie en precedent-indexering',
+    ],
+  },
+  tax: {
+    tag: 'Belasting & Structurering',
+    title: 'Fondsstructuren, K-1s en cross-border — schoon gehouden.',
+    desc: "Agents ondersteunen fonds- en deal-belastingstructurering, stellen K-1s op, draaien PFIC/CFC-checks, beheren withholding- en FATCA/CRS-rapportage en triëren LP-belasting-vragen — zodat de belastingfunctie meeschaalt met fondsen zonder lineair aan te nemen.",
+    pct: '55-65%',
+    items: [
+      'Fonds- en deal-belastingstructurering memo\'s vanuit precedent',
+      'K-1 opstellen en consistentiechecks per LP',
+      'PFIC/CFC-classificatie en disclosure-pack',
+      'FATCA/CRS-rapportage per LP en jurisdictie',
+      'LP-belasting-vraag triage en antwoordopstelling',
+    ],
+  },
+  esg: {
+    tag: 'ESG & Duurzaamheid',
+    title: 'ESG-DD, monitoring en rapportage — daadwerkelijk gemanaged.',
+    desc: "Agents draaien ESG due diligence, monitoren portfolio-ESG-metrics, berekenen scope 1–3 emissies, stellen duurzaamheidsrapportages op, bouwen LP-specifieke ESG-rapporten en identificeren duurzaamheidsgedreven waardecreatie-hefbomen.",
+    pct: '55-65%',
+    items: [
+      'ESG due diligence met scope 3-emissies baseline',
+      'Portfolio-ESG monitoring en scorecard-generatie',
+      'Duurzaamheidsrapportage-indieningen (multi-regime)',
+      'LP-specifieke ESG-rapportage per side-letter',
+      'Klimaatrisico-assessment per portfoliobedrijf',
+    ],
+  },
+  hr: {
+    tag: 'Human Capital & Talent',
+    title: 'Portfolio-CEO\'s sneller aangesteld, talentrisico\'s eerder zichtbaar.',
+    desc: "Agents bouwen executive-search pipelines voor het portfolio, monitoren CEO-opvolging, runnen firmwerving, benchmarken portfolio-beloning, draaien talent reviews en cultuur-diagnostiek en volgen retentierisico\'s in het portfolio.",
+    pct: '55-65%',
+    items: [
+      'Portfolio executive-search pipeline (CEO, CFO, board)',
+      'Portfolio CEO-opvolging en talent-grid onderhoud',
+      'Beloning-benchmarking tegen peer-portfolio',
+      'Pulse-enquêtes en cultuur-diagnostiek voor portcos',
+      'Retentierisico-scoring met actieplannen',
+    ],
+  },
+  it: {
+    tag: 'Technologie, Data & Analytics',
+    title: 'Deal-, fonds- en portfoliodata — eindelijk één bron van waarheid.',
+    desc: "Agents overbruggen je CRM, fund accounting, VDR, LP-portal en portfolio-analytics — houden masterdata schoon, integraties levend, dashboards vers en toegangsverzoeken afgehandeld zonder dat de IT-backlog groeit.",
+    pct: '70-80%',
+    items: [
+      'Deal- en marktdata aggregatie over providers',
+      'AI-gedreven deal-sourcing en theme-matching',
+      'Portfolio-analytics platform health en refresh',
+      'LP-portal-operaties en VDR-administratie',
+      'Cybersecurity-alert clustering en toegangsreviews',
+    ],
+  },
+};
+
+/* Mock UI per dept — a small "what the agent sees" preview for the right column */
+const MOCK_UI = {
+  fundraising: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">LP pipeline · Actief</div>
+      <div class="ap-mock-row"><span>Sovereign wealth · APAC</span><span class="ap-mock-pill ok">DDQ submitted</span></div>
+      <div class="ap-mock-row"><span>Pension · North America</span><span class="ap-mock-pill warn">Awaiting IC</span></div>
+      <div class="ap-mock-row"><span>Endowment · Europe</span><span class="ap-mock-pill info">First meeting</span></div>
+      <div class="ap-mock-row" style="margin-top:8px"><span>Pipeline coverage</span><span class="ap-mock-pill info">2.4x target</span></div>
+    </div>`,
+  sourcing: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Deal pipeline · This week</div>
+      <div class="ap-mock-row"><span>Project Aurora · CIM in</span><span class="ap-mock-pill ok">Pursue</span></div>
+      <div class="ap-mock-row"><span>Project Beacon · Round 1</span><span class="ap-mock-pill warn">IC review</span></div>
+      <div class="ap-mock-row"><span>Project Cobalt · Inbound</span><span class="ap-mock-pill bad">Pass</span></div>
+      <div class="ap-mock-row"><span>Project Delta · Sourced</span><span class="ap-mock-pill info">First meeting</span></div>
+    </div>`,
+  dd: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">DD findings · Project Aurora</div>
+      <div class="ap-mock-row"><span>Commercial · Synthesized</span><span class="ap-mock-pill ok">Klaar</span></div>
+      <div class="ap-mock-row"><span>Financial · QoE drafted</span><span class="ap-mock-pill ok">Klaar</span></div>
+      <div class="ap-mock-row"><span>Legal · 2 issues open</span><span class="ap-mock-pill warn">Review</span></div>
+      <div class="ap-mock-row"><span>IT/Cyber · Drafted</span><span class="ap-mock-pill info">In review</span></div>
+      <div class="ap-mock-row"><span>ESG · Scope 3 baseline</span><span class="ap-mock-pill ok">Klaar</span></div>
+    </div>`,
+  execution: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Closing checklist · Aurora</div>
+      <div class="ap-mock-row"><span>Conditions precedent</span><span style="font-weight:500">14 / 17</span></div>
+      <div class="ap-mock-bar"><i style="width:82%"></i></div>
+      <div class="ap-mock-row"><span>Lender commitments</span><span class="ap-mock-pill ok">Signed</span></div>
+      <div class="ap-mock-row"><span>W&amp;I underwriting</span><span class="ap-mock-pill warn">3 exclusions</span></div>
+      <div class="ap-mock-row"><span>Wires staged</span><span class="ap-mock-pill info">Pending CFO sign-off</span></div>
+    </div>`,
+  portfolio: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Portfolio KPI · This week</div>
+      <div class="ap-mock-row"><span>Portco A · Revenue +14% YoY</span><span class="ap-mock-pill ok">On plan</span></div>
+      <div class="ap-mock-row"><span>Portco B · EBITDA −3% QoQ</span><span class="ap-mock-pill bad">At risk</span></div>
+      <div class="ap-mock-row"><span>Portco C · Cost takeout 92%</span><span class="ap-mock-pill ok">Ahead</span></div>
+      <div class="ap-mock-row"><span>Portco D · Cash runway 18mo</span><span class="ap-mock-pill warn">Watch</span></div>
+    </div>`,
+  accounting: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Fund close · Q3</div>
+      <div class="ap-mock-row"><span>NAV calc</span><span class="ap-mock-pill ok">Reconciled</span></div>
+      <div class="ap-mock-row"><span>Capital calls in flight</span><span style="font-weight:500">$84M</span></div>
+      <div class="ap-mock-row"><span>Distributions Q3</span><span style="font-weight:500">$142M</span></div>
+      <div class="ap-mock-row"><span>Carry waterfall · Fund III</span><span class="ap-mock-pill info">Reviewed</span></div>
+      <div class="ap-mock-row"><span>Audit PBC list</span><span class="ap-mock-pill warn">86% complete</span></div>
+    </div>`,
+  compliance: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Compliance calendar · Next 30d</div>
+      <div class="ap-mock-row"><span>SEC Form ADV · D-12</span><span class="ap-mock-pill warn">Drafting</span></div>
+      <div class="ap-mock-row"><span>AIFMD Annex IV · D-22</span><span class="ap-mock-pill info">Pre-filled</span></div>
+      <div class="ap-mock-row"><span>LP KYC queue</span><span class="ap-mock-pill bad">7 pending</span></div>
+      <div class="ap-mock-row"><span>Covenant breach risk</span><span class="ap-mock-pill warn">Portco B</span></div>
+    </div>`,
+  legal: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Legal · Open matters</div>
+      <div class="ap-mock-row"><span>Side letters in negotiation</span><span style="font-weight:500">9</span></div>
+      <div class="ap-mock-row"><span>SPA redlines · Aurora</span><span class="ap-mock-pill warn">v3 review</span></div>
+      <div class="ap-mock-row"><span>Portco corporate filings</span><span class="ap-mock-pill ok">All current</span></div>
+      <div class="ap-mock-row"><span>Litigation · Actief</span><span class="ap-mock-pill info">2 cases</span></div>
+    </div>`,
+  tax: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Tax · Year-end status</div>
+      <div class="ap-mock-row"><span>K-1s drafted · LPs</span><span style="font-weight:500">218 / 240</span></div>
+      <div class="ap-mock-bar"><i style="width:91%"></i></div>
+      <div class="ap-mock-row"><span>FATCA/CRS submissions</span><span class="ap-mock-pill ok">Filed</span></div>
+      <div class="ap-mock-row"><span>PFIC checks · Portcos</span><span class="ap-mock-pill warn">3 flagged</span></div>
+      <div class="ap-mock-row"><span>LP tax queries</span><span class="ap-mock-pill info">12 in queue</span></div>
+    </div>`,
+  esg: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Portfolio ESG · Status</div>
+      <div class="ap-mock-row"><span>Scope 3 · Coverage</span><span class="ap-mock-pill warn">81% complete</span></div>
+      <div class="ap-mock-row"><span>ESG scorecards refreshed</span><span class="ap-mock-pill ok">All portcos</span></div>
+      <div class="ap-mock-row"><span>LP ESG queries</span><span class="ap-mock-pill info">5 active</span></div>
+      <div class="ap-mock-row"><span>Climate risk · Portco D</span><span class="ap-mock-pill bad">High exposure</span></div>
+    </div>`,
+  hr: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Human capital · Live</div>
+      <div class="ap-mock-row"><span>CEO search · Portco B</span><span class="ap-mock-pill warn">Final round</span></div>
+      <div class="ap-mock-row"><span>CFO search · Portco F</span><span class="ap-mock-pill info">Pipeline ready</span></div>
+      <div class="ap-mock-row"><span>Retention risk flagged</span><span class="ap-mock-pill bad">3 execs</span></div>
+      <div class="ap-mock-row"><span>Pulse score · Firm</span><span class="ap-mock-pill ok">+8 pts QoQ</span></div>
+    </div>`,
+  it: `
+    <div class="ap-mock">
+      <div class="ap-mock-head">Integratie-health · Live</div>
+      <div class="ap-mock-row"><span>CRM ↔ Fund accounting</span><span class="ap-mock-pill ok">99.8% uptime</span></div>
+      <div class="ap-mock-row"><span>VDR ↔ DD platform</span><span class="ap-mock-pill ok">99.9% uptime</span></div>
+      <div class="ap-mock-row"><span>LP portal · Logins this week</span><span class="ap-mock-pill info">412</span></div>
+      <div class="ap-mock-row"><span>Cyber alerts triaged</span><span class="ap-mock-pill warn">3 incidents open</span></div>
+    </div>`,
+};
+
+const panel = document.getElementById('app-panel');
+const tabs = document.querySelectorAll('.app-tab');
+
+function renderPanel(dept){
+  const d = DEPT_DATA[dept];
+  const mock = MOCK_UI[dept] || '';
+  panel.innerHTML = `
+    <div class="app-panel-left">
+      <span class="ap-tag">${d.tag}</span>
+      <h3>${d.title}</h3>
+      <p>${d.desc}</p>
+      <div class="ap-automation">
+        <span class="ap-num">${d.pct}</span>
+        <span class="ap-lab">Handwerk geautomatiseerd</span>
+      </div>
+    </div>
+    <div class="app-panel-right">
+      ${mock}
+      <ul class="ap-list">
+        ${d.items.map(it => `<li>${it}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+}
+
+// Initial render
+renderPanel('fundraising');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderPanel(tab.dataset.dept);
+  });
+  tab.addEventListener('mouseenter', () => {
+    if(!tab.classList.contains('active')){
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderPanel(tab.dataset.dept);
+    }
+  });
+});
+
+/* ──────────────────────────────────────────────────────
+   BENEFITS — sequential "power-on" of task rows
+────────────────────────────────────────────────────── */
+const benRows = document.querySelectorAll('.ben-row');
+const benScreen = document.getElementById('benScreen');
+let benTimers = [];
+
+function playBenefits(){
+  benTimers.forEach(t => clearTimeout(t));
+  benTimers = [];
+  benRows.forEach((row, i) => {
+    benTimers.push(setTimeout(() => row.classList.add('on'), 450 + i * 340));
+  });
+}
+function resetBenefits(){
+  benTimers.forEach(t => clearTimeout(t));
+  benTimers = [];
+  benRows.forEach(row => row.classList.remove('on'));
+}
+
+const benObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) playBenefits();
+    else resetBenefits();
+  });
+}, { threshold: 0.25 });
+if(benScreen) benObs.observe(benScreen);
+
+/* ──────────────────────────────────────────────────────
+   REGISTER MODAL — asset-specific copy, open/close, submit
+────────────────────────────────────────────────────── */
+const regModal        = document.getElementById('regModal');
+const regClose        = document.getElementById('regClose');
+const regAssetPill    = document.getElementById('regAssetPill');
+const regAssetName    = document.getElementById('regAssetName');
+const regAssetInput   = document.getElementById('regAssetInput');
+const regTitleAction  = document.getElementById('regTitleAction');
+const regSub          = document.getElementById('regSub');
+const regSubmitBtn    = document.getElementById('regSubmitBtn');
+const regSuccessTitle = document.getElementById('regSuccessTitle');
+const regForm         = document.getElementById('regForm');
+const regSuccess      = document.getElementById('regSuccess');
+
+// Copy that changes based on which asset was requested.
+const ASSET_COPY = {
+  deck: {
+    label:        'Automatiseringskaart voor private equity',
+    titleAction:  'sturen je de automatiseringskaart',
+    sub:          "We sturen je de automatiseringskaart voor private equity — de gebieden die we potentieel kunnen automatiseren in je firma, plus de typische metrics die elke beweegt. Aanvraag in 30 seconden.",
+    submit:       'Stuur mij de automatiseringskaart',
+    successTitle: "Bedankt — de automatiseringskaart is onderweg."
+  }
+};
+
+// Capture UTM params from the current URL once, reuse on every modal open.
+const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+const UTM_CACHE = (function(){
+  try{
+    const p = new URLSearchParams(window.location.search);
+    const out = {};
+    UTM_KEYS.forEach(k => { out[k] = p.get(k) || ''; });
+    return out;
+  }catch(_){ return Object.fromEntries(UTM_KEYS.map(k => [k,''])); }
+})();
+
+// Consumer email domains we reject — we only want work emails.
+const BLOCKED_EMAIL_DOMAINS = ['gmail.com','googlemail.com','hotmail.com','hotmail.co.uk','outlook.com','live.com','yahoo.com','yahoo.co.uk','icloud.com','me.com','aol.com','proton.me','protonmail.com'];
+
+function openRegModal(assetKey){
+  const copy = ASSET_COPY[assetKey] || ASSET_COPY.deck;
+  if(regAssetInput)   regAssetInput.value       = assetKey;
+  if(regAssetName)    regAssetName.textContent  = copy.label;
+  if(regTitleAction)  regTitleAction.textContent = copy.titleAction;
+  if(regSub)          regSub.textContent        = copy.sub;
+  if(regSubmitBtn)    regSubmitBtn.textContent  = copy.submit;
+  if(regSuccessTitle) regSuccessTitle.textContent = copy.successTitle;
+
+  // reset any previous "sent" state
+  if(regForm){
+    regForm.reset();
+    regForm.style.display = '';
+    if(regAssetInput) regAssetInput.value = assetKey;
+    // Clear any error states
+    regForm.querySelectorAll('.reg-field.is-error').forEach(f => f.classList.remove('is-error'));
+  }
+  if(regSuccess) regSuccess.classList.remove('show');
+
+  // Populate UTM hidden fields from cached URL params
+  UTM_KEYS.forEach(k => {
+    const el = document.getElementById('regUtm' + k.replace('utm_','').replace(/^./, c => c.toUpperCase()));
+    if(el) el.value = UTM_CACHE[k] || '';
+  });
+
+  regModal.classList.remove('is-expanded','is-compact');
+  regModal.classList.add('show');
+  document.body.classList.add('reg-open');
+
+  // focus first input for accessibility
+  setTimeout(() => {
+    const first = document.getElementById('regFirst');
+    if(first) first.focus();
+  }, 120);
+}
+
+function closeRegModal(){
+  regModal.classList.remove('show','is-expanded','is-compact');
+  document.body.classList.remove('reg-open');
+}
+
+/* Expand / minimize / restore for the register modal */
+function setRegSize(mode){
+  if(!regModal) return;
+  regModal.classList.remove('is-expanded','is-compact');
+  if(mode === 'expanded') regModal.classList.add('is-expanded');
+  if(mode === 'compact')  regModal.classList.add('is-compact');
+  const rExp = document.getElementById('regExpand');
+  const rMin = document.getElementById('regMinimize');
+  if(rExp){
+    const isExp = regModal.classList.contains('is-expanded');
+    rExp.setAttribute('aria-label', isExp ? 'Restore modal' : 'Expand modal');
+    rExp.setAttribute('title',      isExp ? 'Restore' : 'Expand');
+  }
+  if(rMin){
+    const isCompact = regModal.classList.contains('is-compact');
+    rMin.setAttribute('aria-label', isCompact ? 'Restore modal' : 'Minimize modal');
+    rMin.setAttribute('title',      isCompact ? 'Restore' : 'Minimize');
+  }
+  if(window.mlmTrack) window.mlmTrack.track('reg_modal_resize', { mode });
+}
+(function(){
+  const rExp = document.getElementById('regExpand');
+  const rMin = document.getElementById('regMinimize');
+  if(rExp) rExp.addEventListener('click', e => {
+    e.stopPropagation();
+    setRegSize(regModal.classList.contains('is-expanded') ? 'default' : 'expanded');
+  });
+  if(rMin) rMin.addEventListener('click', e => {
+    e.stopPropagation();
+    setRegSize(regModal.classList.contains('is-compact') ? 'default' : 'compact');
+  });
+  // Click on the compact pill body restores it
+  const wrap = regModal ? regModal.querySelector('.register-wrap') : null;
+  if(wrap) wrap.addEventListener('click', e => {
+    if(!regModal.classList.contains('is-compact')) return;
+    if(e.target.closest('.reg-close') || e.target.closest('.reg-resize')) return;
+    setRegSize('default');
+  });
+})();
+
+// Any anchor marked .js-asset-link opens the modal instead of navigating.
+document.querySelectorAll('.js-asset-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    openRegModal(link.dataset.asset || 'deck');
+  });
+});
+
+// Close on ×, backdrop click, and Escape.
+if(regClose) regClose.addEventListener('click', closeRegModal);
+if(regModal) regModal.addEventListener('click', e => {
+  if(e.target === regModal) closeRegModal();
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && regModal.classList.contains('show')) closeRegModal();
+});
+
+// Form handler — front-end only. Replace the fetch() URL with your real
+// lead-capture endpoint (HubSpot, Marketo, Mailchimp, webhook, etc.).
+if(regForm){
+  // Helper: toggle error state on a field (by input id)
+  const setErr = (inputId, on, msg) => {
+    const input = document.getElementById(inputId);
+    if(!input) return;
+    const field = input.closest('.reg-field');
+    if(!field) return;
+    field.classList.toggle('is-error', !!on);
+    if(msg){
+      const err = field.querySelector('.reg-err');
+      if(err) err.textContent = msg;
+    }
+  };
+
+  // Live-clear error when user edits a field
+  regForm.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('input', () => {
+      const field = el.closest('.reg-field');
+      if(field) field.classList.remove('is-error');
+    });
+    el.addEventListener('change', () => {
+      const field = el.closest('.reg-field');
+      if(field) field.classList.remove('is-error');
+    });
+  });
+
+  regForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const data = {
+      asset:         regAssetInput ? regAssetInput.value : 'deck',
+      first_name:    regForm.first_name.value.trim(),
+      last_name:     regForm.last_name.value.trim(),
+      role:          regForm.role.value.trim(),
+      company:       regForm.company.value.trim(),
+      company_size:  regForm.company_size.value,
+      email:         regForm.email.value.trim(),
+      utm_source:    regForm.utm_source.value,
+      utm_medium:    regForm.utm_medium.value,
+      utm_campaign:  regForm.utm_campaign.value,
+      utm_term:      regForm.utm_term.value,
+      utm_content:   regForm.utm_content.value
+    };
+
+    let firstErr = null;
+    const required = [
+      ['regFirst',   data.first_name,    'Please enter your first name.'],
+      ['regLast',    data.last_name,     'Please enter your last name.'],
+      ['regRole',    data.role,          'Please enter your role.'],
+      ['regCompany', data.company,       'Please enter your company.'],
+      ['regSize',    data.company_size,  'Please select company size.']
+    ];
+    required.forEach(([id, val, msg]) => {
+      if(!val){ setErr(id, true, msg); if(!firstErr) firstErr = id; }
+    });
+
+    // Email: required + format + work-email only
+    const email = data.email.toLowerCase();
+    const emailShape = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!email){
+      setErr('regEmail', true, 'Please enter your work email.');
+      if(!firstErr) firstErr = 'regEmail';
+    } else if(!emailShape.test(email)){
+      setErr('regEmail', true, "That doesn't look like a valid email.");
+      if(!firstErr) firstErr = 'regEmail';
+    } else {
+      const domain = email.split('@')[1];
+      if(BLOCKED_EMAIL_DOMAINS.includes(domain)){
+        setErr('regEmail', true, 'Please use your work email (not gmail, hotmail, yahoo, outlook, etc.).');
+        if(!firstErr) firstErr = 'regEmail';
+      }
+    }
+
+    if(firstErr){
+      const el = document.getElementById(firstErr);
+      if(el) el.focus();
+      return;
+    }
+
+    // ── Submit to HubSpot Forms API + open mailto to Jeff for follow-up ──
+    const hsPayload = {
+      submittedAt: Date.now(),
+      fields: [
+        { objectTypeId: "0-1", name: "firstname", value: data.first_name },
+        { objectTypeId: "0-1", name: "lastname",  value: data.last_name },
+        { objectTypeId: "0-1", name: "email",     value: data.email }
+      ],
+      context: {
+        pageUri:  location.href,
+        pageName: document.title
+      }
+    };
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/139585830/e8e6ab7a-1d07-48a2-bce1-832a1cd50d9c', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(hsPayload)
+    }).catch(err => console.warn('[MLM] HubSpot submit failed', err));
+
+    // Open prefilled mailto to rep (full lead details, including extras HubSpot doesn't store)
+    const mailSubject = encodeURIComponent('Aanvraag automatiseringskaart — ' + data.company + ' (' + data.first_name + ' ' + data.last_name + ')');
+    const mailBody = encodeURIComponent(
+      'Hoi Thomas,\n\nEen nieuwe lead heeft zojuist de automatiseringskaart aangevraagd via de landingspagina:\n\n' +
+      'Naam:     ' + data.first_name + ' ' + data.last_name + '\n' +
+      'E-mail:   ' + data.email + '\n' +
+      'Functie:  ' + data.role + '\n' +
+      'Bedrijf:  ' + data.company + '\n' +
+      'Grootte:  ' + data.company_size + '\n' +
+      'Asset:    ' + data.asset + '\n' +
+      'UTM:      bron=' + data.utm_source + ' / medium=' + data.utm_medium + ' / campaign=' + data.utm_campaign + '\n\n' +
+      '— MLM landingspagina'
+    );
+    setTimeout(() => {
+      window.location.href = 'mailto:tt@machineslikeme.com?subject=' + mailSubject + '&body=' + mailBody;
+    }, 200);
+
+
+    regForm.style.display = 'none';
+    if(regSuccess) regSuccess.classList.add('show');
+
+    if (window.mlmTrack) window.mlmTrack.track('lead_submit', { asset: data.asset, company_size: data.company_size });
+  });
+}
+
+/* ──────────────────────────────────────────────────────
+   ANALYTICS — UTM capture + click / scroll / time tracking
+────────────────────────────────────────────────────── */
+(function(){
+  const LAUNCHED_AT = Date.now();
+  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+  const qs = new URLSearchParams(location.search);
+  const UTM = {};
+  UTM_KEYS.forEach(k => UTM[k] = qs.get(k) || '');
+
+  // Unique session id (UUID-lite)
+  const SESSION_ID = 'mlm_' + Math.random().toString(36).slice(2,10) + '_' + Date.now().toString(36);
+
+  // dataLayer for GTM / Segment / any downstream consumer
+  window.dataLayer = window.dataLayer || [];
+
+  function track(event, props){
+    const payload = Object.assign({
+      event,
+      session_id:       SESSION_ID,
+      industry:         'private_equity',
+      landing:          'private_equity',
+      page:             location.pathname + location.search,
+      t_ms_since_load:  Date.now() - LAUNCHED_AT,
+      ts:               new Date().toISOString()
+    }, UTM, props || {});
+    window.dataLayer.push(payload);
+    if (window.console && console.debug) console.debug('[mlm.track]', event, payload);
+    return payload;
+  }
+  window.mlmTrack = { track, UTM, sessionId: SESSION_ID, launchedAt: LAUNCHED_AT };
+
+  // Initial page view
+  track('page_view', {
+    referrer:    document.referrer || '(direct)',
+    viewport_w:  window.innerWidth,
+    viewport_h:  window.innerHeight
+  });
+
+  // Navigation / paint timings (when available)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      try {
+        const nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+        if (nav) {
+          track('nav_timing', {
+            dns_ms:      Math.round(nav.domainLookupEnd - nav.domainLookupStart),
+            tcp_ms:      Math.round(nav.connectEnd - nav.connectStart),
+            ttfb_ms:     Math.round(nav.responseStart - nav.requestStart),
+            dom_ms:      Math.round(nav.domContentLoadedEventEnd - nav.startTime),
+            load_ms:     Math.round(nav.loadEventEnd - nav.startTime)
+          });
+        }
+      } catch(e){}
+    }, 0);
+  });
+
+  // Scroll depth (25/50/75/100)
+  const depthBuckets = [25,50,75,100];
+  const seenDepth = new Set();
+  function onScroll(){
+    const h = document.documentElement;
+    const maxScroll = Math.max(1, h.scrollHeight - window.innerHeight);
+    const pct = Math.min(100, Math.round((window.scrollY / maxScroll) * 100));
+    depthBuckets.forEach(d => {
+      if (pct >= d && !seenDepth.has(d)) {
+        seenDepth.add(d);
+        track('scroll_depth', { pct: d });
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Section visibility via IntersectionObserver
+  const seenSections = new Set();
+  if ('IntersectionObserver' in window) {
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting && en.intersectionRatio > 0.35) {
+          const id = en.target.id || en.target.className.split(/\s+/).find(c => /^sec-/.test(c));
+          if (id && !seenSections.has(id)) {
+            seenSections.add(id);
+            track('section_view', { section: id });
+          }
+        }
+      });
+    }, { threshold: [0.35] });
+    document.querySelectorAll('section[id], section[class*="sec-"]').forEach(s => so.observe(s));
+  }
+
+  // Time heartbeats (seconds on page)
+  const heartbeats = [15, 30, 60, 120, 180, 300, 600];
+  let hbIdx = 0;
+  const hbTimer = setInterval(() => {
+    if (hbIdx >= heartbeats.length) { clearInterval(hbTimer); return; }
+    track('time_on_page', { seconds: heartbeats[hbIdx] });
+    hbIdx++;
+  }, 15000);
+
+  // Final time on exit (best-effort)
+  window.addEventListener('beforeunload', () => {
+    track('page_exit', { seconds: Math.round((Date.now() - LAUNCHED_AT) / 1000) });
+  });
+  // Tab hidden → also track a pause
+  document.addEventListener('visibilitychange', () => {
+    track(document.hidden ? 'tab_hidden' : 'tab_visible', {
+      seconds: Math.round((Date.now() - LAUNCHED_AT) / 1000)
+    });
+  });
+
+  // Click delegation — tracks every anchor / button / CTA
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a, button');
+    if (!el) return;
+    const href = el.getAttribute && el.getAttribute('href');
+    const label = (el.textContent || el.getAttribute('aria-label') || '').trim().slice(0, 80);
+    const ctaId = el.dataset.cta || el.dataset.asset || null;
+    const kind  = el.tagName === 'BUTTON' ? 'button' :
+                  (href && href.startsWith('#') ? 'anchor_internal' :
+                   href && /^(mailto|tel):/.test(href) ? href.split(':')[0] :
+                   href && /^https?:/.test(href) ? 'external' : 'link');
+    track('cta_click', {
+      cta_id: ctaId,
+      label,
+      kind,
+      href:   href || null,
+      classes: (el.className || '').toString().slice(0, 120)
+    });
+  }, true);
+})();
+
+/* ──────────────────────────────────────────────────────
+   POPUP — every outbound link opens in an iframe overlay
+────────────────────────────────────────────────────── */
+(function(){
+  const overlay   = document.getElementById('popupOverlay');
+  const panel     = overlay ? overlay.querySelector('.popup-panel') : null;
+  const frame     = document.getElementById('popupFrame');
+  const titleEl   = document.getElementById('popupTitle');
+  const closeBtn  = document.getElementById('popupClose');
+  const expandBtn = document.getElementById('popupExpand');
+  const minBtn    = document.getElementById('popupMinimize');
+  const fb        = document.getElementById('popupFallback');
+  const fbLink    = document.getElementById('popupFallbackLink');
+  if (!overlay || !frame) return;
+
+  let openedAt = 0;
+  let checkTimer = null;
+
+  function appendUtm(url){
+    try {
+      const u  = new URL(url, location.href);
+      const qs = new URLSearchParams(location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k => {
+        const v = qs.get(k);
+        if (v && !u.searchParams.has(k)) u.searchParams.set(k, v);
+      });
+      return u.href;
+    } catch(e){ return url; }
+  }
+
+  function openPopup(url, label){
+    if (!url) return;
+    openedAt = Date.now();
+    overlay.classList.remove('is-expanded','is-compact');
+    fb.style.display = 'none';
+    titleEl.textContent = label || 'Preview';
+    let finalUrl = appendUtm(url);
+    // Calendly embed-friendly variant
+    if (/calendly\.com/.test(finalUrl) && !/embed/.test(finalUrl)) {
+      const sep = finalUrl.includes('?') ? '&' : '?';
+      finalUrl += sep + 'embed_domain=' + encodeURIComponent(location.hostname || 'mlm') + '&embed_type=Inline';
+    }
+    fbLink.href = finalUrl;
+    frame.src = finalUrl;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.classList.add('popup-open');
+
+    if (window.mlmTrack) window.mlmTrack.track('popup_open', { url: finalUrl, label });
+
+    // If embed is blocked by X-Frame-Options, show fallback after 2.5s
+    clearTimeout(checkTimer);
+    checkTimer = setTimeout(() => {
+      let blocked = false;
+      try {
+        const doc = frame.contentDocument;
+        if (!doc || !doc.body || !doc.body.children.length) blocked = true;
+      } catch(err){ /* cross-origin — assume OK */ }
+      if (blocked) fb.style.display = 'block';
+    }, 2500);
+  }
+
+  function closePopup(){
+    const dwellSec = openedAt ? Math.round((Date.now() - openedAt) / 1000) : 0;
+    overlay.classList.remove('open','is-expanded','is-compact');
+    overlay.setAttribute('aria-hidden','true');
+    frame.src = 'about:blank';
+    document.body.classList.remove('popup-open');
+    if (window.mlmTrack) window.mlmTrack.track('popup_close', { seconds: dwellSec });
+  }
+
+  // Expand / minimize / restore — three-state resize
+  function setSize(mode){
+    // mode: 'default' | 'expanded' | 'compact'
+    overlay.classList.remove('is-expanded','is-compact');
+    if (mode === 'expanded') overlay.classList.add('is-expanded');
+    if (mode === 'compact')  overlay.classList.add('is-compact');
+    // Update button labels/titles
+    if (expandBtn){
+      const isExpanded = overlay.classList.contains('is-expanded');
+      expandBtn.setAttribute('aria-label', isExpanded ? 'Restore popup' : 'Expand popup');
+      expandBtn.setAttribute('title',      isExpanded ? 'Restore' : 'Expand');
+    }
+    if (minBtn){
+      const isCompact = overlay.classList.contains('is-compact');
+      minBtn.setAttribute('aria-label', isCompact ? 'Restore popup' : 'Minimize popup');
+      minBtn.setAttribute('title',      isCompact ? 'Restore' : 'Minimize');
+    }
+    if (window.mlmTrack) window.mlmTrack.track('popup_resize', { mode });
+  }
+
+  if (expandBtn) expandBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setSize(overlay.classList.contains('is-expanded') ? 'default' : 'expanded');
+  });
+  if (minBtn) minBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setSize(overlay.classList.contains('is-compact') ? 'default' : 'compact');
+  });
+  // Click on compact pill restores it
+  if (panel) panel.addEventListener('click', (e) => {
+    if (!overlay.classList.contains('is-compact')) return;
+    if (e.target.closest('.popup-close') || e.target.closest('.popup-resize')) return;
+    setSize('default');
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closePopup);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closePopup();
+  });
+
+  // NOTE: Click-delegation popup overlay is intentionally disabled.
+  // Outbound links now open in a new tab natively via target="_blank".
+  // If we want to re-enable the iframe preview overlay later, restore the
+  // delegation block here.
+})();
+
+/* CASE STUDIES — rotating carousel (auto 5s + manual + hover pause) */
+(function(){
+  const CASES = [{"tag": "Case 01 · Asset-managementbedrijf voor kantoorpanden 🇩🇪", "dot_label": "Document Navigator", "visual_title": "1,5 mln+ documenten geïndexeerd over 70+ panden.", "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85", "pct": ">90%", "eyebrow": "Document Navigator", "big": "1,5 mln+", "big_sub": "Documenten over 1,3 mln m² beheerd kantoorruimte en 70+ panden OCR'd, auto-getagd en volledig doorzoekbaar gemaakt — terugverdiend in 8 maanden, met 1.700 teruggewonnen werkuren per jaar.", "kpis": [["1.700 uur/jr", "Handmatige OCR geëlimineerd"], [">90%", "Zoektijd-reductie"], ["8 maanden", "Terugverdientijd"]]}, {"tag": "Case 02 · Middelgrote portefeuillemaatschappij 🇩🇪", "dot_label": "SAP S/4HANA-reactivering", "visual_title": "Gestaakt SAP-S/4HANA-programma in ~7 weken weer op koers.", "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85", "pct": "~20 d", "eyebrow": "SAP S/4HANA, AI-geleid", "big": "389", "big_sub": "OTC-, PtP- en MtS-activiteiten over 5 procesclusters met een 6-agent-keten in ~20 MLM-werkdagen gedocumenteerd — nadat een tier-1 consultancy niet kon leveren. Heeft 9 actieve projecten en 132 features tot maart 2026 ingebracht.", "kpis": [["~7 weken", "Kalender tot baseline"], ["5 clusters", "389 activiteiten in kaart"], ["9 / 132", "Projecten · features live"]]}];
+  if(!CASES || CASES.length < 2) return;
+  const sec = document.getElementById('cases');
+  const stage = document.getElementById('casesStage');
+  if(!sec || !stage) return;
+  const cvVisual  = document.getElementById('caseVisual');
+  const cvTag     = document.getElementById('cvTag');
+  const cvTitle   = document.getElementById('cvTitle');
+  const cvPct     = document.getElementById('cvPct');
+  const ccEyebrow = document.getElementById('ccEyebrow');
+  const ccBig     = document.getElementById('ccBig');
+  const ccBigSub  = document.getElementById('ccBigSub');
+  const ccKpis    = document.getElementById('ccKpis');
+  const dots      = Array.from(document.querySelectorAll('.cases-nav .case-dot'));
+  let idx = 0, timer = null, paused = false;
+
+  function paint(i){
+    const c = CASES[i];
+    if(!c) return;
+    stage.classList.add('case-is-leaving');
+    setTimeout(function(){
+      cvVisual.style.backgroundImage = "url('" + c.image + "')";
+      cvTag.textContent     = c.tag;
+      cvTitle.textContent   = c.visual_title;
+      cvPct.textContent     = c.pct;
+      ccEyebrow.textContent = c.eyebrow;
+      ccBig.textContent     = c.big;
+      ccBigSub.textContent  = c.big_sub;
+      ccKpis.innerHTML = c.kpis.map(function(k){return '<div class="case-kpi"><span class="ck-n">'+k[0]+'</span><span class="ck-l">'+k[1]+'</span></div>';}).join('');
+      dots.forEach(function(d,k){d.classList.toggle('active', k===i);});
+      stage.classList.remove('case-is-leaving');
+    }, 320);
+  }
+  function next(){ idx = (idx + 1) % CASES.length; paint(idx); }
+  function go(i){ idx = i; paint(idx); restart(); }
+  function start(){ if(timer) return; timer = setInterval(function(){ if(!paused) next(); }, 5000); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function restart(){ stop(); start(); }
+
+  dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
+  stage.addEventListener('mouseenter', function(){ paused = true; });
+  stage.addEventListener('mouseleave', function(){ paused = false; });
+
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) start(); else stop(); });
+  }, {threshold: 0.2});
+  obs.observe(sec);
+})();
+</script>
+
+<script>
+/* ──────────────────────────────────────────────────────
+   LANGUAGE SWITCHER — toggle dropdown
+────────────────────────────────────────────────────── */
+(function(){
+  const toggle = document.getElementById('langToggle');
+  const menu = document.getElementById('langMenu');
+  const wrap = document.getElementById('langSwitcher');
+  if(!toggle || !menu) return;
+  function close(){
+    toggle.setAttribute('aria-expanded','false');
+    menu.classList.remove('open');
+  }
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = menu.classList.contains('open');
+    if(open){ close(); }
+    else { toggle.setAttribute('aria-expanded','true'); menu.classList.add('open'); }
+  });
+  document.addEventListener('click', e => {
+    if(!wrap.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') close();
+  });
+})();
+</script>
+</body>
+</html>
